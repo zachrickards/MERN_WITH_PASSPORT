@@ -25,7 +25,7 @@ const SignUp = () => {
         password: signUpCreds.password,
       })
       .then((response) => {
-        if (!response.data.errmsg) {
+        if (!response.data.error) {
           history.replace('/login');
         } else {
           console.log('USERNAME TAKEN');
@@ -37,54 +37,36 @@ const SignUp = () => {
   };
 
   return (
-    <div className="SignupForm">
-      <h4>Sign up</h4>
-      <form className="form-horizontal">
-        <div className="form-group">
-          <div className="col-1 col-ml-auto">
-            <label className="form-label" htmlFor="username">
-              Username:
-            </label>
-          </div>
-          <div className="col-3 col-mr-auto">
-            <input
-              className="form-input"
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Username"
-              value={signUpCreds.username}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <div className="col-1 col-ml-auto">
-            <label className="form-label" htmlFor="password">
-              Password:
-            </label>
-          </div>
-          <div className="col-3 col-mr-auto">
-            <input
-              className="form-input"
-              placeholder="password"
-              type="password"
-              name="password"
-              value={signUpCreds.password}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <div className="form-group ">
-          <div className="col-7"></div>
-          <button
-            className="btn btn-primary col-1 col-mr-auto"
-            onClick={handleSubmit}
-            type="submit"
-          >
-            Sign up
-          </button>
-        </div>
+    <div className="text-center">
+      <h4>Sign Up</h4>
+      <form className="form-signin">
+        <label htmlFor="inputEmail" className="sr-only">
+          Email address
+        </label>
+        <input
+          type="email"
+          id="inputEmail"
+          className="form-control"
+          name="username"
+          placeholder="Email address"
+          value={signUpCreds.username}
+          onChange={handleChange}
+        />
+        <label htmlFor="inputPassword" className="sr-only">
+          Password
+        </label>
+        <input
+          type="password"
+          id="inputPassword"
+          className="form-control"
+          name="password"
+          placeholder="Password"
+          value={signUpCreds.password}
+          onChange={handleChange}
+        />
+        <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={handleSubmit}>
+          Sign Up
+        </button>
       </form>
     </div>
   );
