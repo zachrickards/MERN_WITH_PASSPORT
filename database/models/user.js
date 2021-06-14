@@ -8,7 +8,21 @@ mongoose.promise = Promise;
 const userSchema = new Schema({
   username: { type: String, unique: true, required: true },
   password: { type: String, unique: true, required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  age: { type: Number, required: true },
+  location: { type: String, required: true },
+  gender: { type: String, required: true },
+  pronouns: { type: String, required: true },
+  sexuality: { type: String, required: true },
+  status: { type: String, required: true },
+  bio: { type: String, required: true },
+  interests: [{ type: String }],
+  yesSwipes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  noSwipes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  matches: [{ type: Schema.Types.ObjectId, ref: "User" }]
 });
+
 
 // Define schema methods
 userSchema.methods = {
@@ -32,5 +46,6 @@ userSchema.pre('save', function (next) {
 });
 
 const User = mongoose.model('User', userSchema);
+// const Match = mongoose.model('Match', matchSchema);
 
 module.exports = User;
