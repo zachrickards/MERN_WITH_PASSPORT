@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
 const Schema = mongoose.Schema;
 mongoose.promise = Promise;
@@ -13,16 +13,15 @@ const userSchema = new Schema({
   age: { type: Number, required: true },
   location: { type: String, required: true },
   gender: { type: String, required: true },
-  pronouns: { type: String, required: true },
+  pronouns: { type: Array, required: true },
   sexuality: { type: String, required: true },
   status: { type: String, required: true },
   bio: { type: String, required: true },
   interests: [{ type: String }],
   yesSwipes: [{ type: Schema.Types.ObjectId, ref: "User" }],
   noSwipes: [{ type: Schema.Types.ObjectId, ref: "User" }],
-  matches: [{ type: Schema.Types.ObjectId, ref: "User" }]
+  matches: [{ type: Schema.Types.ObjectId, ref: "User" }],
 });
-
 
 // Define schema methods
 userSchema.methods = {
@@ -35,9 +34,9 @@ userSchema.methods = {
 };
 
 // Define hooks for pre-saving
-userSchema.pre('save', function (next) {
+userSchema.pre("save", function (next) {
   if (!this.password) {
-    console.log('NO PASSWORD PROVIDED');
+    console.log("NO PASSWORD PROVIDED");
     next();
   } else {
     this.password = this.hashPassword(this.password);
@@ -45,7 +44,7 @@ userSchema.pre('save', function (next) {
   }
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 // const Match = mongoose.model('Match', matchSchema);
 
 module.exports = User;
