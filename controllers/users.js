@@ -1,4 +1,6 @@
-const db = require('../models');
+const db = require("../database/models");
+const axios = require("axios");
+const { response } = require("express");
 
 // Defining methods for the usersController
 module.exports = {
@@ -28,5 +30,13 @@ module.exports = {
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
+  },
+  getFakepeople: function (req, res) {
+    axios
+      .get("https://randomuser.me/api/?nat=us&results=30")
+      .then((response) => {
+        console.log(response.data.results);
+        res.json(response.data.results);
+      });
   },
 };
