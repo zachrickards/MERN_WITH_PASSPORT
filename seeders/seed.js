@@ -1,9 +1,11 @@
 let mongoose = require("mongoose");
 let db = require("../database/models");
 
-mongoose.connect("mongodb://localhost/connect", {
+mongoose.connect("mongodb://localhost/connectDB", {
   useNewUrlParser: true,
   useFindAndModify: false,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
 });
 
 let userSeed = [
@@ -60,13 +62,13 @@ let userSeed = [
   },
 ];
 
-// db.Workout.deleteMany({})
-//   .then(() => db.Workout.collection.insertMany(workoutSeed))
-//   .then((data) => {
-//     console.log(data.result.n + " records inserted!");
-//     process.exit(0);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//     process.exit(1);
-//   });
+db.User.deleteMany({})
+  .then(() => db.User.collection.insertMany(userSeed))
+  .then((data) => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
