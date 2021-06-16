@@ -3,8 +3,8 @@ let db = require("../database/models");
 
 mongoose.connect("mongodb://localhost/connectDB", {
   useNewUrlParser: true,
-  useFindAndModify: false,
   useUnifiedTopology: true,
+  useFindAndModify: false,
   useCreateIndex: true,
 });
 
