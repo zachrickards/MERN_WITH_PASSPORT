@@ -6,9 +6,8 @@ mongoose.promise = Promise;
 
 // Define chatSchema
 const chatSchema = new Schema({
-  users: { type: Array, unique: true, required: true },
-  messages: { type: Array, required: true},
-  timestamp: {type: Date, required: true}
+  users: { type: Array },
+  { timestamps: true }
 });
 
 // Define schema methods
@@ -22,6 +21,5 @@ chatSchema.methods = {
 };
 
 const Chat = mongoose.model("Chat", chatSchema);
-// const Match = mongoose.model('Match', matchSchema);
 
 module.exports = Chat;
