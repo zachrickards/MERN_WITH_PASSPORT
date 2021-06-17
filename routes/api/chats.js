@@ -9,10 +9,9 @@ const isAuth = (req, res, next) => {
     next();
 }
 
-// const User = require("../../database/models/user");
+
 const Chat = require("../../database/models/chat");
 const passport = require("../../passport");
-// const usersController = require("../../controllers/users");
 const chatsController = require("../../controllers/chats");
 
 //Display all messages to a single user
