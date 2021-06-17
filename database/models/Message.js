@@ -10,7 +10,7 @@ const messageSchema = new Schema({
   sender: { type: String},
   receiver: { type: String },
   body: { type: String },
-  { timestamps: true }
+  timestamp: { type: Date, default: Date.now }
 });
 
 // Define schema methods
@@ -25,4 +25,4 @@ messageSchema.methods = {
 
 const Message = mongoose.model("Message", messageSchema);
 
-module.exports = message;
+module.exports = Message;

@@ -7,7 +7,7 @@ mongoose.promise = Promise;
 // Define chatSchema
 const chatSchema = new Schema({
   users: { type: Array },
-  { timestamps: true }
+  timestamp: { type: Date, default: Date.now }
 });
 
 // Define schema methods
