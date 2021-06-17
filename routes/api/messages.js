@@ -20,6 +20,6 @@ const passport = require("../../passport");
 //     res.send("Here is your Chats list!")
 // })
 
-router.get("/chatId/messageId", messagesController.getFakeMessages);
+// router.get("/chatId/messageId", messagesController.getFakeMessages);
 
 module.exports = router;
