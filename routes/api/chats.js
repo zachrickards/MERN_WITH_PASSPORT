@@ -10,7 +10,7 @@ const isAuth = (req, res, next) => {
 }
 
 
-const Chat = require("../../database/models/chat");
+const Chat = require("../../database/models/Chat");
 const passport = require("../../passport");
 const chatsController = require("../../controllers/chats");
 
