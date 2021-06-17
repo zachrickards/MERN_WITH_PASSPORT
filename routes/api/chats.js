@@ -14,7 +14,7 @@ const Chat = require("../../database/models/Chat");
 const passport = require("../../passport");
 const chatsController = require("../../controllers/chats");
 
-//Display all messages to a single user
+//TODO: Display all chats to a single user (???MOVE THIS AS A METHOD TO CONTROLLERS ???)
 // router.get("/loggedInUser/chatId", isAuth,  (req, res) => {
 //     res.send("Here is your Chats list!")
 // })
