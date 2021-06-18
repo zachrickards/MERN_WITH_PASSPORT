@@ -7,6 +7,9 @@ const usersController = require("../../controllers/users");
 router.post("/", usersController.createUser);
 router.get("/", usersController.findAll);
 router.get("/:username", usersController.findByUsername),
+//ASK CALEB: How to have the remove function receive a username in the routes, but actually find that user's Id w/i the function
+//ASK CALEB: Do we need to add 'withAuth' middleware function to our routes to make sure that the user's being deleted are the users who are logged in?
+router.delete("/:username/delete", usersController.remove);
 
 router.post(
   "/login",
