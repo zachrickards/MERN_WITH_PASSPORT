@@ -47,7 +47,8 @@ module.exports = {
   },
   createUser: function (req, res) {
     const { 
-      username, 
+      username,
+      email, 
       password, 
       firstName,
       lastName,
@@ -79,6 +80,7 @@ module.exports = {
 
     const newUser = new User({
       username: username,
+      email: email,
       password: password,
       firstName: firstName,
       lastName: lastName,
