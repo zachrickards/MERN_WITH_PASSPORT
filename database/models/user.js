@@ -6,9 +6,9 @@ mongoose.promise = Promise;
 
 // Define userSchema
 const userSchema = new Schema({
-  username: { type: String, unique: true, required: true },
-  password: { type: String, unique: true, required: true },
-  firstName: { type: String, required: true },
+  username: { type: String, required: true, unique: true, required: true },
+  password: { type: String, required: true, unique: true, required: true },
+  firstName: { type: String, required: true, required: true },
   lastName: { type: String, required: true },
   age: { type: Number, required: true },
   location: { type: String, required: true },
@@ -16,8 +16,8 @@ const userSchema = new Schema({
   pronouns: { type: Array, required: true },
   sexuality: { type: String, required: true },
   status: { type: String, required: true },
-  bio: { type: String, required: true },
-  interests: [{ type: String }],
+  bio: { type: String, required: true},
+  interests: { type: Array, required: true},
   yesSwipes: [{ type: Schema.Types.ObjectId, ref: "User" }],
   noSwipes: [{ type: Schema.Types.ObjectId, ref: "User" }],
   matches: [{ type: Schema.Types.ObjectId, ref: "User" }],
