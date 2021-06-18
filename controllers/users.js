@@ -1,6 +1,7 @@
 const db = require("../database/models");
 const axios = require("axios");
 const { response } = require("express");
+const User = require("../database/models/User");
 
 // Defining methods for the usersController
 module.exports = {
@@ -14,6 +15,11 @@ module.exports = {
     db.User.findById(req.params.id)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
+  },
+  findByUsername: function (req, res) {
+    db.User.findOne({ "username" : req.params.username })
+      .then((dbModel => res.json(dbModel)))
+      .catch((err) => res.status(422).json(err))
   },
   create: function (req, res) {
     db.User.create(req.body)
@@ -38,5 +44,62 @@ module.exports = {
         console.log(response.data.results);
         res.json(response.data.results);
       });
+  },
+  createUser: function (req, res) {
+    const { 
+      username, 
+      password, 
+      firstName,
+      lastName,
+      age,
+      location,
+      gender,
+      pronouns,
+      sexuality,
+      status,
+      bio,
+      interests,
+      yesSwipes,
+      noSwipes,
+      matches
+    } = req.body;
+
+  User.findOne({ username: username }, (err, user) => {
+    if (err) {
+      console.log("User Create Error: ", err);
+      return;
+    }
+
+    if (user) {
+      res.json({
+        error: `There is already a user with the username: ${username}`,
+      });
+      return;
+    }
+
+    const newUser = new User({
+      username: username,
+      password: password,
+      firstName: firstName,
+      lastName: lastName,
+      age: age,
+      location: location,
+      gender: gender,
+      pronouns: pronouns,
+      sexuality: sexuality,
+      status: status,
+      bio: bio,
+      interests: interests,
+      yesSwipes: yesSwipes,
+      noSwipes: noSwipes,
+      matches: matches
+    });
+
+    newUser.save((err, savedUser) => {
+      if (err) return res.json(err);
+
+      res.json(savedUser);
+    });
+  });
   },
 };
