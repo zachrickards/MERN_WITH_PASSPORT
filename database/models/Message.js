@@ -4,14 +4,17 @@ const bcrypt = require("bcryptjs");
 const Schema = mongoose.Schema;
 mongoose.promise = Promise;
 
-// Define chatSchema
-const chatSchema = new Schema({
-  users: { type: Array },
+// Define messageSchema
+const messageSchema = new Schema({
+  chatId: { type: String },
+  sender: { type: String},
+  receiver: { type: String },
+  body: { type: String },
   timestamp: { type: Date, default: Date.now }
 });
 
 // Define schema methods
-chatSchema.methods = {
+messageSchema.methods = {
   checkPassword: function (inputPassword) {
     return bcrypt.compareSync(inputPassword, this.password);
   },
@@ -20,6 +23,6 @@ chatSchema.methods = {
   },
 };
 
-const Chat = mongoose.model("Chat", chatSchema);
+const Message = mongoose.model("Message", messageSchema);
 
-module.exports = Chat;
+module.exports = Message;
