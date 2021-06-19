@@ -14,8 +14,9 @@ const App = () => {
 
   useEffect(() => {
     dispatch({ type: LOADING });
-
+    console.log("useEffect in app")
     axios.get('/api/users').then((response) => {
+      console.log(response);
       if (response.data.user) {
         dispatch({ type: SET_USER, user: response.data.user });
         history.push('/');
@@ -23,8 +24,10 @@ const App = () => {
         dispatch({ type: UNSET_USER });
         history.push('/login');
       }
+    }).catch(err => {
+      console.log(err);
     });
-  }, [dispatch, history]);
+  }, []);
 
   return (
     <div>
