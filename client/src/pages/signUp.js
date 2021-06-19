@@ -7,6 +7,7 @@ const SignUp = () => {
 
   const [signUpCreds, setSignUpCreds] = useState({
     username: '',
+    email: '',
     password: '',
   });
 
@@ -22,6 +23,7 @@ const SignUp = () => {
     axios
       .post('/api/users', {
         username: signUpCreds.username,
+        email: signUpCreds.email,
         password: signUpCreds.password,
       })
       .then((response) => {
@@ -40,6 +42,18 @@ const SignUp = () => {
     <div className="text-center">
       <h4>Sign Up</h4>
       <form className="form-signin">
+        <label htmlFor="inputUsername" className="sr-only">
+          Username
+        </label>
+        <input
+          type="text"
+          id="inputUsername"
+          className="form-control"
+          name="username"
+          placeholder="Username"
+          value={signUpCreds.username}
+          onChange={handleChange}
+        />
         <label htmlFor="inputEmail" className="sr-only">
           Email address
         </label>
@@ -47,9 +61,9 @@ const SignUp = () => {
           type="email"
           id="inputEmail"
           className="form-control"
-          name="username"
+          name="email"
           placeholder="Email address"
-          value={signUpCreds.username}
+          value={signUpCreds.email}
           onChange={handleChange}
         />
         <label htmlFor="inputPassword" className="sr-only">
