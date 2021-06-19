@@ -1,38 +1,15 @@
 const express = require("express");
 const router = express.Router();
-
 const User = require("../../database/models/User");
 const passport = require("../../passport");
 const usersController = require("../../controllers/users");
 
-router.post("/", (req, res) => {
-  const { username, password } = req.body;
-
-  User.findOne({ username: username }, (err, user) => {
-    if (err) {
-      console.log("User Create Error: ", err);
-      return;
-    }
-
-    if (user) {
-      res.json({
-        error: `Sorry, already a user with the username: ${username}`,
-      });
-      return;
-    }
-
-    const newUser = new User({
-      username: username,
-      password: password,
-    });
-
-    newUser.save((err, savedUser) => {
-      if (err) return res.json(err);
-
-      res.json(savedUser);
-    });
-  });
-});
+router.post("/", usersController.createUser);
+router.get("/", usersController.findAll);
+router.get("/:username", usersController.findByUsername),
+//ASK CALEB: How to have the remove function receive a username in the routes, but actually find that user's Id w/i the function
+//ASK CALEB: Do we need to add 'withAuth' middleware function to our routes to make sure that the user's being deleted are the users who are logged in?
+router.delete("/:username/delete", usersController.remove);
 
 router.post(
   "/login",

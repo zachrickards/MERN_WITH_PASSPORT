@@ -19,6 +19,6 @@ const chatsController = require("../../controllers/chats");
 //     res.send("Here is your Chats list!")
 // })
 
-router.get("/loggedInUser/chatId", chatsController.getFakeChats);
+router.get("/:chatId", chatsController.getFakeChats);
 
 module.exports = router;
