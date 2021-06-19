@@ -35,7 +35,7 @@ Distance
 Compatibility % **icebox
 
  */}
- Settings Page
+ Search Users
     </div>
   );
 };
