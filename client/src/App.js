@@ -5,6 +5,13 @@ import Navbar from './components/navbar';
 import Home from './pages/home';
 import Login from './pages/login';
 import Signup from './pages/signUp';
+import Settings from './pages/settings';
+import Profile from './pages/profile';
+import Swipe from './pages/swipe';
+import Inbox from './pages/inbox';
+import Chats from './pages/chats';
+import Help from './pages/help';
+import SearchUsers from './pages/searchusers';
 import { LOADING, SET_USER, UNSET_USER } from './store/actions';
 import { useStoreContext } from './store/store';
 
@@ -36,11 +43,21 @@ const App = () => {
       {state.user ? (
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/settings" component={Settings} />
+          <Route exact path="/searchusers" component={SearchUsers} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/swipe" component={Swipe} />
+          {/* Inbox displays all messages */}
+          <Route exact path="/inbox" component={Inbox} />
+          {/* Chats is direct messaging */}
+          <Route exact path="/chats" component={Chats} />
+          <Route exact path="/help" component={Help} />
         </Switch>
       ) : (
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/help" component={Help} />
           <Redirect to="/login" />
         </Switch>
       )}
