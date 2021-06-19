@@ -36,6 +36,14 @@ const App = () => {
       {state.user ? (
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Settings} />
+          <Route exact path="/" component={SearchUsers} />
+          <Route exact path="/" component={Profile} />
+          <Route exact path="/" component={Swipe} />
+          {/* Inbox displays all messages */}
+          <Route exact path="/" component={Inbox} />
+          {/* Chats is direct messaging */}
+          <Route exact path="/" component={Chats} />
         </Switch>
       ) : (
         <Switch>
