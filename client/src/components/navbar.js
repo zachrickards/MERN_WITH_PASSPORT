@@ -49,6 +49,9 @@ const Navbar = () => {
               <Link to="#" className="btn btn-link text-secondary" onClick={logout}>
                 <span className="text-secondary">logout</span>
               </Link>
+              <Link to="/help" className="btn btn-link">
+              <span className="text-secondary">help me</span>
+            </Link>
             </li>
           ) : (
             <>
@@ -61,6 +64,9 @@ const Navbar = () => {
                 <Link to="/signup" className="btn btn-link">
                   <span className="text-secondary">sign up</span>
                 </Link>
+                <Link to="/help" className="btn btn-link">
+              <span className="text-secondary">help me</span>
+            </Link>
               </li>
             </>
           )}
