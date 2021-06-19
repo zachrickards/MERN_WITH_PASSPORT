@@ -5,6 +5,12 @@ import Navbar from './components/navbar';
 import Home from './pages/home';
 import Login from './pages/login';
 import Signup from './pages/signUp';
+import Settings from './pages/settings';
+import Profile from './pages/profile';
+import Swipe from './pages/swipe';
+import Inbox from './pages/inbox';
+import Chats from './pages/chats';
+import Help from './pages/help';
 import { LOADING, SET_USER, UNSET_USER } from './store/actions';
 import { useStoreContext } from './store/store';
 

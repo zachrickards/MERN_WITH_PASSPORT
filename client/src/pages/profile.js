@@ -14,6 +14,7 @@ const Profile = () => {
         Nav/dash component - orange
 
  */}
+ Profile Page
     </div>
   );
 };
