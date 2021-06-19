@@ -14,6 +14,14 @@ import Help from "./pages/help";
 import SearchUsers from "./pages/searchusers";
 import { LOADING, SET_USER, UNSET_USER } from "./store/actions";
 import { useStoreContext } from "./store/store";
+//Fontawesome dependencies
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope, faHeart } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, faEnvelope, faHeart)
+//Use throughout app where icons are needed: import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' with <FontAwesomeIcon icon="{iconName}" />
+
 
 const App = () => {
   const history = useHistory();
