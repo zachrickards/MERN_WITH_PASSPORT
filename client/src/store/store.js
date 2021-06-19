@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { LOGIN, LOGOUT, SET_USER, UNSET_USER } from './actions';
+import { LOADING, LOGIN, LOGOUT, SET_USER, UNSET_USER } from './actions';
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
@@ -26,6 +26,12 @@ const reducer = (state, action) => {
         user: null,
         loading: false,
       };
+
+    case LOADING: 
+      return {
+        ...state,
+        loading: true
+      }
 
     default:
       return state;
