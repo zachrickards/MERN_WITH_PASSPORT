@@ -11,6 +11,7 @@ import Swipe from './pages/swipe';
 import Inbox from './pages/inbox';
 import Chats from './pages/chats';
 import Help from './pages/help';
+import SearchUsers from './pages/searchusers';
 import { LOADING, SET_USER, UNSET_USER } from './store/actions';
 import { useStoreContext } from './store/store';
 
