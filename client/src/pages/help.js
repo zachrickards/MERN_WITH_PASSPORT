@@ -4,21 +4,16 @@ import { useHistory } from 'react-router-dom';
 import { LOADING, SET_USER } from '../store/actions';
 import { useStoreContext } from '../store/store';
 
-const Settings = () => {
+const Help = () => {
 
 
   return (
     <div className="text-center">
-     {/* Delete profile
-     User profile pics - yellow
-    Link component - red
-    Hamburger menu/drop down menu - purple
-    Dot sliders - dark gray
-    Forms - blue refer to Google Slides
+     {/* General form to submit inquiry
  */}
- Settings Page
+ Help Page
     </div>
   );
 };
 
-export default Settings;
+export default Help;

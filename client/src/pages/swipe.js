@@ -4,21 +4,20 @@ import { useHistory } from 'react-router-dom';
 import { LOADING, SET_USER } from '../store/actions';
 import { useStoreContext } from '../store/store';
 
-const Settings = () => {
+const Swipe = () => {
 
 
   return (
     <div className="text-center">
-     {/* Delete profile
-     User profile pics - yellow
-    Link component - red
-    Hamburger menu/drop down menu - purple
-    Dot sliders - dark gray
-    Forms - blue refer to Google Slides
+     {/* User card - same component as match grid, just larger and individual
+Connect dot component - left to right swipe to match
+X component - reject user
+View profile button component
+
  */}
- Settings Page
+ Swipe Options 
     </div>
   );
 };
 
-export default Settings;
+export default Swipe;
