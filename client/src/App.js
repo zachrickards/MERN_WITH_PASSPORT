@@ -15,7 +15,11 @@ import SearchUsers from "./pages/searchusers";
 import { LOADING, SET_USER, UNSET_USER } from "./store/actions";
 import { useStoreContext } from "./store/store";
 
+import clientSocket from "socket.io-client";
+
+const PORT = "http://127.0.0.1:3001" //might need to change this to process.env.PORT to deploy on heroku
 const App = () => {
+  const socket = clientSocket(PORT)
   const history = useHistory();
   const [state, dispatch] = useStoreContext();
 
