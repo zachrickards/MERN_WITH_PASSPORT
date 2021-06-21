@@ -23,7 +23,11 @@ library.add(fab, faEnvelope, faHeart)
 //Use throughout app where icons are needed: import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' with <FontAwesomeIcon icon="{iconName}" />
 
 
+import clientSocket from "socket.io-client";
+
+const PORT = "http://127.0.0.1:3001" //might need to change this to process.env.PORT to deploy on heroku
 const App = () => {
+  const socket = clientSocket(PORT)
   const history = useHistory();
   const [state, dispatch] = useStoreContext();
 
