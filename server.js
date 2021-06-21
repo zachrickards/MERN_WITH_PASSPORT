@@ -4,11 +4,13 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 
+
 const mongooseConnection = require('./database');
 const routes = require('./routes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -38,7 +40,21 @@ app.use(passport.session());
 // Add routes, both API and view
 app.use(routes);
 
+
+
+const httpServer = require("http").createServer(app)
+const io = require('socket.io')(httpServer, {
+  cors:{
+    origin: "http://localhost:3000", //replace with deployed link
+    methods:["GET", "POST"]
+  }
+});
+io.on("connection", (socket) => {
+  // console.log("Connected to socket!")
+})
+
 // Start the API server
-app.listen(PORT, function () {
+httpServer.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
