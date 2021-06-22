@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { LOADING, SET_USER } from '../store/actions';
 import { useStoreContext } from '../store/store';
+import TinderCardComponent from '../components/tindercard2';
 
 const Swipe = () => {
 
@@ -16,6 +17,7 @@ View profile button component
 
  */}
  Swipe Options 
+ <TinderCardComponent />
     </div>
   );
 };
