@@ -66,13 +66,13 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           {state.user ? (
             <ul className="navbar-nav">
-              <li class="nav-item dropdown">
-                <span class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <li className="nav-item dropdown">
+                <span className="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Find A Match
                 </span>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                  <li><Link to="/swipe" class="dropdown-item">Swipe</Link></li>
-                  <li><Link to="/searchuser" class="dropdown-item">Browse</Link></li>
+                <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li><Link to="/swipe" className="dropdown-item">Swipe</Link></li>
+                  <li><Link to="/searchuser" className="dropdown-item">Browse</Link></li>
                 </ul>
             </li>
 
