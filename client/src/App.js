@@ -17,10 +17,10 @@ import { useStoreContext } from "./store/store";
 //Fontawesome dependencies
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faHeart, faEdit } from '@fortawesome/free-solid-svg-icons'
 import clientSocket from "socket.io-client";
 
-library.add(fab, faEnvelope, faHeart)
+library.add(fab, faEnvelope, faHeart, faEdit)
 //Use throughout app where icons are needed: import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' with <FontAwesomeIcon icon="{iconName}" />
 
 
