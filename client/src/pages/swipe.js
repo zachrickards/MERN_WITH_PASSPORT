@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TinderCardComponent from '../components/TinderCard/tindercard';
 import { Container, Row, Col } from 'react-bootstrap';
 
