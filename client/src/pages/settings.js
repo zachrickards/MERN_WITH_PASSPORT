@@ -7,6 +7,7 @@ import MobileDiv from "../components/mobileDiv";
 import EditIcon from "../components/editIcon";
 import BorderBox from "../components/borderedContainer";
 import EditBox from "../components/editableContent";
+import Interest from "../components/interestTag";
 
 const Settings = () => {
   return (
@@ -47,55 +48,70 @@ const Settings = () => {
               <h1 style={{fontSize: '1.75rem', margin: '0px', padding: '0px'}}>FirstName LastName</h1>
               <EditIcon />
             </EditBox>
-            <h2 style={{fontSize: '1.5rem'}} className="text-muted">@username</h2>
+            <EditBox>
+              <h2 style={{fontSize: '1.5rem'}} className="text-muted">@username</h2>
+            </EditBox>
           </div>
           <div>
             <EditBox>
-              <small class="text-muted" style={{fontSize: '1.5rem', marginTop: '0px', padding: '0px'}}>
+              <div class="text-muted" style={{fontSize: '1rem', marginTop: '0px', padding: '0px'}}>
                 <span className="mx-1">Age |</span>
                 <span className="mx-1">Pronouns |</span>
                 <span className="mx-1">Location</span>
                 <span><EditIcon /></span>
-              </small>
+              </div>
             </EditBox>
-            <div style={{fontSize: '1.3rem', marginTop: '0px', padding: '0px'}}>
-              <small class="text-muted">
-                <span className="mx-1">Orientation &</span>
-                <span className="mx-1">Status</span>
-                <span><EditIcon /></span>
-                <p>Looking for a (genderpreference) (agepref)</p>
-              </small>
-            </div>
+            <EditBox>
+              <div style={{fontSize: '1rem', marginTop: '0px', padding: '0px'}}>
+                <div class="text-muted">
+                  <span className="mx-1">Orientation &</span>
+                  <span className="mx-1">Status</span>
+                  <span><EditIcon /></span>
+                  <p>Looking for a (genderpreference) (agepref)</p>
+                </div>
+              </div>
+            </EditBox>
           </div>
           <div className="mt-4" id="bio-container">
-            <h5>Bio</h5>
-            <span><EditIcon /></span>
-            <p className="lead" style={{fontSize: '16px', lineHeight: `1.2rem`}}>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate
-          </p>
+            <EditBox>
+              <h5>Bio</h5>
+              <span><EditIcon /></span>
+            </EditBox>
+              <p className="lead" style={{fontSize: '16px', lineHeight: `1.2rem`}}>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate
+            </p>
           </div>
                   
         <div class="px-16 mt-3 text-center"> 
-          <h5>Interests</h5>
-          <span><EditIcon /></span>
-          <span class="bg-gray-100 h-5 p-1 px-3 rounded cursor-pointer hover:shadow hover:bg-gray-200">#art</span> <span class="bg-gray-100 h-5 p-1 px-3 rounded cursor-pointer hover:shadow hover:bg-gray-200">#photography</span> 
-          <span class="bg-gray-100 h-5 p-1 px-3 rounded cursor-pointer hover:shadow hover:bg-gray-200">#music</span> 
+          <EditBox>
+            <h5>Interests</h5>
+            <span><EditIcon /></span>
+          </EditBox>
+          <div id="interests-container">
+            <Interest>#art</Interest>
+            <Interest>#photography</Interest>
+            <Interest>#music</Interest>
+          </div>
         </div>
       </MobileDiv>
 
       {/* Partner Preferences */}
       <MobileDiv id="partner-preferences">
         <h5>Partner Preferences</h5>
-        <span>Age Preference
-        <EditIcon />
-        </span>
-        <div class="slidecontainer">
+        <EditBox>
+          <span>Age Preference
+          <EditIcon />
+          </span>
+        </EditBox>
+        <div class="slidecontainer" id="age-slider">
           <input type="range" min="1" max="100" value="50" class="slider" id="myRange" />
         </div>
-        <span>Gender Preference
-        <EditIcon/>
-        </span>
-        <div class="slidecontainer">
+        <EditBox>
+          <span>Gender Preference
+          <EditIcon/>
+          </span>
+        </EditBox>
+        <div class="slidecontainer" id="gender-slider">
           <input type="range" min="1" max="100" value="50" class="slider" id="myRange" />
         </div>
       </MobileDiv>

@@ -7,6 +7,7 @@ const EditIcon = () => {
             icon="edit" 
             size="xs" 
             color="blue"
+            className="mx-2"
         />
     )
 }
