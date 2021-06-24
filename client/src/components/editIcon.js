@@ -6,7 +6,8 @@ const EditIcon = () => {
 
     //By default no content is editable yet
     const [canEdit, setCanEdit] = useState(!false);
-    const [canSave, setCanSave] = useState(false);
+    const [icon, setIcon] = useState("edit");
+    const [color, setColor] = useState("blue");
 
     //User clicks edit button
     //Field becomes an editable input field
@@ -16,21 +17,28 @@ const EditIcon = () => {
     //Text changes back to read only
     //Save icon changes back to edit 
 
-    //On edit ion click content state becomes editable
-    const editContent = () => {
+    //Toggle edit state to true on first click, then toggle normally w/ each click
+    const editContent = ({ icon, color }) => {
         if (!canEdit) {
-            setCanEdit(true)
-        } else setCanEdit(false);
+            setCanEdit(true);
+            setIcon("save");
+            setColor("green")
+        } else {
+            setCanEdit(false);
+            setIcon("edit");
+            setColor("blue");
+        }
 
-        console.log(canEdit);
+        //Log to see if current button state is editable or not
+        console.log(canEdit, icon, color);
     }
 
     return (
         <button onClick={editContent}>
         <FontAwesomeIcon 
-            icon="edit" 
+            icon={icon} 
             size="xs" 
-            color="blue"
+            color={color}
             className="mx-2"
         />
         </button>

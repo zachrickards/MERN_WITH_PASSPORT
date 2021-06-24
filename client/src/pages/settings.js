@@ -4,7 +4,6 @@ import { useHistory, Link } from "react-router-dom";
 import { LOADING, SET_USER } from "../store/actions";
 import { useStoreContext } from "../store/store";
 import MobileDiv from "../components/mobileDiv";
-import EditIcon from "../components/editIcon";
 import BorderBox from "../components/borderedContainer";
 import EditBox from "../components/editableContent";
 import Interest from "../components/interestTag";
@@ -46,7 +45,7 @@ const Settings = () => {
           <div classname="d-flex flex-column">
             <EditBox>
               <h1 style={{fontSize: '1.75rem', margin: '0px', padding: '0px'}}>FirstName LastName</h1>
-              <EditIcon />
+              
             </EditBox>
             <EditBox>
               <h2 style={{fontSize: '1.5rem'}} className="text-muted">@username</h2>
@@ -58,7 +57,7 @@ const Settings = () => {
                 <span className="mx-1">Age |</span>
                 <span className="mx-1">Pronouns |</span>
                 <span className="mx-1">Location</span>
-                <span><EditIcon /></span>
+                <span></span>
               </div>
             </EditBox>
             <EditBox>
@@ -66,7 +65,7 @@ const Settings = () => {
                 <div className="text-muted">
                   <span className="mx-1">Orientation &</span>
                   <span className="mx-1">Status</span>
-                  <span><EditIcon /></span>
+                  <span></span>
                   <p>Looking for a (genderpreference) (agepref)</p>
                 </div>
               </div>
@@ -75,7 +74,7 @@ const Settings = () => {
           <div className="mt-4" id="bio-container">
             <EditBox>
               <h5>Bio</h5>
-              <span><EditIcon /></span>
+              <span></span>
             </EditBox>
               <p className="lead" style={{fontSize: '16px', lineHeight: `1.2rem`}}>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate
@@ -85,7 +84,7 @@ const Settings = () => {
         <div className="px-16 mt-3 text-center"> 
           <EditBox>
             <h5>Interests</h5>
-            <span><EditIcon /></span>
+            <span></span>
           </EditBox>
           <div id="interests-container">
             <Interest>#art</Interest>
@@ -100,16 +99,14 @@ const Settings = () => {
         <h5>Partner Preferences</h5>
         <EditBox>
           <span>Age Preference
-          <EditIcon />
+          
           </span>
         </EditBox>
         <div className="slidecontainer" id="age-slider">
           <input type="range" min="1" max="100" value="50" className="slider" id="myRange" />
         </div>
         <EditBox>
-          <span>Gender Preference
-          <EditIcon/>
-          </span>
+          <span>Gender Preference</span>
         </EditBox>
         <div className="slidecontainer" id="gender-slider">
           <input type="range" min="1" max="100" value="50" className="slider" id="myRange" />
