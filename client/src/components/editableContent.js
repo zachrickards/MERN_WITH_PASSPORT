@@ -1,9 +1,11 @@
 import React from 'react'
+import EditIcon from './editIcon';
 
 const editableContent = (props) => {
     return (
         <div className="d-flex flex-row align-items-top justify-content-center">
             {props.children}
+            <EditIcon />
         </div>
     )
 }
