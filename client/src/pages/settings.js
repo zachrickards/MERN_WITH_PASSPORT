@@ -29,16 +29,16 @@ const Settings = () => {
           />
         </div>
         {/* TODO: MULTER IMG UPLOAD/CHANGING FUNCTIONALITY ON THIS LINK */}
-        <div class="d-flex flex-column my-4">
-          <div class="d-flex flex- justify-content-center">
-            <button class="btn btn-primary btn-sm buttons">
+        <div className="d-flex flex-column my-4">
+          <div className="d-flex flex- justify-content-center">
+            <button className="btn btn-primary btn-sm buttons">
               Upload new photo
             </button>
-            <button class="btn btn-outline-danger buttons btn-sm ml-3">
+            <button className="btn btn-outline-danger buttons btn-sm ml-3">
               Remove
             </button>
           </div>
-          <span class="image-size">Image format with max size of 3MB</span>
+          <span className="image-size">Image format with max size of 3MB</span>
         </div>
       </MobileDiv>
 
@@ -54,7 +54,7 @@ const Settings = () => {
           </div>
           <div>
             <EditBox>
-              <div class="text-muted" style={{fontSize: '1rem', marginTop: '0px', padding: '0px'}}>
+              <div className="text-muted" style={{fontSize: '1rem', marginTop: '0px', padding: '0px'}}>
                 <span className="mx-1">Age |</span>
                 <span className="mx-1">Pronouns |</span>
                 <span className="mx-1">Location</span>
@@ -63,7 +63,7 @@ const Settings = () => {
             </EditBox>
             <EditBox>
               <div style={{fontSize: '1rem', marginTop: '0px', padding: '0px'}}>
-                <div class="text-muted">
+                <div className="text-muted">
                   <span className="mx-1">Orientation &</span>
                   <span className="mx-1">Status</span>
                   <span><EditIcon /></span>
@@ -82,7 +82,7 @@ const Settings = () => {
             </p>
           </div>
                   
-        <div class="px-16 mt-3 text-center"> 
+        <div className="px-16 mt-3 text-center"> 
           <EditBox>
             <h5>Interests</h5>
             <span><EditIcon /></span>
@@ -103,16 +103,16 @@ const Settings = () => {
           <EditIcon />
           </span>
         </EditBox>
-        <div class="slidecontainer" id="age-slider">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myRange" />
+        <div className="slidecontainer" id="age-slider">
+          <input type="range" min="1" max="100" value="50" className="slider" id="myRange" />
         </div>
         <EditBox>
           <span>Gender Preference
           <EditIcon/>
           </span>
         </EditBox>
-        <div class="slidecontainer" id="gender-slider">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myRange" />
+        <div className="slidecontainer" id="gender-slider">
+          <input type="range" min="1" max="100" value="50" className="slider" id="myRange" />
         </div>
       </MobileDiv>
 
