@@ -23,6 +23,17 @@ const userSchema = new Schema({
   yesSwipes: [{ type: Schema.Types.ObjectId, ref: "User" }],
   noSwipes: [{ type: Schema.Types.ObjectId, ref: "User" }],
   matches: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  profileImg: {
+    public_id: {
+      type: String
+    },
+    filename: {
+      type: String
+    },
+    url: {
+      type: String
+    }
+  }
 });
 
 // Define schema methods
