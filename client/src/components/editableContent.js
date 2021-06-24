@@ -1,5 +1,5 @@
 import React from 'react'
-import EditIcon from './editIcon';
+import EditIcon from './editIcon/editIcon';
 
 const editableContent = (props) => {
     return (
