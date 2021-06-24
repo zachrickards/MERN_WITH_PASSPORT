@@ -1,13 +1,22 @@
-import React from 'react'
-import EditIcon from './editIcon/editIcon';
+import React from "react";
+import EditIcon from "./editIcon/editIcon";
+import EditContext from "../contexts/editData/editContext";
 
-const editableContent = (props) => {
-    return (
-        <div className="d-flex flex-row align-items-top justify-content-center">
+const EditableContent = (props) => {
+  // return (
+  //   <EditContext.Consumer>
+  //     {(context) => {
+        return (
+          <div 
+        //   className={}
+          >
             {props.children}
             <EditIcon />
-        </div>
-    )
-}
+          </div>
+        );
+  //     }}
+  //   </EditContext.Consumer>
+  // );
+};
 
-export default editableContent;
+export default EditableContent;
