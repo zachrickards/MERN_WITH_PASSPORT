@@ -38,13 +38,15 @@ app.use(passport.session());
 // Add routes, both API and view
 app.use(routes);
 
+//Socket IO connection
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer, {
   cors: {
-    origin: "http://localhost:3000", //replace with deployed link
-    methods: ["GET", "POST"],
+    origin: "http://localhost:3000/", //replace with deployed link
+    // methods: ["GET", "POST"],
   },
 });
+
 const STATIC_CHANNELS = [
   {
     name: "Global chat",
@@ -59,6 +61,12 @@ const STATIC_CHANNELS = [
     sockets: [],
   },
 ];
+
+app.use((req, res, next) => {
+  res.setHeader(
+    'Access-Control-Allow-Origin', '*');
+  next();
+})
 
 // io.on("connection", (socket) => {
 //   // socket object may be used to send specific messages to the new connected client

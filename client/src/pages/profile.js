@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { LOADING, SET_USER } from '../store/actions';
 import { useStoreContext } from '../store/store';
-
+import { Image } from 'cloudinary-react';
 const Profile = () => {
 
 
@@ -14,7 +14,12 @@ const Profile = () => {
         Nav/dash component - orange
 
  */}
- Profile Page
+      <Image 
+        publicId="ze88x3defkwzubjlhfho"
+        width='300'
+        crop='scale'
+        cloudName='dyvqfdd5w'
+      />
     </div>
   );
 };
