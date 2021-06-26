@@ -5,6 +5,7 @@ import { LOADING, SET_USER } from "../../store/actions";
 import { useStoreContext } from "../../store/store";
 import "./searchuser.css";
 
+
 const SearchUsers = () => {
   return (
     <div class="container">
@@ -305,65 +306,65 @@ const SearchUsers = () => {
                 <a
                   class="ml-auto"
                   data-toggle="collapse"
-                  href="#Offeredsalary"
+                  href="#Compatability"
                   role="button"
                   aria-expanded="false"
-                  aria-controls="Offeredsalary"
+                  aria-controls="Compatability"
                 >
                   {" "}
                   <i class="fas fa-chevron-down"></i>{" "}
                 </a>
               </div>
-              <div class="collapse show" id="Offeredsalary">
+              <div class="collapse show" id="Compatability">
                 <div class="widget-content">
                   <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="Offeredsalary1"
+                      id="Compatability1"
                     />
-                    <label class="custom-control-label" for="Offeredsalary1">
-                      10k - 20k
+                    <label class="custom-control-label" for="Compatability1">
+                      25%-45%
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="Offeredsalary2"
+                      id="Compatability2"
                     />
-                    <label class="custom-control-label" for="Offeredsalary2">
-                      20k - 30k
+                    <label class="custom-control-label" for="Compatability2">
+                      45%-60%
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="Offeredsalary3"
+                      id="Compatability3"
                     />
-                    <label class="custom-control-label" for="Offeredsalary3">
-                      30k - 40k
+                    <label class="custom-control-label" for="Compatability3">
+                      60%-75%
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="Offeredsalary4"
+                      id="Compatability4"
                     />
-                    <label class="custom-control-label" for="Offeredsalary4">
-                      40k - 50k
+                    <label class="custom-control-label" for="Compatability4">
+                      75%-90%
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="Offeredsalary5"
+                      id="Compatability5"
                     />
-                    <label class="custom-control-label" for="Offeredsalary5">
-                      50k - 60k
+                    <label class="custom-control-label" for="Compatability5">
+                      90%-100%
                     </label>
                   </div>
                 </div>
@@ -405,59 +406,20 @@ const SearchUsers = () => {
                       Female
                     </label>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="widget">
-              <div class="widget-title widget-collapse">
-                <h6>Qualification</h6>
-                <a
-                  class="ml-auto"
-                  data-toggle="collapse"
-                  href="#qualification"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="qualification"
-                >
-                  {" "}
-                  <i class="fas fa-chevron-down"></i>
-                </a>
-              </div>
-              <div class="collapse show" id="qualification">
-                <div class="widget-content">
                   <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="qualification1"
+                      id="gender3"
                     />
-                    <label class="custom-control-label" for="qualification1">
-                      Matriculation
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="qualification2"
-                    />
-                    <label class="custom-control-label" for="qualification2">
-                      Intermediate
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="qualification3"
-                    />
-                    <label class="custom-control-label" for="qualification3">
-                      Graduate
+                    <label class="custom-control-label" for="gender3">
+                      Non-Binary
                     </label>
                   </div>
                 </div>
               </div>
             </div>
+
             <div class="widget border-0">
               <div class="widget-add">
                 <img class="img-fluid" src="images/add-banner.png" alt="" />
@@ -469,17 +431,11 @@ const SearchUsers = () => {
           <div class="row mb-4">
             <div class="col-12">
               <h6 class="mb-0">
-                Showing 1-10 of <span class="text-primary">28 Candidates</span>
+                Showing 1-10 of <span class="text-primary">28 Matches</span>
               </h6>
             </div>
           </div>
           <div class="job-filter mb-4 d-sm-flex align-items-center">
-            <div class="job-alert-bt">
-              {" "}
-              <a class="btn btn-md btn-dark" href="#">
-                <i class="fa fa-envelope"></i>Get job alert{" "}
-              </a>{" "}
-            </div>
             <div class="job-shortby ml-sm-auto d-flex align-items-center">
               <form class="form-inline">
                 <div class="form-group mb-0">
@@ -501,355 +457,387 @@ const SearchUsers = () => {
           </div>
           <div class="row">
             <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="candidate-list candidate-grid">
-                <div class="candidate-list-image">
+              <div class="match-list match-grid">
+                <div class="match-list-image">
                   <img
                     class="img-fluid"
                     src="https://bootdey.com/img/Content/avatar/avatar1.png"
                     alt=""
                   />
                 </div>
-                <div class="candidate-list-details">
-                  <div class="candidate-list-info">
-                    <div class="candidate-list-title">
+                <div class="match-list-details">
+                  <div class="match-list-info">
+                    <div class="match-list-title">
                       <h5>
-                        <a href="candidate-detail.html">Rafael Briggs</a>
+                        <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
-                    <div class="candidate-list-option">
+                    <div class="match-list-option">
                       <ul class="list-unstyled">
                         <li>
-                          <i class="fas fa-filter pr-1"></i>Recruitment
-                          Consultancy
+                          Pronouns: They/Them
                         </li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Haines City,
+                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
                           FL 33844
+                        </li>
+                        <li id='bio'>
+                          Interests: I love long walks on the beach
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="candidate-list-favourite-time">
-                    <a class="candidate-list-favourite order-2" href="#">
+                  <div class="match-list-favourite-time">
+                    <a class="match-list-favourite order-2" href="#">
                       <i class="far fa-heart"></i>
                     </a>
-                    <span class="candidate-list-time order-1">
+                    <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
+                      <button>Lets Connect</button>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="candidate-list candidate-grid">
-                <div class="candidate-list-image">
+              <div class="match-list match-grid">
+                <div class="match-list-image">
                   <img
                     class="img-fluid"
                     src="https://bootdey.com/img/Content/avatar/avatar2.png"
                     alt=""
                   />
                 </div>
-                <div class="candidate-list-details">
-                  <div class="candidate-list-info">
-                    <div class="candidate-list-title">
+                <div class="match-list-details">
+                  <div class="match-list-info">
+                  <div class="match-list-title">
                       <h5>
-                        <a href="candidate-detail.html">Roderick Moss</a>
+                        <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
-                    <div class="candidate-list-option">
+                    <div class="match-list-option">
                       <ul class="list-unstyled">
                         <li>
-                          <i class="fas fa-filter pr-1"></i>Information
-                          Technology
+                          Pronouns: They/Them
                         </li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Lynch Lane,
-                          Weymouth
+                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
+                          FL 33844
+                        </li>
+                        <li id='bio'>
+                          Interests: I love long walks on the beach
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="candidate-list-favourite-time">
-                    <a class="candidate-list-favourite order-2" href="#">
+                  <div class="match-list-favourite-time">
+                    <a class="match-list-favourite order-2" href="#">
                       <i class="far fa-heart"></i>
                     </a>
-                    <span class="candidate-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>3M ago
+                    <span class="match-list-time order-1">
+                      <i class="far fa-clock pr-1"></i>1M ago
+                      <button>Lets Connect</button>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="candidate-list candidate-grid">
-                <div class="candidate-list-image">
+              <div class="match-list match-grid">
+                <div class="match-list-image">
                   <img
                     class="img-fluid"
                     src="https://bootdey.com/img/Content/avatar/avatar3.png"
                     alt=""
                   />
                 </div>
-                <div class="candidate-list-details">
-                  <div class="candidate-list-info">
-                    <div class="candidate-list-title">
+                <div class="match-list-details">
+                  <div class="match-list-info">
+                  <div class="match-list-title">
                       <h5>
-                        <a href="candidate-detail.html">Ronald Bradley</a>
+                        <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
-                    <div class="candidate-list-option">
+                    <div class="match-list-option">
                       <ul class="list-unstyled">
                         <li>
-                          <i class="fas fa-filter pr-1"></i>Human Resources
+                          Pronouns: They/Them
                         </li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Monroe
-                          Township, NJ 08831
+                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
+                          FL 33844
+                        </li>
+                        <li id='bio'>
+                          Interests: I love long walks on the beach
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="candidate-list-favourite-time">
-                    <a class="candidate-list-favourite order-2" href="#">
+                  <div class="match-list-favourite-time">
+                    <a class="match-list-favourite order-2" href="#">
                       <i class="far fa-heart"></i>
                     </a>
-                    <span class="candidate-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>3D ago
+                    <span class="match-list-time order-1">
+                      <i class="far fa-clock pr-1"></i>1M ago
+                      <button>Lets Connect</button>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="candidate-list candidate-grid">
-                <div class="candidate-list-image">
+              <div class="match-list match-grid">
+                <div class="match-list-image">
                   <img
                     class="img-fluid"
                     src="https://bootdey.com/img/Content/avatar/avatar4.png"
                     alt=""
                   />
                 </div>
-                <div class="candidate-list-details">
-                  <div class="candidate-list-info">
-                    <div class="candidate-list-title">
+                <div class="match-list-details">
+                  <div class="match-list-info">
+                  <div class="match-list-title">
                       <h5>
-                        <a href="candidate-detail.html">Nichole Haynes</a>
+                        <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
-                    <div class="candidate-list-option">
+                    <div class="match-list-option">
                       <ul class="list-unstyled">
                         <li>
-                          <i class="fas fa-filter pr-1"></i>IT Contractor
+                          Pronouns: They/Them
                         </li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Botchergate,
-                          Carlisle
+                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
+                          FL 33844
+                        </li>
+                        <li id='bio'>
+                          Interests: I love long walks on the beach
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="candidate-list-favourite-time">
-                    <a class="candidate-list-favourite order-2" href="#">
+                  <div class="match-list-favourite-time">
+                    <a class="match-list-favourite order-2" href="#">
                       <i class="far fa-heart"></i>
                     </a>
-                    <span class="candidate-list-time order-1">
+                    <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>6D ago
+                      <button>Lets Connect</button>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="candidate-list candidate-grid">
-                <div class="candidate-list-image">
+              <div class="match-list match-grid">
+                <div class="match-list-image">
                   <img
                     class="img-fluid"
                     src="https://bootdey.com/img/Content/avatar/avatar5.png"
                     alt=""
                   />
                 </div>
-                <div class="candidate-list-details">
-                  <div class="candidate-list-info">
-                    <div class="candidate-list-title">
+                <div class="match-list-details">
+                  <div class="match-list-info">
+                  <div class="match-list-title">
                       <h5>
-                        <a href="candidate-detail.html">Vickie Meyer</a>
+                        <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
-                    <div class="candidate-list-option">
+                    <div class="match-list-option">
                       <ul class="list-unstyled">
                         <li>
-                          <i class="fas fa-filter pr-1"></i>Human Resources
+                          Pronouns: They/Them
                         </li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Minneapolis,
-                          MN 55406
+                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
+                          FL 33844
+                        </li>
+                        <li id='bio'>
+                          Interests: I love long walks on the beach
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="candidate-list-favourite-time">
-                    <a class="candidate-list-favourite order-2" href="#">
+                  <div class="match-list-favourite-time">
+                    <a class="match-list-favourite order-2" href="#">
                       <i class="far fa-heart"></i>
                     </a>
-                    <span class="candidate-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>2D ago
+                    <span class="match-list-time order-1">
+                      <i class="far fa-clock pr-1"></i>1M ago
+                      <button>Lets Connect</button>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="candidate-list candidate-grid">
-                <div class="candidate-list-image">
+              <div class="match-list match-grid">
+                <div class="match-list-image">
                   <img
                     class="img-fluid"
                     src="https://bootdey.com/img/Content/avatar/avatar6.png"
                     alt=""
                   />
                 </div>
-                <div class="candidate-list-details">
-                  <div class="candidate-list-info">
-                    <div class="candidate-list-title">
+                <div class="match-list-details">
+                  <div class="match-list-info">
+                  <div class="match-list-title">
                       <h5>
-                        <a href="candidate-detail.html">Brooke Kelly</a>
+                        <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
-                    <div class="candidate-list-option">
+                    <div class="match-list-option">
                       <ul class="list-unstyled">
                         <li>
-                          <i class="fas fa-filter pr-1"></i>Information
-                          Technology
+                          Pronouns: They/Them
                         </li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Rolling
-                          Meadows, IL 60008
+                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
+                          FL 33844
+                        </li>
+                        <li id='bio'>
+                          Interests: I love long walks on the beach
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="candidate-list-favourite-time">
-                    <a class="candidate-list-favourite order-2" href="#">
+                  <div class="match-list-favourite-time">
+                    <a class="match-list-favourite order-2" href="#">
                       <i class="far fa-heart"></i>
                     </a>
-                    <span class="candidate-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>3W ago
+                    <span class="match-list-time order-1">
+                      <i class="far fa-clock pr-1"></i>1M ago
+                      <button>Lets Connect</button>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="candidate-list candidate-grid">
-                <div class="candidate-list-image">
+              <div class="match-list match-grid">
+                <div class="match-list-image">
                   <img
                     class="img-fluid"
                     src="https://bootdey.com/img/Content/avatar/avatar7.png"
                     alt=""
                   />
                 </div>
-                <div class="candidate-list-details">
-                  <div class="candidate-list-info">
-                    <div class="candidate-list-title">
+                <div class="match-list-details">
+                  <div class="match-list-info">
+                  <div class="match-list-title">
                       <h5>
-                        <a href="candidate-detail.html">Reyna Chung</a>
+                        <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
-                    <div class="candidate-list-option">
+                    <div class="match-list-option">
                       <ul class="list-unstyled">
                         <li>
-                          <i class="fas fa-filter pr-1"></i>Transport &amp;
-                          Logistics
+                          Pronouns: They/Them
                         </li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Glen Cove,
-                          NY 11542
+                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
+                          FL 33844
+                        </li>
+                        <li id='bio'>
+                          Interests: I love long walks on the beach
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="candidate-list-favourite-time">
-                    <a class="candidate-list-favourite order-2" href="#">
+                  <div class="match-list-favourite-time">
+                    <a class="match-list-favourite order-2" href="#">
                       <i class="far fa-heart"></i>
                     </a>
-                    <span class="candidate-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>1H ago
+                    <span class="match-list-time order-1">
+                      <i class="far fa-clock pr-1"></i>1M ago
+                      <button>Lets Connect</button>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="candidate-list candidate-grid">
-                <div class="candidate-list-image">
+              <div class="match-list match-grid">
+                <div class="match-list-image">
                   <img
                     class="img-fluid"
                     src="https://bootdey.com/img/Content/avatar/avatar8.png"
                     alt=""
                   />
                 </div>
-                <div class="candidate-list-details">
-                  <div class="candidate-list-info">
-                    <div class="candidate-list-title">
+                <div class="match-list-details">
+                  <div class="match-list-info">
+                  <div class="match-list-title">
                       <h5>
-                        <a href="candidate-detail.html">Rafael Briggs</a>
+                        <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
-                    <div class="candidate-list-option">
+                    <div class="match-list-option">
                       <ul class="list-unstyled">
                         <li>
-                          <i class="fas fa-filter pr-1"></i>Architecture
+                          Pronouns: They/Them
                         </li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Botchergate,
-                          Carlisle
+                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
+                          FL 33844
+                        </li>
+                        <li id='bio'>
+                          Interests: I love long walks on the beach
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="candidate-list-favourite-time">
-                    <a class="candidate-list-favourite order-2" href="#">
+                  <div class="match-list-favourite-time">
+                    <a class="match-list-favourite order-2" href="#">
                       <i class="far fa-heart"></i>
                     </a>
-                    <span class="candidate-list-time order-1">
+                    <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>3M ago
+                      <button>Lets Connect</button>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 col-lg-4 mb-4 mb-md-0">
-              <div class="candidate-list candidate-grid">
-                <div class="candidate-list-image">
+              <div class="match-list match-grid">
+                <div class="match-list-image">
                   <img
                     class="img-fluid"
                     src="https://bootdey.com/img/Content/avatar/avatar1.png"
                     alt=""
                   />
                 </div>
-                <div class="candidate-list-details">
-                  <div class="candidate-list-info">
-                    <div class="candidate-list-title">
+                <div class="match-list-details">
+                  <div class="match-list-info">
+                  <div class="match-list-title">
                       <h5>
-                        <a href="candidate-detail.html">Michael Bean</a>
+                        <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
-                    <div class="candidate-list-option">
+                    <div class="match-list-option">
                       <ul class="list-unstyled">
                         <li>
-                          <i class="fas fa-filter pr-1"></i>Estate Agency
+                          Pronouns: They/Them
                         </li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Richmond
-                          Hill, NY 11418
+                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
+                          FL 33844
+                        </li>
+                        <li id='bio'>
+                          Interests: I love long walks on the beach
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <div class="candidate-list-favourite-time">
-                    <a class="candidate-list-favourite order-2" href="#">
+                  <div class="match-list-favourite-time">
+                    <a class="match-list-favourite order-2" href="#">
                       <i class="far fa-heart"></i>
                     </a>
-                    <span class="candidate-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>6D ago
+                    <span class="match-list-time order-1">
+                      <i class="far fa-clock pr-1"></i>1M ago
+                      <button>Lets Connect</button>
                     </span>
                   </div>
                 </div>
