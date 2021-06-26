@@ -72,7 +72,7 @@ const Navbar = () => {
                 </span>
                 <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                   <li><Link to="/swipe" className="dropdown-item">Swipe</Link></li>
-                  <li><Link to="/searchuser" className="dropdown-item">Browse</Link></li>
+                  <li><Link to="/searchusers" className="dropdown-item">Browse</Link></li>
                 </ul>
             </li>
 
