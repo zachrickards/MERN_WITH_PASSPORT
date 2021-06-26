@@ -65,7 +65,9 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/searchusers" component={SearchUsers} />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
           <Route exact path="/swipe" component={Swipe} />
           {/* Inbox displays all messages */}
           <Route exact path="/inbox" component={Inbox} />
