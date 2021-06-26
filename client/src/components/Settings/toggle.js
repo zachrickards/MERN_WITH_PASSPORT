@@ -1,33 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import EditContext from "../../contexts/EditProvider";
 import EditIcon from "./Icon/Icon";
 
 const Toggle = (props) => {
-  const [toggle, setToggle] = useState(false);
-  const [icon, setIcon] = useState("edit");
-  const [color, setColor] = useState("blue");
- 
-  const changeIcon = () => {
-    if (!toggle) {
-      setToggle(true)
-      setIcon("save");
-      setColor("green");
-      console.log("can save")
-    } else if (toggle) {
-      setToggle(false)
-      setIcon("edit");
-      setColor("blue");
-      console.log("can edit")
-    }
-  };
-
+  const { canEdit } = useContext(EditContext);
+  
   return (
     <div className="d-flex justify-content-center">
       {props.children}
-      <EditIcon
+      {/* <EditIcon
       changeIcon={changeIcon} 
       icon={icon}
       color={color}
-      />
+      /> */}
     </div>
   );
 };
