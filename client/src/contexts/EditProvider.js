@@ -1,40 +1,60 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useReducer, useContext } from "react";
 
 const EditContext = createContext();
 
-export const EditProvider = ({ children }) => {
-    const [canEdit, setCanEdit] = useState("canEdit");
-    // const [toggle, setToggle] = useState(false);
-    // const [icon, setIcon] = useState("edit");
-    // const [color, setColor] = useState("blue");
+const READ_STATE = {
+    toggle: true,
+    button: "Edit",
+    hideInput: "none",
+    hideRead: "",
+    icon: "edit",
+    color: "blue",
+  }
 
-    // const changeIcon = () => {
-    // if (!toggle) {
-    //   setToggle(true)
-    //   setIcon("save");
-    //   setColor("green");
-    //   console.log("can save")
-    // } else if (toggle) {
-    //   setToggle(false)
-    //   setIcon("edit");
-    //   setColor("blue");
-    //   console.log("can edit")
-    // }
-    // };
+  const SAVE_STATE = {
+    toggle: false,
+    button: "Save",
+    hideInput: "",
+    hideRead: "none",
+    icon: "save",
+    color: "green",
+  }
 
-    const toggleCanEdit = () => {
-        if (canEdit === "canEdit") {
-            setCanEdit("canSave");
-        } else {
-            setCanEdit("canEdit");
-        }
+  //actions
+  const CLICK_EDIT = "CLICK_EDIT"
+  const CLICK_SAVE = "CLICK_SAVE"
+
+  const stateReducer = (state, action) => {
+    switch (action.type) {
+      case CLICK_EDIT:
+        return READ_STATE;
+      case CLICK_SAVE:
+        //post request
+        return SAVE_STATE;
+      default:
+        return READ_STATE;
     }
-;
+  };
+
+  function EditProvider({children}) {
+    const [state, dispatch] = useReducer(stateReducer, READ_STATE);
+
+    const value = {state, dispatch}
+
     return (
-        <EditContext.Provider value={{ canEdit, toggleCanEdit}}>
+        <EditContext.Provider value={value}>
             {children}
         </EditContext.Provider>
     )
-};
+  };
 
-export default EditContext;
+  function useEditContext() {
+      const context = useContext(EditContext);
+      if (context === undefined) {
+          throw new Error('useEditContext must be used within an EditProvider')
+      }
+      return context;
+  }
+
+  export default EditContext;
+  export {EditProvider, useEditContext}
