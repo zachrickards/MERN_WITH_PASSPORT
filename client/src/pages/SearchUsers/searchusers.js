@@ -323,7 +323,7 @@ const SearchUsers = () => {
                       id="Offeredsalary1"
                     />
                     <label class="custom-control-label" for="Offeredsalary1">
-                      10k - 20k
+                      25%-45%
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -333,7 +333,7 @@ const SearchUsers = () => {
                       id="Offeredsalary2"
                     />
                     <label class="custom-control-label" for="Offeredsalary2">
-                      20k - 30k
+                      45%-60%
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -343,7 +343,7 @@ const SearchUsers = () => {
                       id="Offeredsalary3"
                     />
                     <label class="custom-control-label" for="Offeredsalary3">
-                      30k - 40k
+                      60%-75%
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -353,7 +353,7 @@ const SearchUsers = () => {
                       id="Offeredsalary4"
                     />
                     <label class="custom-control-label" for="Offeredsalary4">
-                      40k - 50k
+                      75%-90%
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -363,7 +363,7 @@ const SearchUsers = () => {
                       id="Offeredsalary5"
                     />
                     <label class="custom-control-label" for="Offeredsalary5">
-                      50k - 60k
+                      90%-100%
                     </label>
                   </div>
                 </div>
@@ -405,59 +405,20 @@ const SearchUsers = () => {
                       Female
                     </label>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="widget">
-              <div class="widget-title widget-collapse">
-                <h6>Qualification</h6>
-                <a
-                  class="ml-auto"
-                  data-toggle="collapse"
-                  href="#qualification"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="qualification"
-                >
-                  {" "}
-                  <i class="fas fa-chevron-down"></i>
-                </a>
-              </div>
-              <div class="collapse show" id="qualification">
-                <div class="widget-content">
                   <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="qualification1"
+                      id="gender3"
                     />
-                    <label class="custom-control-label" for="qualification1">
-                      Matriculation
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="qualification2"
-                    />
-                    <label class="custom-control-label" for="qualification2">
-                      Intermediate
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="qualification3"
-                    />
-                    <label class="custom-control-label" for="qualification3">
-                      Graduate
+                    <label class="custom-control-label" for="gender3">
+                      Non-Binary
                     </label>
                   </div>
                 </div>
               </div>
             </div>
+
             <div class="widget border-0">
               <div class="widget-add">
                 <img class="img-fluid" src="images/add-banner.png" alt="" />
@@ -474,12 +435,6 @@ const SearchUsers = () => {
             </div>
           </div>
           <div class="job-filter mb-4 d-sm-flex align-items-center">
-            <div class="job-alert-bt">
-              {" "}
-              <a class="btn btn-md btn-dark" href="#">
-                <i class="fa fa-envelope"></i>Get job alert{" "}
-              </a>{" "}
-            </div>
             <div class="job-shortby ml-sm-auto d-flex align-items-center">
               <form class="form-inline">
                 <div class="form-group mb-0">
