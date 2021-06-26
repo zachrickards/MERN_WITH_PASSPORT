@@ -32,7 +32,8 @@ const Login = () => {
         if (response.status === 200) {
           dispatch({ type: SET_USER, user: response.data });
           //store user in localStorage so logged in state persists on refresh
-          localStorage.setItem('user', response.data);
+          console.log(response.data)
+          localStorage.setItem('user', JSON.stringify(response.data));
           history.replace('/');
         }
       })

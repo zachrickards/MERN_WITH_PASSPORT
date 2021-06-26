@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style.css";
 
-const EditIcon = (props) => {
-  
+const EditIcon = ({ isEditing, setIsEditing }) => {
+
   return (
-    <button className="btn" onClick={props.changeIcon}>
       <FontAwesomeIcon 
-      icon={props.icon} 
+      icon={ isEditing ? "save" : "edit"}
       size="xs" 
-      color={props.color}
-      className="mx-2" />
-    </button>
+      color={ isEditing ? "green" : "blue"}
+      className="mx-2"
+      onClick={() => {setIsEditing(!isEditing)}}
+      />
   );
 };
 
