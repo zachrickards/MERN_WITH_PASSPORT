@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState} from "react";
 import ToggleEdit from "../components/Settings/toggle";
 import Interest from "../components/interestTag";
 import MobileDiv from "../components/mobileDiv";
@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 // import { EditProvider } from "../contexts/EditProvider";
 import Card from "react-bootstrap/Card";
 import FirstAndLast from "../components/Profile/FirstAndLast";
-
-const Edit = createContext();
+import { EditProvider } from "../contexts/EditProvider";
 
 const Settings = () => {
+
   const [toggle, setToggle] = useState(true);
   const [button, setButton] = useState("Edit");
   const [hideInput, setHideInput] = useState("none");
@@ -36,10 +36,7 @@ const Settings = () => {
   } 
 
   return (
-
-    <Edit.Provider
-      value="i am editable"
-    >
+    <EditProvider>
       <Card style={{ width: "18rem" }}>
         <Card.Body>
           <Card.Title>
@@ -68,7 +65,9 @@ const Settings = () => {
           </Card.Text>
         </Card.Body>
       </Card>
-    </Edit.Provider>
+    </EditProvider>
+  );
+};
 
     // <EditProvider>
     // <div className="text-center mt-4" style={{ overflowX: "hidden" }}>
@@ -197,8 +196,7 @@ const Settings = () => {
     //   </footer>
     // </div>
     // </EditProvider>
-  );
-};
+//   );
+// };
 
 export default Settings;
-export { Edit };
