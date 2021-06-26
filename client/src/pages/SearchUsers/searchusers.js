@@ -31,7 +31,7 @@ const SearchUsers = () => {
             </div>
             <div class="widget">
               <div class="widget-title widget-collapse">
-                <h6>Date Posted</h6>
+                <h6>Swipe Date</h6>
                 <a
                   class="ml-auto"
                   data-toggle="collapse"
@@ -101,7 +101,7 @@ const SearchUsers = () => {
             </div>
             <div class="widget">
               <div class="widget-title widget-collapse">
-                <h6>Specialism</h6>
+                <h6>Location</h6>
                 <a
                   class="ml-auto"
                   data-toggle="collapse"
@@ -123,7 +123,7 @@ const SearchUsers = () => {
                       id="specialism1"
                     />
                     <label class="custom-control-label" for="specialism1">
-                      IT Contractor
+                      North Carolina
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -133,7 +133,7 @@ const SearchUsers = () => {
                       id="specialism2"
                     />
                     <label class="custom-control-label" for="specialism2">
-                      Clinical Psychology
+                      Florida
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -143,7 +143,7 @@ const SearchUsers = () => {
                       id="specialism3"
                     />
                     <label class="custom-control-label" for="specialism3">
-                      Digital &amp; Creative
+                      Russia
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -153,7 +153,7 @@ const SearchUsers = () => {
                       id="specialism4"
                     />
                     <label class="custom-control-label" for="specialism4">
-                      Estate Agency
+                      Hawaii
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -163,7 +163,7 @@ const SearchUsers = () => {
                       id="specialism5"
                     />
                     <label class="custom-control-label" for="specialism5">
-                      Graduate
+                      Canada
                     </label>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ const SearchUsers = () => {
             </div>
             <div class="widget">
               <div class="widget-title widget-collapse">
-                <h6>Job Type</h6>
+                <h6>Dating Status</h6>
                 <a
                   class="ml-auto"
                   data-toggle="collapse"
@@ -193,7 +193,7 @@ const SearchUsers = () => {
                       id="jobtype1"
                     />
                     <label class="custom-control-label" for="jobtype1">
-                      Full Time
+                      Just Friends
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox parttime-job">
@@ -203,7 +203,7 @@ const SearchUsers = () => {
                       id="jobtype2"
                     />
                     <label class="custom-control-label" for="jobtype2">
-                      Part-Time
+                      Nothing Serious
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox freelance-job">
@@ -213,7 +213,7 @@ const SearchUsers = () => {
                       id="jobtype3"
                     />
                     <label class="custom-control-label" for="jobtype3">
-                      Freelance
+                      Casual Dating
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox temporary-job">
@@ -223,7 +223,7 @@ const SearchUsers = () => {
                       id="jobtype4"
                     />
                     <label class="custom-control-label" for="jobtype4">
-                      Temporary
+                      Serious Committment
                     </label>
                   </div>
                 </div>
@@ -231,7 +231,7 @@ const SearchUsers = () => {
             </div>
             <div class="widget">
               <div class="widget-title widget-collapse">
-                <h6>Experience</h6>
+                <h6>Age Range</h6>
                 <a
                   class="ml-auto"
                   data-toggle="collapse"
@@ -253,7 +253,7 @@ const SearchUsers = () => {
                       id="experience1"
                     />
                     <label class="custom-control-label" for="experience1">
-                      fresher
+                      19-24
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -263,7 +263,7 @@ const SearchUsers = () => {
                       id="experience2"
                     />
                     <label class="custom-control-label" for="experience2">
-                      Less than 1 year
+                      25-30
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -273,7 +273,7 @@ const SearchUsers = () => {
                       id="experience3"
                     />
                     <label class="custom-control-label" for="experience3">
-                      2 Year
+                      31-35
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -283,7 +283,7 @@ const SearchUsers = () => {
                       id="experience4"
                     />
                     <label class="custom-control-label" for="experience4">
-                      3 Year
+                      36-40
                     </label>
                   </div>
                   <div class="custom-control custom-checkbox">
@@ -293,7 +293,7 @@ const SearchUsers = () => {
                       id="experience5"
                     />
                     <label class="custom-control-label" for="experience5">
-                      4 Year
+                      41-50
                     </label>
                   </div>
                 </div>
@@ -301,7 +301,7 @@ const SearchUsers = () => {
             </div>
             <div class="widget">
               <div class="widget-title widget-collapse">
-                <h6>Offered Salary</h6>
+                <h6>Compatability Percentage</h6>
                 <a
                   class="ml-auto"
                   data-toggle="collapse"
