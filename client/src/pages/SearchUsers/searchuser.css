@@ -1,8 +1,8 @@
 body{margin-top:20px;
     background:#F5F5F5;
     }
-    /* Candidate List */
-    .candidate-list {
+    /* match List */
+    .match-list {
       background: #ffffff;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -14,53 +14,53 @@ body{margin-top:20px;
       padding: 20px;
       -webkit-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out; }
-      .candidate-list:hover {
+      .match-list:hover {
         -webkit-box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);
                 box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);
         position: relative;
         z-index: 99; }
-        .candidate-list:hover a.candidate-list-favourite {
+        .match-list:hover a.match-list-favourite {
           color: #e74c3c;
           -webkit-box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);
                   box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1); }
     
-    .candidate-list .candidate-list-image {
+    .match-list .match-list-image {
       margin-right: 25px;
       -webkit-box-flex: 0;
           -ms-flex: 0 0 80px;
               flex: 0 0 80px;
       border: none; }
-      .candidate-list .candidate-list-image img {
+      .match-list .match-list-image img {
         width: 80px;
         height: 80px;
         -o-object-fit: cover;
            object-fit: cover; }
     
-    .candidate-list-title {
+    .match-list-title {
       margin-bottom: 5px; }
     
-    .candidate-list-details ul {
+    .match-list-details ul {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
       margin-bottom: 0px; }
-      .candidate-list-details ul li {
+      .match-list-details ul li {
         margin: 5px 10px 5px 0px;
         font-size: 13px; }
     
-    .candidate-list .candidate-list-favourite-time {
+    .match-list .match-list-favourite-time {
       margin-left: auto;
       text-align: center;
       font-size: 13px;
       -webkit-box-flex: 0;
           -ms-flex: 0 0 90px;
               flex: 0 0 90px; }
-      .candidate-list .candidate-list-favourite-time span {
+      .match-list .match-list-favourite-time span {
         display: block;
         margin: 0 auto; }
-      .candidate-list .candidate-list-favourite-time .candidate-list-favourite {
+      .match-list .match-list-favourite-time .match-list-favourite {
         display: inline-block;
         position: relative;
         height: 40px;
@@ -75,49 +75,49 @@ body{margin-top:20px;
         font-size: 16px;
         color: #646f79;
         }
-        .candidate-list .candidate-list-favourite-time .candidate-list-favourite:hover {
+        .match-list .match-list-favourite-time .match-list-favourite:hover {
           background: #ffffff;
           color: #e74c3c; }
     
-    .candidate-banner .candidate-list:hover {
+    .match-banner .match-list:hover {
       position: inherit;
       -webkit-box-shadow: inherit;
               box-shadow: inherit;
       z-index: inherit; }
     
     
-    /* Candidate Grid */
-    .candidate-list.candidate-grid {
+    /* match Grid */
+    .match-list.match-grid {
         padding: 0px;
         display: block;
         border-bottom: none;
     }
     
-    .candidate-grid .candidate-list-image {
+    .match-grid .match-list-image {
         text-align: center;
         margin-right: 0px;
     }
-    .candidate-grid .candidate-list-image img {
+    .match-grid .match-list-image img {
         height: 150px;
         width: 100%;
     }
     
-    .candidate-grid .candidate-list-details {
+    .match-grid .match-list-details {
         text-align: center;
         padding: 20px 20px 0px 20px;
         border: 1px solid #eeeeee;
         border-top: none;
     }
-    .candidate-grid .candidate-list-details ul {
+    .match-grid .match-list-details ul {
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
     }
-    .candidate-grid .candidate-list-details ul li {
+    .match-grid .match-list-details ul li {
         margin: 2px 5px;
     }
     
-    .candidate-grid .candidate-list-favourite-time {
+    .match-grid .match-list-favourite-time {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -125,22 +125,22 @@ body{margin-top:20px;
         margin-top: 10px;
         padding: 10px 0;
     }
-    .candidate-grid .candidate-list-favourite-time a {
+    .match-grid .match-list-favourite-time a {
         margin-bottom: 0;
         margin-left: auto;
     }
-    .candidate-grid .candidate-list-favourite-time span {
+    .match-grid .match-list-favourite-time span {
         display: inline-block;
         margin: 0;
         -ms-flex-item-align: center;
         align-self: center;
     }
     
-    .candidate-list.candidate-grid .candidate-list-favourite-time .candidate-list-favourite {
+    .match-list.match-grid .match-list-favourite-time .match-list-favourite {
         margin-bottom: 0px;
     }
     
-    .owl-carousel .candidate-list.candidate-grid {
+    .owl-carousel .match-list.match-grid {
         margin-bottom: 20px;
     }
     
