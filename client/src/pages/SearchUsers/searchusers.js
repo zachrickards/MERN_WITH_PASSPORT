@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { LOADING, SET_USER } from "../../store/actions";
 import { useStoreContext } from "../../store/store";
 import "./searchuser.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SearchUsers = () => {
   return (
@@ -487,7 +487,7 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
@@ -536,7 +536,7 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
@@ -577,7 +577,7 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
@@ -618,7 +618,7 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>6D ago
@@ -659,7 +659,7 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
@@ -700,7 +700,7 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
@@ -741,7 +741,7 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
@@ -782,7 +782,7 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>3M ago
@@ -812,8 +812,9 @@ const SearchUsers = () => {
                       <ul class="list-unstyled">
                         <li>Pronouns: They/Them</li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location:
-                          Haines City, FL 33844
+                          {/* need help with correct icons */}
+                          <FontAwesomeIcon icon="map pin" />
+                          Location: Haines City, FL 33844
                         </li>
                         <li id="bio">
                           Interests: I love long walks on the beach
@@ -823,7 +824,7 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
