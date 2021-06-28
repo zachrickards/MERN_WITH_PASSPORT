@@ -6,7 +6,7 @@ import App from './App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { StoreProvider } from './store/store';
-import 'font-awesome/css/font-awesome.min.css';
+
 
 ReactDOM.render(
   <React.StrictMode>
