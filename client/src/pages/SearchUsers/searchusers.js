@@ -103,6 +103,7 @@ const SearchUsers = () => {
             <div class="widget">
               <div class="widget-title widget-collapse">
                 <h6>Location</h6>
+                <FontAwesomeIcon icon="map-marker" />
                 <a
                   class="ml-auto"
                   data-toggle="collapse"
@@ -476,7 +477,7 @@ const SearchUsers = () => {
                       <ul class="list-unstyled">
                         <li>Pronouns: They/Them</li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location:
+                        <FontAwesomeIcon icon="map-marker" /> Location:
                           Haines City, FL 33844
                         </li>
                         <li id="bio">
@@ -525,7 +526,7 @@ const SearchUsers = () => {
                       <ul class="list-unstyled">
                         <li>Pronouns: They/Them</li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location:
+                        <FontAwesomeIcon icon="map-marker" />Location:
                           Haines City, FL 33844
                         </li>
                         <li id="bio">
@@ -540,7 +541,9 @@ const SearchUsers = () => {
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -566,7 +569,7 @@ const SearchUsers = () => {
                       <ul class="list-unstyled">
                         <li>Pronouns: They/Them</li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location:
+                        <FontAwesomeIcon icon="map-marker" /> Location:
                           Haines City, FL 33844
                         </li>
                         <li id="bio">
@@ -581,7 +584,9 @@ const SearchUsers = () => {
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -607,7 +612,7 @@ const SearchUsers = () => {
                       <ul class="list-unstyled">
                         <li>Pronouns: They/Them</li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location:
+                        <FontAwesomeIcon icon="map-marker" /> Location:
                           Haines City, FL 33844
                         </li>
                         <li id="bio">
@@ -622,7 +627,9 @@ const SearchUsers = () => {
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>6D ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -648,7 +655,7 @@ const SearchUsers = () => {
                       <ul class="list-unstyled">
                         <li>Pronouns: They/Them</li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location:
+                        <FontAwesomeIcon icon="map-marker" />  Location:
                           Haines City, FL 33844
                         </li>
                         <li id="bio">
@@ -663,7 +670,9 @@ const SearchUsers = () => {
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -689,7 +698,7 @@ const SearchUsers = () => {
                       <ul class="list-unstyled">
                         <li>Pronouns: They/Them</li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location:
+                        <FontAwesomeIcon icon="map-marker" />  Location:
                           Haines City, FL 33844
                         </li>
                         <li id="bio">
@@ -704,7 +713,9 @@ const SearchUsers = () => {
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -730,7 +741,7 @@ const SearchUsers = () => {
                       <ul class="list-unstyled">
                         <li>Pronouns: They/Them</li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location:
+                        <FontAwesomeIcon icon="map-marker" />  Location:
                           Haines City, FL 33844
                         </li>
                         <li id="bio">
@@ -745,7 +756,9 @@ const SearchUsers = () => {
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -771,7 +784,7 @@ const SearchUsers = () => {
                       <ul class="list-unstyled">
                         <li>Pronouns: They/Them</li>
                         <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location:
+                        <FontAwesomeIcon icon="map-marker" />  Location:
                           Haines City, FL 33844
                         </li>
                         <li id="bio">
@@ -786,7 +799,9 @@ const SearchUsers = () => {
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>3M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -813,7 +828,7 @@ const SearchUsers = () => {
                         <li>Pronouns: They/Them</li>
                         <li>
                           {/* need help with correct icons */}
-                          <FontAwesomeIcon icon="map pin" />
+                          <FontAwesomeIcon icon="map-marker" />
                           Location: Haines City, FL 33844
                         </li>
                         <li id="bio">
@@ -828,7 +843,9 @@ const SearchUsers = () => {
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
