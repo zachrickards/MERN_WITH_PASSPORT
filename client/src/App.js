@@ -17,10 +17,10 @@ import { useStoreContext } from "./store/store";
 //Fontawesome dependencies
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faHeart, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faHeart, faEdit, faMapMarker } from "@fortawesome/free-solid-svg-icons";
 // import clientSocket from "socket.io-client";
 
-library.add(fab, faEnvelope, faHeart, faEdit);
+library.add(fab, faEnvelope, faHeart, faEdit, faMapMarker);
 //Use throughout app where icons are needed: import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' with <FontAwesomeIcon icon="{iconName}" />
 
 // const PORT = "http://127.0.0.1:3001" //might need to change this to process.env.PORT to deploy on heroku
