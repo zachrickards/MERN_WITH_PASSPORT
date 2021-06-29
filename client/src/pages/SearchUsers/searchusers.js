@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { LOADING, SET_USER } from "../../store/actions";
 import { useStoreContext } from "../../store/store";
 import "./searchuser.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SearchUsers = () => {
   return (
@@ -103,27 +103,28 @@ const SearchUsers = () => {
             <div class="widget">
               <div class="widget-title widget-collapse">
                 <h6>Location</h6>
+                <FontAwesomeIcon icon="map-marker" />
                 <a
                   class="ml-auto"
                   data-toggle="collapse"
-                  href="#specialism"
+                  href="#location"
                   role="button"
                   aria-expanded="false"
-                  aria-controls="specialism"
+                  aria-controls="location"
                 >
                   {" "}
                   <i class="fas fa-chevron-down"></i>{" "}
                 </a>
               </div>
-              <div class="collapse show" id="specialism">
+              <div class="collapse show" id="location">
                 <div class="widget-content">
                   <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="specialism1"
+                      id="location1"
                     />
-                    <label class="custom-control-label" for="specialism1">
+                    <label class="custom-control-label" for="location1">
                       North Carolina
                     </label>
                   </div>
@@ -131,9 +132,9 @@ const SearchUsers = () => {
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="specialism2"
+                      id="location2"
                     />
-                    <label class="custom-control-label" for="specialism2">
+                    <label class="custom-control-label" for="location2">
                       Florida
                     </label>
                   </div>
@@ -141,9 +142,9 @@ const SearchUsers = () => {
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="specialism3"
+                      id="location3"
                     />
-                    <label class="custom-control-label" for="specialism3">
+                    <label class="custom-control-label" for="location3">
                       Russia
                     </label>
                   </div>
@@ -151,9 +152,9 @@ const SearchUsers = () => {
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="specialism4"
+                      id="location4"
                     />
-                    <label class="custom-control-label" for="specialism4">
+                    <label class="custom-control-label" for="location4">
                       Hawaii
                     </label>
                   </div>
@@ -161,9 +162,9 @@ const SearchUsers = () => {
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="specialism5"
+                      id="location5"
                     />
-                    <label class="custom-control-label" for="specialism5">
+                    <label class="custom-control-label" for="location5">
                       Canada
                     </label>
                   </div>
@@ -176,24 +177,24 @@ const SearchUsers = () => {
                 <a
                   class="ml-auto"
                   data-toggle="collapse"
-                  href="#jobtype"
+                  href="#datingstatus"
                   role="button"
                   aria-expanded="false"
-                  aria-controls="jobtype"
+                  aria-controls="datingstatus"
                 >
                   {" "}
                   <i class="fas fa-chevron-down"></i>{" "}
                 </a>
               </div>
-              <div class="collapse show" id="jobtype">
+              <div class="collapse show" id="datingstatus">
                 <div class="widget-content">
                   <div class="custom-control custom-checkbox fulltime-job">
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="jobtype1"
+                      id="datingstatus1"
                     />
-                    <label class="custom-control-label" for="jobtype1">
+                    <label class="custom-control-label" for="datingstatus1">
                       Just Friends
                     </label>
                   </div>
@@ -201,9 +202,9 @@ const SearchUsers = () => {
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="jobtype2"
+                      id="datingstatus2"
                     />
-                    <label class="custom-control-label" for="jobtype2">
+                    <label class="custom-control-label" for="datingstatus2">
                       Nothing Serious
                     </label>
                   </div>
@@ -211,9 +212,9 @@ const SearchUsers = () => {
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="jobtype3"
+                      id="datingstatus3"
                     />
-                    <label class="custom-control-label" for="jobtype3">
+                    <label class="custom-control-label" for="datingstatus3">
                       Casual Dating
                     </label>
                   </div>
@@ -221,9 +222,9 @@ const SearchUsers = () => {
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="jobtype4"
+                      id="datingstatus4"
                     />
-                    <label class="custom-control-label" for="jobtype4">
+                    <label class="custom-control-label" for="datingstatus4">
                       Serious Committment
                     </label>
                   </div>
@@ -236,24 +237,24 @@ const SearchUsers = () => {
                 <a
                   class="ml-auto"
                   data-toggle="collapse"
-                  href="#experience"
+                  href="#age"
                   role="button"
                   aria-expanded="false"
-                  aria-controls="experience"
+                  aria-controls="age"
                 >
                   {" "}
                   <i class="fas fa-chevron-down"></i>{" "}
                 </a>
               </div>
-              <div class="collapse show" id="experience">
+              <div class="collapse show" id="age">
                 <div class="widget-content">
                   <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="experience1"
+                      id="age1"
                     />
-                    <label class="custom-control-label" for="experience1">
+                    <label class="custom-control-label" for="age1">
                       19-24
                     </label>
                   </div>
@@ -261,9 +262,9 @@ const SearchUsers = () => {
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="experience2"
+                      id="age2"
                     />
-                    <label class="custom-control-label" for="experience2">
+                    <label class="custom-control-label" for="age2">
                       25-30
                     </label>
                   </div>
@@ -271,9 +272,9 @@ const SearchUsers = () => {
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="experience3"
+                      id="age3"
                     />
-                    <label class="custom-control-label" for="experience3">
+                    <label class="custom-control-label" for="age3">
                       31-35
                     </label>
                   </div>
@@ -281,9 +282,9 @@ const SearchUsers = () => {
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="experience4"
+                      id="age4"
                     />
-                    <label class="custom-control-label" for="experience4">
+                    <label class="custom-control-label" for="age4">
                       36-40
                     </label>
                   </div>
@@ -291,9 +292,9 @@ const SearchUsers = () => {
                     <input
                       type="checkbox"
                       class="custom-control-input"
-                      id="experience5"
+                      id="age5"
                     />
-                    <label class="custom-control-label" for="experience5">
+                    <label class="custom-control-label" for="age5">
                       41-50
                     </label>
                   </div>
@@ -469,19 +470,17 @@ const SearchUsers = () => {
                   <div class="match-list-info">
                     <div class="match-list-title">
                       <h5>
-                        <a href="match-detail.html">Rafael Briggs</a>
+                        <a href="match-detail.html">Rafael Briggs, 28</a>
                       </h5>
                     </div>
                     <div class="match-list-option">
                       <ul class="list-unstyled">
+                        <li>Pronouns: They/Them</li>
                         <li>
-                          Pronouns: They/Them
+                        <FontAwesomeIcon icon="map-marker" /> Location:
+                          Haines City, FL 33844
                         </li>
-                        <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
-                          FL 33844
-                        </li>
-                        <li id='bio'>
+                        <li id="bio">
                           Interests: I love long walks on the beach
                         </li>
                       </ul>
@@ -489,11 +488,19 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <div
+                        class="d-grid gap-2"
+                        role="group"
+                        aria-label="Basic example"
+                      >
+                        <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
+                      </div>
                     </span>
                   </div>
                 </div>
@@ -510,21 +517,19 @@ const SearchUsers = () => {
                 </div>
                 <div class="match-list-details">
                   <div class="match-list-info">
-                  <div class="match-list-title">
+                    <div class="match-list-title">
                       <h5>
                         <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
                     <div class="match-list-option">
                       <ul class="list-unstyled">
+                        <li>Pronouns: They/Them</li>
                         <li>
-                          Pronouns: They/Them
+                        <FontAwesomeIcon icon="map-marker" />Location:
+                          Haines City, FL 33844
                         </li>
-                        <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
-                          FL 33844
-                        </li>
-                        <li id='bio'>
+                        <li id="bio">
                           Interests: I love long walks on the beach
                         </li>
                       </ul>
@@ -532,11 +537,13 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -553,21 +560,19 @@ const SearchUsers = () => {
                 </div>
                 <div class="match-list-details">
                   <div class="match-list-info">
-                  <div class="match-list-title">
+                    <div class="match-list-title">
                       <h5>
                         <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
                     <div class="match-list-option">
                       <ul class="list-unstyled">
+                        <li>Pronouns: They/Them</li>
                         <li>
-                          Pronouns: They/Them
+                        <FontAwesomeIcon icon="map-marker" /> Location:
+                          Haines City, FL 33844
                         </li>
-                        <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
-                          FL 33844
-                        </li>
-                        <li id='bio'>
+                        <li id="bio">
                           Interests: I love long walks on the beach
                         </li>
                       </ul>
@@ -575,11 +580,13 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -596,21 +603,19 @@ const SearchUsers = () => {
                 </div>
                 <div class="match-list-details">
                   <div class="match-list-info">
-                  <div class="match-list-title">
+                    <div class="match-list-title">
                       <h5>
                         <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
                     <div class="match-list-option">
                       <ul class="list-unstyled">
+                        <li>Pronouns: They/Them</li>
                         <li>
-                          Pronouns: They/Them
+                        <FontAwesomeIcon icon="map-marker" /> Location:
+                          Haines City, FL 33844
                         </li>
-                        <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
-                          FL 33844
-                        </li>
-                        <li id='bio'>
+                        <li id="bio">
                           Interests: I love long walks on the beach
                         </li>
                       </ul>
@@ -618,11 +623,13 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>6D ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -639,21 +646,19 @@ const SearchUsers = () => {
                 </div>
                 <div class="match-list-details">
                   <div class="match-list-info">
-                  <div class="match-list-title">
+                    <div class="match-list-title">
                       <h5>
                         <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
                     <div class="match-list-option">
                       <ul class="list-unstyled">
+                        <li>Pronouns: They/Them</li>
                         <li>
-                          Pronouns: They/Them
+                        <FontAwesomeIcon icon="map-marker" />  Location:
+                          Haines City, FL 33844
                         </li>
-                        <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
-                          FL 33844
-                        </li>
-                        <li id='bio'>
+                        <li id="bio">
                           Interests: I love long walks on the beach
                         </li>
                       </ul>
@@ -661,11 +666,13 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -682,21 +689,19 @@ const SearchUsers = () => {
                 </div>
                 <div class="match-list-details">
                   <div class="match-list-info">
-                  <div class="match-list-title">
+                    <div class="match-list-title">
                       <h5>
                         <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
                     <div class="match-list-option">
                       <ul class="list-unstyled">
+                        <li>Pronouns: They/Them</li>
                         <li>
-                          Pronouns: They/Them
+                        <FontAwesomeIcon icon="map-marker" />  Location:
+                          Haines City, FL 33844
                         </li>
-                        <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
-                          FL 33844
-                        </li>
-                        <li id='bio'>
+                        <li id="bio">
                           Interests: I love long walks on the beach
                         </li>
                       </ul>
@@ -704,11 +709,13 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -725,21 +732,19 @@ const SearchUsers = () => {
                 </div>
                 <div class="match-list-details">
                   <div class="match-list-info">
-                  <div class="match-list-title">
+                    <div class="match-list-title">
                       <h5>
                         <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
                     <div class="match-list-option">
                       <ul class="list-unstyled">
+                        <li>Pronouns: They/Them</li>
                         <li>
-                          Pronouns: They/Them
+                        <FontAwesomeIcon icon="map-marker" />  Location:
+                          Haines City, FL 33844
                         </li>
-                        <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
-                          FL 33844
-                        </li>
-                        <li id='bio'>
+                        <li id="bio">
                           Interests: I love long walks on the beach
                         </li>
                       </ul>
@@ -747,11 +752,13 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -768,21 +775,19 @@ const SearchUsers = () => {
                 </div>
                 <div class="match-list-details">
                   <div class="match-list-info">
-                  <div class="match-list-title">
+                    <div class="match-list-title">
                       <h5>
                         <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
                     <div class="match-list-option">
                       <ul class="list-unstyled">
+                        <li>Pronouns: They/Them</li>
                         <li>
-                          Pronouns: They/Them
+                        <FontAwesomeIcon icon="map-marker" />  Location:
+                          Haines City, FL 33844
                         </li>
-                        <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
-                          FL 33844
-                        </li>
-                        <li id='bio'>
+                        <li id="bio">
                           Interests: I love long walks on the beach
                         </li>
                       </ul>
@@ -790,11 +795,13 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>3M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
@@ -811,21 +818,20 @@ const SearchUsers = () => {
                 </div>
                 <div class="match-list-details">
                   <div class="match-list-info">
-                  <div class="match-list-title">
+                    <div class="match-list-title">
                       <h5>
                         <a href="match-detail.html">Rafael Briggs</a>
                       </h5>
                     </div>
                     <div class="match-list-option">
                       <ul class="list-unstyled">
+                        <li>Pronouns: They/Them</li>
                         <li>
-                          Pronouns: They/Them
+                          {/* need help with correct icons */}
+                          <FontAwesomeIcon icon="map-marker" />
+                          Location: Haines City, FL 33844
                         </li>
-                        <li>
-                          <i class="fas fa-map-marker-alt pr-1"></i>Location: Haines City,
-                          FL 33844
-                        </li>
-                        <li id='bio'>
+                        <li id="bio">
                           Interests: I love long walks on the beach
                         </li>
                       </ul>
@@ -833,11 +839,13 @@ const SearchUsers = () => {
                   </div>
                   <div class="match-list-favourite-time">
                     <a class="match-list-favourite order-2" href="#">
-                      <i class="far fa-heart"></i>
+                      <FontAwesomeIcon icon="heart" />
                     </a>
                     <span class="match-list-time order-1">
                       <i class="far fa-clock pr-1"></i>1M ago
-                      <button>Lets Connect</button>
+                      <button type="button" class="btn btn-primary">
+                          Let's Connect
+                        </button>
                     </span>
                   </div>
                 </div>
