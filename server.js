@@ -3,11 +3,15 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
-
+const http = require('http');
 const mongooseConnection = require("./database");
 const routes = require("./routes");
 
 const app = express();
+const server = http.createServer(app)
+const { Server } = require('socket.io');
+const { Socket } = require("dgram");
+const io = new Server(server);
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
@@ -38,73 +42,22 @@ app.use(passport.session());
 // Add routes, both API and view
 app.use(routes);
 
-//Socket IO connection
-const httpServer = require("http").createServer(app);
-const io = require("socket.io")(httpServer, {
-  cors: {
-    origin: "http://localhost:3000/", //replace with deployed link
-    // methods: ["GET", "POST"],
-  },
-});
-
-const STATIC_CHANNELS = [
-  {
-    name: "Global chat",
-    participants: 0,
-    id: 1,
-    sockets: [],
-  },
-  {
-    name: "Funny",
-    participants: 0,
-    id: 2,
-    sockets: [],
-  },
-];
-
 app.use((req, res, next) => {
   res.setHeader(
     'Access-Control-Allow-Origin', '*');
   next();
 })
 
-// io.on("connection", (socket) => {
-//   // socket object may be used to send specific messages to the new connected client
-//   console.log("new client connected");
-//   socket.emit("connection", null);
-//   socket.on("channel-join", (id) => {
-//     console.log("channel join", id);
-//     STATIC_CHANNELS.forEach((c) => {
-//       if (c.id === id) {
-//         if (c.sockets.indexOf(socket.id) == -1) {
-//           c.sockets.push(socket.id);
-//           c.participants++;
-//           io.emit("channel", c);
-//         }
-//       } else {
-//         let index = c.sockets.indexOf(socket.id);
-//         if (index != -1) {
-//           c.sockets.splice(index, 1);
-//           c.participants--;
-//           io.emit("channel", c);
-//         }
-//       }
-//     });
+io.on('connection', (socket) => {
+  console.log("a user connected");
+  socket.emit("init", "hello from the server");
+  require('./sockets/dissconected')(io, socket);
+  require('./sockets/chat/msg')(io, socket);
+});
 
-//     return id;
-//   });
-//   socket.on("send-message", (message) => {
-//     io.emit("message", message);
-//   });
 
   // Start the API server
-  httpServer.listen(PORT, function () {
-    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-  });
+server.listen(PORT, function () {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
 
-  app.get("/getChannels", (req, res) => {
-    res.json({
-      channels: STATIC_CHANNELS,
-    });
-  });
-// });

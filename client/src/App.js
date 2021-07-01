@@ -18,34 +18,40 @@ import { useStoreContext } from "./store/store";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faHeart, faEdit, faMapMarker } from "@fortawesome/free-solid-svg-icons";
-// import clientSocket from "socket.io-client";
+import { io } from "socket.io-client";
 
 library.add(fab, faEnvelope, faHeart, faEdit, faMapMarker);
 //Use throughout app where icons are needed: import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' with <FontAwesomeIcon icon="{iconName}" />
 
-// const PORT = "http://127.0.0.1:3001" //might need to change this to process.env.PORT to deploy on heroku
 const App = () => {
-  // const socket = clientSocket(PORT)
+  const socket = io();
+  socket.on("connection", () => {
+    console.log("connected to server");
+    console.log(socket.id);
+  })
+
+  
   const history = useHistory();
   const [state, dispatch] = useStoreContext();
-
+  
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
-
+  
   useEffect(() => {
     dispatch({ type: LOADING });
     console.log("useEffect in app");
     axios
-      .get("/api/users")
-      .then((response) => {
-        console.log(response);
-        if (response.data.user) {
-          dispatch({ type: SET_USER, user: response.data.user });
+    .get("/api/users")
+    .then((response) => {
+      console.log(response);
+      if (response.data.user) {
+        dispatch({ type: SET_USER, user: response.data.user });
+        socket.emit('init', state.user._id)
         } else {
           dispatch({ type: UNSET_USER });
           history.push("/login");
         }
         setIsLoggedInLoading(false);
-      })
+    })
       .catch((err) => {
         console.log(err);
       });
