@@ -10,7 +10,7 @@ import Profile from "./pages/profile";
 import Swipe from "./pages/swipe";
 import Inbox from "./pages/inbox";
 import Chats from "./pages/chats";
-import Help from "./pages/help";
+import Help from "./pages/Help";
 import SearchUsers from "./pages/SearchUsers/searchusers";
 import { LOADING, SET_USER, UNSET_USER } from "./store/actions";
 import { useStoreContext } from "./store/store";
