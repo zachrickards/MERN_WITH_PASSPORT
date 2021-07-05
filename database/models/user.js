@@ -20,9 +20,6 @@ const userSchema = new Schema({
   status: { type: String },
   bio: { type: String},
   interests: { type: Array},
-  yesSwipes: [{ type: Schema.Types.ObjectId, ref: "User" }],
-  noSwipes: [{ type: Schema.Types.ObjectId, ref: "User" }],
-  matches: [{ type: Schema.Types.ObjectId, ref: "User" }],
   profileImg: {
     public_id: {
       type: String
