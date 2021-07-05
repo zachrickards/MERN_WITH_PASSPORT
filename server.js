@@ -10,7 +10,6 @@ const routes = require("./routes");
 const app = express();
 const server = http.createServer(app)
 const { Server } = require('socket.io');
-const { Socket } = require("dgram");
 const io = new Server(server);
 const PORT = process.env.PORT || 3001;
 
@@ -50,9 +49,10 @@ app.use((req, res, next) => {
 
 io.on('connection', (socket) => {
   console.log("a user connected");
-  socket.emit("init", "hello from the server");
-  require('./sockets/dissconected')(io, socket);
+  socket.emit("connection", null);
+  require("./sockets/chat/joinManyRooms")(io, socket);
   require('./sockets/chat/msg')(io, socket);
+  require('./sockets/dissconected')(io, socket);
 });
 
 
