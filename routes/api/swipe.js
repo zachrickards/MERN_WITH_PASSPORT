@@ -5,7 +5,11 @@ const User = require("../../database/models/User");
 router.get("/", async (req, res) => {
     try {
         // TODO: filter users based on previous matches
-        const userData = await User.find();
+        const userData = await User.find({
+            _id: {
+                $ne: req.user._id
+            }
+        });
 
         res.json(userData);
 

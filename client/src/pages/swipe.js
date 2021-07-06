@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import API from '../utils/API';
 const Swipe = () => {
 
-const [swipe, setSwipe] = useState([])
+const [swipes, setSwipes] = useState([])
   const [formObject, setFormObject] = useState({})
 
   // Load all books and store them with setBooks
@@ -17,7 +17,7 @@ const [swipe, setSwipe] = useState([])
     API.Swipe.getSwipe()
       .then(res => {
         console.log(res);
-        setSwipe(res.data)
+        setSwipes(res.data)
       })
       .catch(err => console.log(err));
   };
@@ -26,7 +26,7 @@ const [swipe, setSwipe] = useState([])
     <Container>
       <Row>
         <Col className="d-flex justify-content-center">
-          <TinderCardComponent />
+          <TinderCardComponent swipes={swipes} />
         </Col>
       </Row>
     </Container>

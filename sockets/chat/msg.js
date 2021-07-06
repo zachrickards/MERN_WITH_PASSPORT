@@ -1,7 +1,6 @@
 module.exports = (io, socket) => {
     socket.on('clientMsg', (socketRoomName, msgObj, cb) => {
         try {
-            console.log("msgObj", msgObj);
             socket.to(socketRoomName).emit("serverMsg", msgObj);
     
             cb({
@@ -15,7 +14,5 @@ module.exports = (io, socket) => {
                 message: err.message
             })
         }
-
-
     })
 }

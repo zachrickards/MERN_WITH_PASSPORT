@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
@@ -41,11 +40,11 @@ app.use(passport.session());
 // Add routes, both API and view
 app.use(routes);
 
-app.use((req, res, next) => {
-  res.setHeader(
-    'Access-Control-Allow-Origin', '*');
-  next();
-})
+// app.use((req, res, next) => {
+//   res.setHeader(
+//     'Access-Control-Allow-Origin', '*');
+//   next();
+// })
 
 io.on('connection', (socket) => {
   console.log("a user connected");
