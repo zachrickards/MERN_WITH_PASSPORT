@@ -7,8 +7,19 @@ export default {
       return axios.get("/api/swipes");
     },
 
+  },
+
+  Match: {
+    createMatch: function(obj) {
+      return axios.post("/api/match/", obj)
+    },
+
+    findAllMatches: function() {
+      return axios.get("/api/match/all");
+    }
   }
 
+  
 
   // // Gets the book with the given id
   // getBook: function(id) {

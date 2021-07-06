@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("passport");
@@ -10,7 +9,6 @@ const routes = require("./routes");
 const app = express();
 const server = http.createServer(app)
 const { Server } = require('socket.io');
-const { Socket } = require("dgram");
 const io = new Server(server);
 const PORT = process.env.PORT || 3001;
 
@@ -42,17 +40,18 @@ app.use(passport.session());
 // Add routes, both API and view
 app.use(routes);
 
-app.use((req, res, next) => {
-  res.setHeader(
-    'Access-Control-Allow-Origin', '*');
-  next();
-})
+// app.use((req, res, next) => {
+//   res.setHeader(
+//     'Access-Control-Allow-Origin', '*');
+//   next();
+// })
 
 io.on('connection', (socket) => {
   console.log("a user connected");
-  socket.emit("init", "hello from the server");
-  require('./sockets/dissconected')(io, socket);
+  socket.emit("connection", null);
+  require("./sockets/chat/joinManyRooms")(io, socket);
   require('./sockets/chat/msg')(io, socket);
+  require('./sockets/dissconected')(io, socket);
 });
 
 

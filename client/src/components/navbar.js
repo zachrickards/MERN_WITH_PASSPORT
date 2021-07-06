@@ -41,7 +41,7 @@ const Navbar = () => {
                   <FontAwesomeIcon icon="heart" />
                 </span>
               </Link>
-              <Link to="/inbox" className="btn btn-link">
+              <Link to="/chat" className="btn btn-link">
                 <span className="text-secondary">
                   <FontAwesomeIcon icon="envelope" />
                 </span>
