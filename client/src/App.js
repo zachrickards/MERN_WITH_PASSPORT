@@ -18,19 +18,11 @@ import { useStoreContext } from "./store/store";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faHeart, faEdit, faMapMarker } from "@fortawesome/free-solid-svg-icons";
-import { io } from "socket.io-client";
 
 library.add(fab, faEnvelope, faHeart, faEdit, faMapMarker);
 //Use throughout app where icons are needed: import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' with <FontAwesomeIcon icon="{iconName}" />
 
 const App = () => {
-  const socket = io();
-  socket.on("connection", () => {
-    console.log("connected to server");
-    console.log(socket.id);
-  })
-
-  
   const history = useHistory();
   const [state, dispatch] = useStoreContext();
   
@@ -45,7 +37,6 @@ const App = () => {
       console.log(response);
       if (response.data.user) {
         dispatch({ type: SET_USER, user: response.data.user });
-        socket.emit('init', state.user._id)
         } else {
           dispatch({ type: UNSET_USER });
           history.push("/login");
@@ -74,10 +65,7 @@ const App = () => {
           <Route exact path="/profile" component={Profile} />
            
           <Route exact path="/swipe" component={Swipe} />
-          {/* Inbox displays all messages */}
-          <Route exact path="/inbox" component={Inbox} />
-          {/* Chats is direct messaging */}
-          <Route exact path="/chats" component={Chats} />
+          <Route exact path="/chat" component={Chats} />
           <Route exact path="/help" component={Help} />
           <Route component={Home} />
         </Switch>

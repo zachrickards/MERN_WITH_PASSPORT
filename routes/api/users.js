@@ -19,15 +19,14 @@ router.post(
   passport.authenticate("local"),
   (req, res) => {
     console.log("LOGGED IN", req.user);
-    res.send({
-      username: req.user.username,
-    });
+    res.send(req.user);
   }
 );
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   if (req.user) {
-    res.json({ user: req.user });
+    const userData = await User.findById(req.user._id);
+    res.json({ user: userData });
   } else {
     res.json({ user: null });
   }

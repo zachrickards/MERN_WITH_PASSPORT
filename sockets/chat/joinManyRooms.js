@@ -7,19 +7,15 @@ module.exports = (io, socket) => {
                 console.log(`joined ${roomName} room`)
                 socket.join(roomName)
             });
+            cb({
+                status: "ok",
+                message: "joined all"
+            })
         })
 
-        cb({
-            status: "ok",
-            message: "joined all"
-        })
 
     } catch(err) {
         console.log(err);
-        cb({
-            status: "error",
-            message: err.message
-        })
     }
 
 }
