@@ -2,30 +2,60 @@ import React, {useEffect, useState} from "react";
 import Interest from "../components/interestTag";
 import MobileDiv from "../components/mobileDiv";
 import { Link } from "react-router-dom";
-import IntroCard from "../components/Profile/IntroCard";
+import IntroCard from "../components/Settings/IntroCard/IntroCard";
+import BioCard from "../components/Settings/BioCard/BioCard";
+import InterestsCard from "../components/Settings/InterestsCard/InterestsCard";
 import axios from "axios";
+import PartnerPrefCard from "../components/Settings/PartnerPrefCard/PartnerPrefCard";
 
 const Settings = () => {
 
   //state obj containing needed userdata to fill out card
+  //need state data to be named after each card
   const [userData, setUserData] = useState({
     firstName: "",
-  })
+    lastName: "",
+    age: "",
+    pronouns: "",
+    location: "",
+    orientation: "",
+    status: "",
+    bio: "",
+    interests: [],
+    partnerPrefs: [
+      {age: ""},
+      {gender: ""}
+    ]
+  });
+
   useEffect(() => {
     const username = JSON.parse(localStorage.getItem("user")).username;
     axios.get(`/api/users/${username}`)
     .then((data) => {
       setUserData({
-        firstName: data.firstName || "",
+        firstName: `${data.data.email}`,
+        lastName: "",
+        username: `${username}`,
+        age: "",
+        pronouns: "",
+        location: "",
+        orientation: "",
+        status: "",
+        bio: "",
+        interests: [],
+        partnerPrefs: [
+          {age: ""},
+          {gender: ""}
+        ]
       })
       console.log(data)
     })
   },[])
 
+  console.log(userData.firstName);
+
   return (
     <div>
-      <IntroCard/>
-
       <div className="text-center mt-4" style={{ overflowX: "hidden" }}>
         <h1>Edit Profile</h1>
         <MobileDiv id="edit-profile-image">
@@ -52,102 +82,14 @@ const Settings = () => {
           </div>
         </MobileDiv>
 
-        <MobileDiv id="user-info">
-          <div className="d-flex flex-column">
-            {/* <ToggleEdit> */}
-            <h1 style={{ fontSize: "1.75rem", margin: "0px", padding: "0px" }}>
-              FirstName LastName
-            </h1>
-            {/* </ToggleEdit> */}
+        <IntroCard 
+        firstName={userData.firstName}
+        username={userData.username}/>
+        <BioCard />
+        <InterestsCard/>
+        <PartnerPrefCard />
 
-            <h2 style={{ fontSize: "1.5rem" }} className="text-muted">
-              @username
-            </h2>
-          </div>
-
-          <div>
-            {/* <ToggleEdit> */}
-            <div
-              className="text-muted"
-              style={{ fontSize: "1rem", marginTop: "0px", padding: "0px" }}
-            >
-              <span className="mx-1">Age |</span>
-              <span className="mx-1">Pronouns |</span>
-              <span className="mx-1">Location</span>
-            </div>
-            {/* </ToggleEdit> */}
-
-            {/* <ToggleEdit> */}
-            <div style={{ fontSize: "1rem", marginTop: "0px", padding: "0px" }}>
-              <div className="text-muted">
-                <span className="mx-1">Orientation &</span>
-                <span className="mx-1">Status</span>
-              </div>
-            </div>
-            {/* </ToggleEdit> */}
-            <p>Looking for a (genderpreference) (agepref)</p>
-          </div>
-
-          <div className="mt-4" id="bio-container">
-            {/* <ToggleEdit> */}
-            <h5>Bio</h5>
-            {/* </ToggleEdit> */}
-            <p
-              className="lead"
-              style={{ fontSize: "16px", lineHeight: `1.2rem` }}
-            >
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-              penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-              sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
-              vel, aliquet nec, vulputate
-            </p>
-          </div>
-
-          <div className="px-16 mt-3 text-center">
-            {/* <ToggleEdit> */}
-            <h5>Interests</h5>
-            {/* </ToggleEdit> */}
-            <div id="interests-container">
-              <Interest>#art</Interest>
-              <Interest>#photography</Interest>
-              <Interest>#music</Interest>
-            </div>
-          </div>
-        </MobileDiv>
-
-        {/* Partner Preferences */}
-        <MobileDiv id="partner-preferences">
-          <h5>Partner Preferences</h5>
-          {/* <ToggleEdit> */}
-          <span>Age Preference</span>
-          {/* </ToggleEdit> */}
-          <div className="slidecontainer" id="age-slider">
-            <input
-              type="range"
-              min="1"
-              max="100"
-              value="50"
-              className="slider"
-              id="myRange"
-            />
-          </div>
-          {/* <ToggleEdit> */}
-          <span>Gender Preference</span>
-          {/* </ToggleEdit> */}
-          <div className="slidecontainer" id="gender-slider">
-            <input
-              type="range"
-              min="1"
-              max="100"
-              value="50"
-              className="slider"
-              id="myRange"
-            />
-          </div>
-        </MobileDiv>
-
+        
         {/* Advanced Settings */}
         <footer className="footer py-3 bg-light">
           <Link to="/" className="">

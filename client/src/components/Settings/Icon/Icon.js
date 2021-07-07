@@ -4,11 +4,12 @@ import "./style.css";
 
 const EditIcon = ({ isEditing, setIsEditing }) => {
 
+  //
   return (
       <FontAwesomeIcon 
-      icon={ isEditing ? "save" : "edit"}
+      icon={ isEditing ? "window-close" : "edit"}
       size="xs" 
-      color={ isEditing ? "green" : "blue"}
+      color={ isEditing ? "red" : "blue"}
       className="mx-2"
       onClick={() => {setIsEditing(!isEditing)}}
       />
