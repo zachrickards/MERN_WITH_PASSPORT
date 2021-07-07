@@ -21,7 +21,7 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    console.log("handleSubmit")
     dispatch({ type: LOADING });
     axios
       .post('/api/users/login', {

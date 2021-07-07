@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const userRoutes = require('./users');
-const chatRoutes = require('./chats');
-const messageRoutes = require('./messages');
 const images = require("./image");
+const swipe =require('./swipe');
+const match = require("./match");
 
 router.use('/users', userRoutes);
-router.use('/chats', chatRoutes);
-router.use('/messages', messageRoutes);
 router.use('/images', images);
+router.use('/swipes', swipe);
+router.use("/match", match);
 
 module.exports = router;

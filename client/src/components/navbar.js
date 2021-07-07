@@ -41,7 +41,7 @@ const Navbar = () => {
                   <FontAwesomeIcon icon="heart" />
                 </span>
               </Link>
-              <Link to="/inbox" className="btn btn-link">
+              <Link to="/chat" className="btn btn-link">
                 <span className="text-secondary">
                   <FontAwesomeIcon icon="envelope" />
                 </span>
@@ -67,14 +67,22 @@ const Navbar = () => {
           {state.user ? (
             <ul className="navbar-nav">
               <li className="nav-item dropdown">
-                <span className="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span
+                  className="nav-link dropdown-toggle"
+                  id="navbarDarkDropdownMenuLink"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
                   Find A Match
                 </span>
+
                 <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                   <li><Link to="/swipe" className="dropdown-item">Swipe</Link></li>
-                  <li><Link to="/searchuser" className="dropdown-item">Browse</Link></li>
+                  <li><Link to="/searchusers" className="dropdown-item">Browse</Link></li>
+
                 </ul>
-            </li>
+              </li>
 
               <li className="nav-item active">
                 <Link to="/settings" className="btn btn-link">
@@ -86,6 +94,15 @@ const Navbar = () => {
                   <span className="text-secondary">Help</span>
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link
+                  to="/profile"
+                  className="btn btn-link"
+                >
+                  <span className="text-secondary">Profile</span>
+                </Link>
+              </li>
+
               <li className="nav-item active">
                 <Link
                   to="#"
