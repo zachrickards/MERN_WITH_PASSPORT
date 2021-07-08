@@ -18,19 +18,20 @@ const userSchema = new Schema({
   pronouns: { type: Array },
   sexuality: { type: String },
   status: { type: String },
-  bio: { type: String},
-  interests: { type: Array},
+  bio: { type: String },
+  interests: { type: Array },
+  yes: [mongoose.ObjectId],
   profileImg: {
     public_id: {
-      type: String
+      type: String,
     },
     filename: {
-      type: String
+      type: String,
     },
     url: {
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 });
 
 // Define schema methods
