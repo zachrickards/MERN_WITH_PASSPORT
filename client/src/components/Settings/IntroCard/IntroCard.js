@@ -7,34 +7,30 @@ import MobileDiv from "../../mobileDiv";
 import axios from 'axios';
 import SaveButton from "../SaveButton/SaveButton";
 
-const IntroCard = ({ firstName, lastName, username, age, pronouns, location, orientation, status }) => {
+const IntroCard = ({ firstName, lastName, username, age, location, gender, pronouns, sexuality, status }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [canPutSave, setCanPutSave] = useState(false);
 
   //save function
   //get data from all input areas and make api request to save(PUT)
   //pass save function into editicon attributes
-  
   const onChange = (event) => {
-    const saveData = event.target.value;
     const key = event.target.id;
-    console.log(isEditing, key, saveData);
+    const saveData = event.target.value;
+    console.log(key+":"+ saveData);
+    return (saveData);
   }
 
-  const saveChanges = (event) => {
-    console.log("saved");
-    // const saveData = event.target.value;
-    // const key = event.target.id;  
-    // if (canPutSave && isEditing) {
-    // axios.put(`/api/users/${username}`, `${key} : ${saveData}`)
-    // .then(console.log("if")
-    // setIsEditing(false));
-    // }
-    // console.log(isEditing, key, saveData);
+  const saveChanges = () => {
+    axios.put(`/api/users/${username}`,
+    {
+      firstName: onChange.value,
+    })
+    .then(
+      setIsEditing(false)
+    )
   }
-
-
-
+  
   return (
     <MobileDiv id="user-info">
       {/* Container for name and username */}
@@ -52,7 +48,7 @@ const IntroCard = ({ firstName, lastName, username, age, pronouns, location, ori
             />
             <input
               type="text"
-              placeholder="LastName"
+              placeholder={lastName}
               className="name"
               onChange={onChange}
               id="lastName"
@@ -60,7 +56,7 @@ const IntroCard = ({ firstName, lastName, username, age, pronouns, location, ori
             </div>
           ) : (
             <div className="name">
-              <h1>{firstName}</h1>
+              <h1>{firstName} {lastName}</h1>
             </div>
           )}
         </Col>
@@ -83,7 +79,7 @@ const IntroCard = ({ firstName, lastName, username, age, pronouns, location, ori
           <Col className="demographics">
             <input
               type="text"
-              placeholder="Age"
+              placeholder={age}
               id="age"
               className="demographics"
             />
@@ -91,10 +87,10 @@ const IntroCard = ({ firstName, lastName, username, age, pronouns, location, ori
           <Col className="text-muted demographics">
             <select className="form-select demographics" aria-label="Default select example" id="pronouns">
               <option selected>Pronouns</option>
-              <option value="1">He/Him</option>
-              <option value="2">She/Her</option>
-              <option value="3">Them/They</option>
-              <option value="4">Custom</option>
+              <option value="He/Him">He/Him</option>
+              <option value="She/Her">She/Her</option>
+              <option value="Them/They">Them/They</option>
+              <option value="Custom">Custom</option>
             </select>
           </Col>
           <Col className="text-muted demographics">
@@ -105,20 +101,20 @@ const IntroCard = ({ firstName, lastName, username, age, pronouns, location, ori
           <Col className="text-muted demographics">
             <select className="form-select demographics" aria-label="Default select example" id="pronouns">
               <option selected>Orientation</option>
-              <option value="1">Bisexual</option>
-              <option value="2">Gay</option>
-              <option value="4">Straight</option>
-              <option value="4">Custom</option>
+              <option value="Bisexual">Bisexual</option>
+              <option value="Gay">Gay</option>
+              <option value="Straight">Straight</option>
+              <option value="Custom">Custom</option>
             </select>
           </Col>
           <Col className="text-muted demographics">
             <select className="form-select demographics" aria-label="Default select example" id="pronouns">
               <option selected>Looking For:</option>
-              <option value="1">Casual Dating</option>
-              <option value="2">Friends</option>
-              <option value="3">Hookups</option>
-              <option value="4">Serious Commitment</option>
-              <option value="4">Custom</option>
+              <option value="Casual Dating">Casual Dating</option>
+              <option value="Friends">Friends</option>
+              <option value="Hookups">Hookups</option>
+              <option value="Serious Committment">Serious Committment</option>
+              <option value="Custom">Custom</option>
             </select>
           </Col>
         </Row>
@@ -126,10 +122,10 @@ const IntroCard = ({ firstName, lastName, username, age, pronouns, location, ori
       ) : (
         <div>
           <Row className="text-muted demographics">
-            <span className="mx-1">Age | Pronouns | Location</span>
+            <span className="mx-1">{age} | {gender}/{pronouns} | {location}</span>
           </Row>
           <Row className="text-muted demographics">
-          <span className="mx-1">Orientation & Status</span>
+          <span className="mx-1">{sexuality} & {status}</span>
           </Row>
         </div>
       )}

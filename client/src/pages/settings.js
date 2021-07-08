@@ -33,16 +33,17 @@ const Settings = () => {
     axios.get(`/api/users/${username}`)
     .then((data) => {
       setUserData({
-        firstName: `${data.data.email}`,
-        lastName: "",
+        firstName: `${data.data.firstName}`,
+        lastName: `${data.data.lastName}`,
         username: `${username}`,
-        age: "",
-        pronouns: "",
-        location: "",
-        orientation: "",
-        status: "",
-        bio: "",
-        interests: [],
+        age: `${data.data.age}`,
+        pronouns: `${data.data.pronouns}`,
+        location: `${data.data.location}`,
+        gender: `${data.data.gender}`,
+        sexuality: `${data.data.sexuality}`,
+        status: `${data.data.status}`,
+        bio: `${data.data.bio}`,
+        interests: `${data.data.interests}`,
         partnerPrefs: [
           {age: ""},
           {gender: ""}
@@ -84,9 +85,21 @@ const Settings = () => {
 
         <IntroCard 
         firstName={userData.firstName}
-        username={userData.username}/>
-        <BioCard />
-        <InterestsCard/>
+        lastName={userData.lastName}
+        username={userData.username}
+        age={userData.age}
+        location={userData.location}
+        gender={userData.gender}
+        pronouns={userData.pronouns}
+        sexuality={userData.sexuality}
+        status={userData.status}
+        />
+        <BioCard 
+        bio={userData.bio}
+        />
+        <InterestsCard
+        interests={userData.interests}
+        />
         <PartnerPrefCard />
 
         
