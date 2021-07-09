@@ -14,12 +14,14 @@ import Help from "./pages/Help";
 import SearchUsers from "./pages/SearchUsers/searchusers";
 import { LOADING, SET_USER, UNSET_USER } from "./store/actions";
 import { useStoreContext } from "./store/store";
+
 //Fontawesome dependencies
+// import clientSocket from "socket.io-client";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faHeart, faEdit, faMapMarker } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faHeart, faEdit, faMapMarker, faSave, faWindowClose } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, faEnvelope, faHeart, faEdit, faMapMarker);
+library.add(fab, faEnvelope, faHeart, faEdit, faMapMarker, faSave, faWindowClose);
 //Use throughout app where icons are needed: import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' with <FontAwesomeIcon icon="{iconName}" />
 
 const App = () => {

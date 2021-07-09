@@ -1,0 +1,8 @@
+#edit-profile-image {
+    display: flex;
+    align-items: center;
+}
+
+#img-col-div {
+    position:sticky;
+}

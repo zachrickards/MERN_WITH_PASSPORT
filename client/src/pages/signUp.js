@@ -23,7 +23,7 @@ const SignUp = () => {
     event.preventDefault();
 
     axios
-      .post('/api/users', {
+      .post('/api/users/signup', {
         username: signUpCreds.username,
         firstName: signUpCreds.firstName,
         lastName: signUpCreds.lastName,
