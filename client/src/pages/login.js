@@ -40,7 +40,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log('login error: ');
-        console.log(error);
+        console.log(error.message);
       });
   };
 

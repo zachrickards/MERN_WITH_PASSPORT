@@ -29,8 +29,8 @@ const Settings = () => {
   });
 
   useEffect(() => {
-    // const username = JSON.parse(localStorage.getItem("user")).username;
-    axios.get(`/api/users/anisha`)
+    const username = JSON.parse(localStorage.getItem("user")).username;
+    axios.get(`/api/users/${username}`)
     .then((data) => {
       setUserData({
         firstName: `${data.firstName}`,
