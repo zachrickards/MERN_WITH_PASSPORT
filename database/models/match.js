@@ -5,6 +5,10 @@ mongoose.promise = Promise;
 
 // Define chatSchema
 const matchSchema = new Schema({
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
   users: [
     {
       userId: {
@@ -16,9 +20,9 @@ const matchSchema = new Schema({
         type: String,
       },
       match: {
-          type: Boolean,
-          required: true
-      }
+        type: Boolean,
+        required: true,
+      },
     },
   ],
   socketRoomName: {
