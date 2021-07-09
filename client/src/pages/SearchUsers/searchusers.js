@@ -5,8 +5,116 @@ import { LOADING, SET_USER } from "../../store/actions";
 import { useStoreContext } from "../../store/store";
 import "./searchuser.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Matchcard from "../../components/matchcard";
 
+let singleTrueRange = 0;
+
+let userSeed = [
+  {
+    username: "Jerry223",
+    password: "1234",
+    firstName: "Jerry",
+    lastName: "Adams",
+    age: "43",
+    location: "New York City",
+    gender: "Male",
+    pronouns: ["Him", "He"],
+    sexuality: "",
+    status: "Ready to commit",
+    bio: "I'm a cool guy looking to have fun",
+    interests: "Having fun",
+    yesSwipes: [],
+    noSwipes: [],
+    matches: [],
+  },
+  {
+    username: "Martha115",
+    password: "5890",
+    firstName: "Maddams",
+    lastName: "Adams",
+    age: "41",
+    location: "North Carolina",
+    gender: "Female",
+    pronouns: ["Her", "She"],
+    sexuality: "",
+    status: "Ready to commit",
+    bio: "I'm a cool girl looking to have fun",
+    interests: "Sewing",
+    yesSwipes: [],
+    noSwipes: [],
+    matches: [],
+  },
+  {
+    username: "Rachel890",
+    password: "1568",
+    firstName: "Rachel",
+    lastName: "Smith",
+    age: "33",
+    location: "Delaware",
+    gender: "Female",
+    pronouns: ["Her", "She"],
+    sexuality: "",
+    status: "Ready to commit",
+    bio: "I'm a nice gal",
+    interests: "Fishing",
+    yesSwipes: [],
+    noSwipes: [],
+    matches: [],
+  },
+];
 const SearchUsers = () => {
+  const [currentFilter, setCurrentFilter] = useState()
+  const [activeAgeRange, setActiveAgeRange] = useState([
+    // {
+    //   range: "19-24",
+    //   isChecked: true,
+    // },
+    // {
+    //   range: "25-30",
+    //   isChecked: false,
+    // },
+    // {
+    //   range: "31-35",
+    //   isChecked: false,
+    // },
+    // {
+    //   range: "36-40",
+    //   isChecked: false,
+    // },
+    // {
+    //   range: "41-50",
+    //   isChecked: false,
+    // }
+    true, false, false, false, false
+  ])
+
+const ageRanges = ["19-24","25-30","31-35","36-40", "41-50"]
+
+
+const handleAgeCheck = (position) => {
+  // console.log(activeAgeRange)
+const newCheckState = activeAgeRange.map((item,index) => 
+  index === position ? !item :item)
+console.log(newCheckState)
+setActiveAgeRange(newCheckState)
+}
+
+const AgeRangeCheckBox = (props) => {
+  return (
+    <div class="custom-control custom-checkbox">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id={props.index}
+                      checked={props.isChecked}
+                      onChange={() => handleAgeCheck(props.index)}
+                    />
+                    <label class="custom-control-label" for={props.index}>
+                      {props.range}
+                    </label>
+                  </div>
+  )
+}
   return (
     <div class="container">
       <div class="row">
@@ -248,7 +356,17 @@ const SearchUsers = () => {
               </div>
               <div class="collapse show" id="age">
                 <div class="widget-content">
-                  <div class="custom-control custom-checkbox">
+                  {activeAgeRange.map((item, index) => 
+                  <AgeRangeCheckBox 
+                  range = {ageRanges[index]}
+                  index = {index}
+                  isChecked={item}
+                  />
+                    )}
+
+
+
+                  {/* <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
                       class="custom-control-input"
@@ -283,6 +401,8 @@ const SearchUsers = () => {
                       type="checkbox"
                       class="custom-control-input"
                       id="age4"
+                      checked={isChecked}
+                      onChange={() => handleAgeCheck()}
                     />
                     <label class="custom-control-label" for="age4">
                       36-40
@@ -297,7 +417,7 @@ const SearchUsers = () => {
                     <label class="custom-control-label" for="age5">
                       41-50
                     </label>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -432,7 +552,7 @@ const SearchUsers = () => {
           <div class="row mb-4">
             <div class="col-12">
               <h6 class="mb-0">
-                Showing 1-10 of <span class="text-primary">28 Matches</span>
+                Showing 1-10 of <span class="text-primary">{userSeed.length} Matches</span>
               </h6>
             </div>
           </div>
@@ -457,400 +577,43 @@ const SearchUsers = () => {
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="match-list match-grid">
-                <div class="match-list-image">
-                  <img
-                    class="img-fluid"
-                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                    alt=""
-                  />
-                </div>
-                <div class="match-list-details">
-                  <div class="match-list-info">
-                    <div class="match-list-title">
-                      <h5>
-                        <a href="match-detail.html">Rafael Briggs, 28</a>
-                      </h5>
-                    </div>
-                    <div class="match-list-option">
-                      <ul class="list-unstyled">
-                        <li>Pronouns: They/Them</li>
-                        <li>
-                        <FontAwesomeIcon icon="map-marker" /> Location:
-                          Haines City, FL 33844
-                        </li>
-                        <li id="bio">
-                          Interests: I love long walks on the beach
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="match-list-favourite-time">
-                    <a class="match-list-favourite order-2" href="#">
-                      <FontAwesomeIcon icon="heart" />
-                    </a>
-                    <span class="match-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>1M ago
-                      <div
-                        class="d-grid gap-2"
-                        role="group"
-                        aria-label="Basic example"
-                      >
-                        <button type="button" class="btn btn-primary">
-                          Let's Connect
-                        </button>
-                      </div>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="match-list match-grid">
-                <div class="match-list-image">
-                  <img
-                    class="img-fluid"
-                    src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                    alt=""
-                  />
-                </div>
-                <div class="match-list-details">
-                  <div class="match-list-info">
-                    <div class="match-list-title">
-                      <h5>
-                        <a href="match-detail.html">Rafael Briggs</a>
-                      </h5>
-                    </div>
-                    <div class="match-list-option">
-                      <ul class="list-unstyled">
-                        <li>Pronouns: They/Them</li>
-                        <li>
-                        <FontAwesomeIcon icon="map-marker" />Location:
-                          Haines City, FL 33844
-                        </li>
-                        <li id="bio">
-                          Interests: I love long walks on the beach
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="match-list-favourite-time">
-                    <a class="match-list-favourite order-2" href="#">
-                      <FontAwesomeIcon icon="heart" />
-                    </a>
-                    <span class="match-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>1M ago
-                      <button type="button" class="btn btn-primary">
-                          Let's Connect
-                        </button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="match-list match-grid">
-                <div class="match-list-image">
-                  <img
-                    class="img-fluid"
-                    src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                    alt=""
-                  />
-                </div>
-                <div class="match-list-details">
-                  <div class="match-list-info">
-                    <div class="match-list-title">
-                      <h5>
-                        <a href="match-detail.html">Rafael Briggs</a>
-                      </h5>
-                    </div>
-                    <div class="match-list-option">
-                      <ul class="list-unstyled">
-                        <li>Pronouns: They/Them</li>
-                        <li>
-                        <FontAwesomeIcon icon="map-marker" /> Location:
-                          Haines City, FL 33844
-                        </li>
-                        <li id="bio">
-                          Interests: I love long walks on the beach
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="match-list-favourite-time">
-                    <a class="match-list-favourite order-2" href="#">
-                      <FontAwesomeIcon icon="heart" />
-                    </a>
-                    <span class="match-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>1M ago
-                      <button type="button" class="btn btn-primary">
-                          Let's Connect
-                        </button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="match-list match-grid">
-                <div class="match-list-image">
-                  <img
-                    class="img-fluid"
-                    src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                    alt=""
-                  />
-                </div>
-                <div class="match-list-details">
-                  <div class="match-list-info">
-                    <div class="match-list-title">
-                      <h5>
-                        <a href="match-detail.html">Rafael Briggs</a>
-                      </h5>
-                    </div>
-                    <div class="match-list-option">
-                      <ul class="list-unstyled">
-                        <li>Pronouns: They/Them</li>
-                        <li>
-                        <FontAwesomeIcon icon="map-marker" /> Location:
-                          Haines City, FL 33844
-                        </li>
-                        <li id="bio">
-                          Interests: I love long walks on the beach
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="match-list-favourite-time">
-                    <a class="match-list-favourite order-2" href="#">
-                      <FontAwesomeIcon icon="heart" />
-                    </a>
-                    <span class="match-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>6D ago
-                      <button type="button" class="btn btn-primary">
-                          Let's Connect
-                        </button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="match-list match-grid">
-                <div class="match-list-image">
-                  <img
-                    class="img-fluid"
-                    src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                    alt=""
-                  />
-                </div>
-                <div class="match-list-details">
-                  <div class="match-list-info">
-                    <div class="match-list-title">
-                      <h5>
-                        <a href="match-detail.html">Rafael Briggs</a>
-                      </h5>
-                    </div>
-                    <div class="match-list-option">
-                      <ul class="list-unstyled">
-                        <li>Pronouns: They/Them</li>
-                        <li>
-                        <FontAwesomeIcon icon="map-marker" />  Location:
-                          Haines City, FL 33844
-                        </li>
-                        <li id="bio">
-                          Interests: I love long walks on the beach
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="match-list-favourite-time">
-                    <a class="match-list-favourite order-2" href="#">
-                      <FontAwesomeIcon icon="heart" />
-                    </a>
-                    <span class="match-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>1M ago
-                      <button type="button" class="btn btn-primary">
-                          Let's Connect
-                        </button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="match-list match-grid">
-                <div class="match-list-image">
-                  <img
-                    class="img-fluid"
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt=""
-                  />
-                </div>
-                <div class="match-list-details">
-                  <div class="match-list-info">
-                    <div class="match-list-title">
-                      <h5>
-                        <a href="match-detail.html">Rafael Briggs</a>
-                      </h5>
-                    </div>
-                    <div class="match-list-option">
-                      <ul class="list-unstyled">
-                        <li>Pronouns: They/Them</li>
-                        <li>
-                        <FontAwesomeIcon icon="map-marker" />  Location:
-                          Haines City, FL 33844
-                        </li>
-                        <li id="bio">
-                          Interests: I love long walks on the beach
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="match-list-favourite-time">
-                    <a class="match-list-favourite order-2" href="#">
-                      <FontAwesomeIcon icon="heart" />
-                    </a>
-                    <span class="match-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>1M ago
-                      <button type="button" class="btn btn-primary">
-                          Let's Connect
-                        </button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="match-list match-grid">
-                <div class="match-list-image">
-                  <img
-                    class="img-fluid"
-                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                    alt=""
-                  />
-                </div>
-                <div class="match-list-details">
-                  <div class="match-list-info">
-                    <div class="match-list-title">
-                      <h5>
-                        <a href="match-detail.html">Rafael Briggs</a>
-                      </h5>
-                    </div>
-                    <div class="match-list-option">
-                      <ul class="list-unstyled">
-                        <li>Pronouns: They/Them</li>
-                        <li>
-                        <FontAwesomeIcon icon="map-marker" />  Location:
-                          Haines City, FL 33844
-                        </li>
-                        <li id="bio">
-                          Interests: I love long walks on the beach
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="match-list-favourite-time">
-                    <a class="match-list-favourite order-2" href="#">
-                      <FontAwesomeIcon icon="heart" />
-                    </a>
-                    <span class="match-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>1M ago
-                      <button type="button" class="btn btn-primary">
-                          Let's Connect
-                        </button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4">
-              <div class="match-list match-grid">
-                <div class="match-list-image">
-                  <img
-                    class="img-fluid"
-                    src="https://bootdey.com/img/Content/avatar/avatar8.png"
-                    alt=""
-                  />
-                </div>
-                <div class="match-list-details">
-                  <div class="match-list-info">
-                    <div class="match-list-title">
-                      <h5>
-                        <a href="match-detail.html">Rafael Briggs</a>
-                      </h5>
-                    </div>
-                    <div class="match-list-option">
-                      <ul class="list-unstyled">
-                        <li>Pronouns: They/Them</li>
-                        <li>
-                        <FontAwesomeIcon icon="map-marker" />  Location:
-                          Haines City, FL 33844
-                        </li>
-                        <li id="bio">
-                          Interests: I love long walks on the beach
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="match-list-favourite-time">
-                    <a class="match-list-favourite order-2" href="#">
-                      <FontAwesomeIcon icon="heart" />
-                    </a>
-                    <span class="match-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>3M ago
-                      <button type="button" class="btn btn-primary">
-                          Let's Connect
-                        </button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 mb-4 mb-md-0">
-              <div class="match-list match-grid">
-                <div class="match-list-image">
-                  <img
-                    class="img-fluid"
-                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                    alt=""
-                  />
-                </div>
-                <div class="match-list-details">
-                  <div class="match-list-info">
-                    <div class="match-list-title">
-                      <h5>
-                        <a href="match-detail.html">Rafael Briggs</a>
-                      </h5>
-                    </div>
-                    <div class="match-list-option">
-                      <ul class="list-unstyled">
-                        <li>Pronouns: They/Them</li>
-                        <li>
-                          {/* need help with correct icons */}
-                          <FontAwesomeIcon icon="map-marker" />
-                          Location: Haines City, FL 33844
-                        </li>
-                        <li id="bio">
-                          Interests: I love long walks on the beach
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="match-list-favourite-time">
-                    <a class="match-list-favourite order-2" href="#">
-                      <FontAwesomeIcon icon="heart" />
-                    </a>
-                    <span class="match-list-time order-1">
-                      <i class="far fa-clock pr-1"></i>1M ago
-                      <button type="button" class="btn btn-primary">
-                          Let's Connect
-                        </button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+          {
+
+              userSeed.filter(user =>
+                ageRanges.filter((range, index) => activeAgeRange[index])
+                          .filter(trueRange => singleTrueRange = trueRange.split('-'),
+                         
+                         user.age > singleTrueRange[0] && user.age < singleTrueRange[1]
+                         )
+                    
+          )
+
+
+            .map(user =>
+              <Matchcard firstName={user.firstName} 
+              lastName={user.lastName}
+              age={user.age}
+              location={user.location}
+              interests={user.interests}
+              pronounsA={user.pronouns[0]}
+              pronounsB = {user.pronouns[1]}
+              account = {user.username} />
+              )
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
           </div>
           <div class="row">
             <div class="col-12 text-center mt-4 mt-sm-5">
