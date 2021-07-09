@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import TinderCardComponent from '../components/TinderCard/tindercard';
-import { Container, Row, Col } from 'react-bootstrap';
-import API from '../utils/API';
+import React, { useState, useEffect } from "react";
+import TinderCardComponent from "../components/TinderCard/tindercard";
+import { Container, Row, Col } from "react-bootstrap";
+import API from "../utils/API";
 const Swipe = () => {
+  const [swipes, setSwipes] = useState([]);
+  const [formObject, setFormObject] = useState({});
 
-const [swipes, setSwipes] = useState([])
-  const [formObject, setFormObject] = useState({})
-
-  // Load all books and store them with setBooks
+  // Load all swipes and store them with swipeCards
   useEffect(() => {
-    swipeCards()
-  }, [])
+    swipeCards();
+  }, []);
 
-  // Loads all books and sets them to books
+  // Loads all swipes and sets them to API
   function swipeCards() {
     API.Swipe.getSwipe()
-      .then(res => {
+      .then((res) => {
         console.log(res);
-        setSwipes(res.data)
+        setSwipes(res.data);
       })
-      .catch(err => console.log(err));
-  };
+      .catch((err) => console.log(err));
+  }
 
   return (
     <Container>
@@ -37,7 +36,5 @@ const [swipes, setSwipes] = useState([])
 //grab users from our database and display it
 //style page
 //write API REQUEST IN ROUTES THAT PULLS IN INFO
-
-
 
 export default Swipe;
