@@ -61,9 +61,6 @@ module.exports = {
       status,
       bio,
       interests,
-      yesSwipes,
-      noSwipes,
-      matches
     } = req.body;
 
   User.findOne({ username: username }, (err, user) => {
@@ -93,9 +90,6 @@ module.exports = {
       status: status,
       bio: bio,
       interests: interests,
-      yesSwipes: yesSwipes,
-      noSwipes: noSwipes,
-      matches: matches
     });
 
     newUser.save((err, savedUser) => {

@@ -6,10 +6,10 @@ mongoose.promise = Promise;
 
 // Define userSchema
 const userSchema = new Schema({
-  username: { type: String, unique: true },
+  username: { type: String, unique: true},
   // ASK CALEB: Validate email syntax
-  email: { type: String, unique: true },
-  password: { type: String, unique: true },
+  email: { type: String, unique: true, required: true },
+  password: { type: String, unique: true, required: true },
   firstName: { type: String },
   lastName: { type: String },
   age: { type: Number },
@@ -18,6 +18,11 @@ const userSchema = new Schema({
   pronouns: { type: Array },
   sexuality: { type: String },
   status: { type: String },
+  agePref: { 
+    topOfRange: Number,
+    bottomOfRange: Number
+  },
+  genderPref: { type: String},
   bio: { type: String },
   interests: { type: Array },
   yes: [mongoose.ObjectId],

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../../database/models/User");
-const { matchUsers } = require("/match.js");
+const { matchUsers } = require("./match");
 
 //getting home endpoint and finding all user data and displaying it by their id
 router.get("/", async (req, res) => {

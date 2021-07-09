@@ -50,7 +50,7 @@ const BioCard = ({bio, username}) => {
           </div>
         ) : (
           <div className="bio">
-            <p className="lead">
+            <p className="lead" style={{margin: '0'}}>
               {bio}
             </p>
           </div>

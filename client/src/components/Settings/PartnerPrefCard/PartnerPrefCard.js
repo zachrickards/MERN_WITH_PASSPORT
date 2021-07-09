@@ -9,7 +9,7 @@ const PartnerPrefCard = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   return (
-    <MobileDiv id="partner-preferences">
+    <MobileDiv id="partner-preferences" className="border">
       <Row>
         <Col></Col>
         <Col xs={8}>

@@ -7,7 +7,7 @@ import BioCard from "../components/Settings/BioCard/BioCard";
 import InterestsCard from "../components/Settings/InterestsCard/InterestsCard";
 import axios from "axios";
 import PartnerPrefCard from "../components/Settings/PartnerPrefCard/PartnerPrefCard";
-
+import DTSettings from "../components/Settings/Desktop View/DTSettings";
 const Settings = () => {
 
   //state obj containing needed userdata to fill out card
@@ -29,21 +29,21 @@ const Settings = () => {
   });
 
   useEffect(() => {
-    const username = JSON.parse(localStorage.getItem("user")).username;
-    axios.get(`/api/users/${username}`)
+    // const username = JSON.parse(localStorage.getItem("user")).username;
+    axios.get(`/api/users/anisha`)
     .then((data) => {
       setUserData({
-        firstName: `${data.data.firstName}`,
-        lastName: `${data.data.lastName}`,
-        username: `${username}`,
-        age: `${data.data.age}`,
-        pronouns: `${data.data.pronouns}`,
-        location: `${data.data.location}`,
-        gender: `${data.data.gender}`,
-        sexuality: `${data.data.sexuality}`,
-        status: `${data.data.status}`,
-        bio: `${data.data.bio}`,
-        interests: `${data.data.interests}`,
+        firstName: `${data.firstName}`,
+        lastName: `${data.lastName}`,
+        username: `${data.username}`,
+        age: `${data.age}`,
+        pronouns: `${data.pronouns}`,
+        location: `${data.location}`,
+        gender: `${data.gender}`,
+        sexuality: `${data.sexuality}`,
+        status: `${data.status}`,
+        bio: `${data.bio}`,
+        interests: `${data.interests}`,
         partnerPrefs: [
           {age: ""},
           {gender: ""}
@@ -57,6 +57,8 @@ const Settings = () => {
 
   return (
     <div>
+      <DTSettings />
+
       <div className="text-center mt-4" style={{ overflowX: "hidden" }}>
         <h1>Edit Profile</h1>
         <MobileDiv id="edit-profile-image">
@@ -82,7 +84,8 @@ const Settings = () => {
             </span>
           </div>
         </MobileDiv>
-
+        
+        <MobileDiv id="user-info">
         <IntroCard 
         firstName={userData.firstName}
         lastName={userData.lastName}
@@ -94,6 +97,8 @@ const Settings = () => {
         sexuality={userData.sexuality}
         status={userData.status}
         />
+        
+
         <BioCard 
         bio={userData.bio}
         />
@@ -101,7 +106,7 @@ const Settings = () => {
         interests={userData.interests}
         />
         <PartnerPrefCard />
-
+</MobileDiv>
         
         {/* Advanced Settings */}
         <footer className="footer py-3 bg-light">
@@ -110,7 +115,6 @@ const Settings = () => {
           </Link>
         </footer>
       </div>
-
     </div>
   );
 };
