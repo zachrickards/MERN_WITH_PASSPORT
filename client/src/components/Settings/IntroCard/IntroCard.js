@@ -22,7 +22,6 @@ const IntroCard = ({
   genderPref
 }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [canPutSave, setCanPutSave] = useState(false);
   const [updatedUserInfo, setUpdatedUserInfo] = useState({
     firstName,
     lastName,
@@ -31,18 +30,9 @@ const IntroCard = ({
     gender,
     pronouns,
     sexuality,
-    status
+    status,
+    genderPref
   })
-  console.log(updatedUserInfo);
-  //save function
-  //get data from all input areas and make api request to save(PUT)
-  //pass save function into editicon attributes
-  // const onChange = (event) => {
-  //   const key = event.target.id;
-  //   const saveData = event.target.value;
-  //   console.log(key + ":" + saveData);
-  //   return saveData;
-  // };
 
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -64,7 +54,8 @@ const IntroCard = ({
       gender,
       pronouns,
       sexuality,
-      status
+      status,
+      genderPref
     })
   }, [
     firstName,
@@ -74,7 +65,8 @@ const IntroCard = ({
     gender,
     pronouns,
     sexuality,
-    status
+    status,
+    genderPref
   ])
 
   const saveChanges = () => {
@@ -228,6 +220,7 @@ const IntroCard = ({
                     id="gender-pref"
                     onChange={e => onChange(e)}
                     name="genderPref"
+                    value={updatedUserInfo.genderPref}
                   >
                     <option selected>Preference</option>
                     <option value="Any gender">Any gender</option>

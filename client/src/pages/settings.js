@@ -8,8 +8,8 @@ import InterestsCard from "../components/Settings/InterestsCard/InterestsCard";
 import axios from "axios";
 import PartnerPrefCard from "../components/Settings/PartnerPrefCard/PartnerPrefCard";
 import DTSettings from "../components/Settings/Desktop View/DTSettings";
-const Settings = () => {
 
+const Settings = () => {
   //state obj containing needed userdata to fill out card
   //need state data to be named after each card
   const [userData, setUserData] = useState({
@@ -44,16 +44,11 @@ const Settings = () => {
         status: `${data.status}`,
         bio: `${data.bio}`,
         interests: `${data.interests}`,
-        partnerPrefs: [
-          {age: ""},
-          {gender: ""}
-        ]
+        genderPref: `${data.genderPref}`
       })
       console.log(data)
     })
   },[])
-
-  console.log(userData.firstName);
 
   return (
     <div>
@@ -96,12 +91,13 @@ const Settings = () => {
         pronouns={userData.pronouns}
         sexuality={userData.sexuality}
         status={userData.status}
+        genderPref={userData.genderPref}
         />
         
-
         <BioCard 
         bio={userData.bio}
         />
+
         <InterestsCard
         interests={userData.interests}
         />
