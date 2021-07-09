@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { Match, User } = require("../../database/models/");
 
+let listofMatches = []
 
 // TODO: take a second look
 router.get("/all", async (req, res) => {
