@@ -29,20 +29,20 @@ const DTSettings = () => {
   const [reRender, setReRender] = useState(false);
 
   useEffect(() => {
-    // const username = JSON.parse(localStorage.getItem("user")).username;
-    axios.get(`/api/users/anisha`).then((data) => {
+    const username = JSON.parse(localStorage.getItem("user")).username;
+    axios.get(`/api/users/${username}`).then((data) => {
       setUserData({
-        firstName: `${data.firstName}`,
-        lastName: `${data.lastName}`,
-        username: `${data.username}`,
-        age: `${data.age}`,
-        pronouns: `${data.pronouns}`,
-        location: `${data.location}`,
-        gender: `${data.gender}`,
-        sexuality: `${data.sexuality}`,
-        status: `${data.status}`,
-        bio: `${data.bio}`,
-        interests: `${data.interests}`,
+        firstName: `${data.data.firstName}`,
+        lastName: `${data.data.lastName}`,
+        username: `${data.data.username}`,
+        age: `${data.data.age}`,
+        pronouns: `${data.data.pronouns}`,
+        location: `${data.data.location}`,
+        gender: `${data.data.gender}`,
+        sexuality: `${data.data.sexuality}`,
+        status: `${data.data.status}`,
+        bio: `${data.data.bio}`,
+        interests: `${data.data.interests}`,
         partnerPrefs: [{ age: "" }, { gender: "" }],
       });
       console.log(data);
