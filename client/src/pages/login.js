@@ -23,6 +23,7 @@ const Login = () => {
     event.preventDefault();
     console.log("handleSubmit")
     dispatch({ type: LOADING });
+    console.log(loginCreds);
     axios
       .post('/api/users/login', {
         email: loginCreds.email,

@@ -10,7 +10,7 @@ const InterestsCard = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   return (
-    <MobileDiv>
+    <MobileDiv className="border">
     <Row>
       <Col></Col>
       <Col xs={8}>
