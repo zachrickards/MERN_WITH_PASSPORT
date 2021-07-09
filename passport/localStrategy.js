@@ -9,9 +9,10 @@ const strategy = new LocalStrategy(
   (email, password, done) => {
     User.findOne({ email }, (err, user) => {
       if (err) {
+        console.log(err);
+
         return done(err);
       }
-
       if (!user) {
         return done(null, false, { message: 'Incorrect email' });
       }
