@@ -81,9 +81,11 @@ const Chats = () => {
     e.preventDefault();
     if(!currentRoom || msg.length < 1) return
 
+    console.log(currentRoom ," -- current room")
     const msgObj = {
       userId: state.user._id,
       name: `${state.user.firstName} ${state.user.lastName}`,
+      chatRoomName: currentRoom.socketRoomName,
       msg: msg
     }
 
@@ -92,6 +94,8 @@ const Chats = () => {
     socket.current.emit("clientMsg", currentRoom.socketRoomName, msgObj, (obj) => {
       console.log(obj)
     })
+
+    setMsg("");
 
     // save to database
 
@@ -103,9 +107,9 @@ const Chats = () => {
     <Container>
       <Row>
         <Col lg="4">
-          <ListGroup>
+          <ListGroup className="pr-5">
             {chatRoomData && 
-              chatRoomData.map(obj => {
+              chatRoomData.map((obj,index) => {
                 let displayName = obj.users[0].name
                 if(obj.users[0].userId === state.user._id) displayName = obj.users[1].name 
                 console.log(displayName)
@@ -125,10 +129,11 @@ const Chats = () => {
               <ListGroup.Item active>
                 {talkingTo}
               </ListGroup.Item>
-              {state.currentMessages.reverse().map(msgObj => {
+              {state.currentMessages.reverse().map((msgObj,i) => {
+                console.log(msgObj)
                 return (
-                  <ListGroup.Item>
-                    {msgObj.msg}
+                  <ListGroup.Item className={ i%2===0 ?  "text-primary" : "text-warning"}>
+                    {  msgObj.msg}
                   </ListGroup.Item>
                 )
               })
