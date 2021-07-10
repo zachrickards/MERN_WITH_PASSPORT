@@ -27,7 +27,7 @@ const userSchema = new Schema({
   genderPref: { type: String},
   bio: { type: String },
   interests: { type: Array },
-  yes: [mongoose.ObjectId],
+  yesSwipes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   profileImg: {
     public_id: {
       type: String,
