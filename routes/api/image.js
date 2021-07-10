@@ -11,8 +11,6 @@ router.post( "/", upload.single('file'), async (req, res) => {
         const cloudImgData = await cloudinary.uploader.upload('./uploads/' + req.file.filename, {
             upload_preset: 'connect-project-3-upload-preset'
         })
-        console.log(cloudImgData)
-        console.log(req.user);
         const userDate = await User.findByIdAndUpdate(
             req.user._id,
             {
