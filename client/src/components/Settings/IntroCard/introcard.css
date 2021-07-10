@@ -31,3 +31,18 @@ font-size: 1.1rem;
 .demographics #location {
     width: 9rem;
 }
+
+.lead {
+    font-size: 1rem;
+    line-height: 1.2rem
+}
+
+#gender,
+#pronouns,
+#location,
+#orientation,
+#status,
+#gender-pref {
+    width: 10rem;
+    padding: .5rem;
+}

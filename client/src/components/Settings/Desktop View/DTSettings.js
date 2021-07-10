@@ -9,6 +9,7 @@ import BioCard from "../../Settings/BioCard/BioCard";
 import InterestsCard from "../../Settings/InterestsCard/InterestsCard";
 import axios from "axios";
 import PartnerPrefCard from "../../Settings/PartnerPrefCard/PartnerPrefCard";
+import ImageCard from "../ImageCard/ImageCard";
 
 const DTSettings = () => {
   //state obj containing needed userdata to fill out card
@@ -22,8 +23,9 @@ const DTSettings = () => {
     orientation: "",
     status: "",
     bio: "",
-    interests: [],
-    genderPref: ""
+    interests: "",
+    agePref: "",
+    genderPref: "",
   });
 
   const [reRender, setReRender] = useState(false);
@@ -43,9 +45,10 @@ const DTSettings = () => {
         status: `${data.data.status}`,
         bio: `${data.data.bio}`,
         interests: `${data.data.interests}`,
-        genderPref: `${data.data.genderPref}`
+        agePref: `${data.data.agePref}`,
+        genderPref: `${data.data.genderPref}`,
       });
-      console.log(data);
+      console.log("useEffect setUserData results:", data);
     });
   }, [reRender]);
 
@@ -54,31 +57,7 @@ const DTSettings = () => {
       <div className="text-center mt-4 px-5" style={{ overflowX: "hidden" }}>
         <h1 style={{ marginTop: "1rem" }}>Edit Profile</h1>
         <Row className="py-5 px-3">
-          <Col className="border-right" md={5} id="edit-profile-image">
-            <DTDiv>
-              <div style={{ maxWidth: `80rem` }} id="img-col-div">
-                <img
-                  className="img-fluid rounded-circle"
-                  src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                  style={{ maxWidth: "315px", height: "auto" }}
-                />
-              </div>
-              {/* TODO: MULTER IMG UPLOAD/CHANGING FUNCTIONALITY ON THIS LINK */}
-              <div className="d-flex flex-column my-4">
-                <div className="d-flex flex- justify-content-center">
-                  <button className="btn btn-primary btn-sm buttons">
-                    Upload new photo
-                  </button>
-                  <button className="btn btn-outline-danger buttons btn-sm ml-3">
-                    Remove
-                  </button>
-                </div>
-                <span className="image-size">
-                  Image format with max size of 3MB
-                </span>
-              </div>
-            </DTDiv>
-          </Col>
+         <ImageCard />
           <Col className="border-left" md={7}>
             <DTDiv>
               <Row style={{ marginBottom: "1rem" }}>
@@ -94,6 +73,7 @@ const DTSettings = () => {
                   pronouns={userData.pronouns}
                   sexuality={userData.sexuality}
                   status={userData.status}
+                  agePref={userData.agePref}
                   genderPref={userData.genderPref}
                 />
               </Row>
@@ -106,20 +86,21 @@ const DTSettings = () => {
               />
             </Row>
             <Row>
-              <InterestsCard interests={userData.interests} />
+              <InterestsCard
+                interests={userData.interests}
+                setReRender={setReRender}
+                reRender={reRender}
+              />
             </Row>
             <Row>
-              <PartnerPrefCard />
+              <PartnerPrefCard
+              agePref={userData.agePref} 
+              genderPref={userData.genderPref}
+              setReRender={setReRender}
+              reRender={reRender}/>
             </Row>
           </Col>
         </Row>
-
-        {/* Advanced Settings */}
-        <footer className="footer py-3 bg-light">
-          <Link to="/" className="">
-            Advanced Settings //TODO: Delete profile, etc
-          </Link>
-        </footer>
       </div>
     </div>
   );
