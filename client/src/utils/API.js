@@ -16,7 +16,12 @@ export default {
 
     findAllMatches: function() {
       return axios.get("/api/match/all");
-    }
+    },
+
+    findAllMatchesModified: function() {
+      return axios.get("/api/match/all/modified");
+    },
+
   }
 
   
