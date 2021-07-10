@@ -6,6 +6,7 @@ import "../IntroCard/introcard.css";
 import MobileDiv from "../../mobileDiv";
 import axios from "axios";
 import SaveButton from "../SaveButton/SaveButton";
+import "./introcard.css";
 
 const IntroCard = ({
   firstName,
@@ -19,7 +20,7 @@ const IntroCard = ({
   status,
   reRender,
   setReRender,
-  genderPref
+  genderPref,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [updatedUserInfo, setUpdatedUserInfo] = useState({
@@ -31,8 +32,8 @@ const IntroCard = ({
     pronouns,
     sexuality,
     status,
-    genderPref
-  })
+    genderPref,
+  });
 
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -40,10 +41,9 @@ const IntroCard = ({
     setUpdatedUserInfo({ ...updatedUserInfo, [name]: value });
   };
 
-
   useEffect(() => {
     console.log(updatedUserInfo);
-  }, [updatedUserInfo])
+  }, [updatedUserInfo]);
 
   useEffect(() => {
     setUpdatedUserInfo({
@@ -55,8 +55,8 @@ const IntroCard = ({
       pronouns,
       sexuality,
       status,
-      genderPref
-    })
+      genderPref,
+    });
   }, [
     firstName,
     lastName,
@@ -66,16 +66,14 @@ const IntroCard = ({
     pronouns,
     sexuality,
     status,
-    genderPref
-  ])
+    genderPref,
+  ]);
 
   const saveChanges = () => {
-    axios
-      .put(`/api/users/${username}`, updatedUserInfo)
-      .then((data) => {
-        setIsEditing(false);
-        setReRender(!reRender);
-      });
+    axios.put(`/api/users/${username}`, updatedUserInfo).then((data) => {
+      setIsEditing(false);
+      setReRender(!reRender);
+    });
   };
 
   return (
@@ -86,20 +84,22 @@ const IntroCard = ({
             <Col></Col>
             <Col xs={8}>
               <div className="d-flex justify-content-center name">
+                <label for="firstName">First:</label>
                 <input
                   type="text"
                   placeholder={firstName}
                   className="name"
-                  onChange={e => onChange(e)}
+                  onChange={(e) => onChange(e)}
                   id="firstName"
                   name="firstName"
                   value={updatedUserInfo.firstName}
                 />
+                <label for="lastName">Last:</label>
                 <input
                   type="text"
                   placeholder={lastName}
                   className="name"
-                  onChange={e => onChange(e)}
+                  onChange={(e) => onChange(e)}
                   id="lastName"
                   name="lastName"
                   value={updatedUserInfo.lastName}
@@ -122,7 +122,7 @@ const IntroCard = ({
                   id="age"
                   className="demographics"
                   name="age"
-                  onChange={e => onChange(e)}
+                  onChange={(e) => onChange(e)}
                   value={updatedUserInfo.age}
                 />
               </Col>
@@ -132,7 +132,7 @@ const IntroCard = ({
                   className="form-select demographics"
                   aria-label="Default select example"
                   id="gender"
-                  onChange={e => onChange(e)}
+                  onChange={(e) => onChange(e)}
                   name="gender"
                   value={updatedUserInfo.gender}
                 >
@@ -149,7 +149,7 @@ const IntroCard = ({
                   className="form-select demographics"
                   aria-label="Default select example"
                   id="pronouns"
-                  onChange={e => onChange(e)}
+                  onChange={(e) => onChange(e)}
                   name="pronouns"
                   value={updatedUserInfo.pronouns}
                 >
@@ -167,7 +167,7 @@ const IntroCard = ({
                   className="demographics"
                   id="location"
                   name="location"
-                  onChange={e => onChange(e)}
+                  onChange={(e) => onChange(e)}
                   value={updatedUserInfo.location}
                 />
               </Col>
@@ -179,7 +179,7 @@ const IntroCard = ({
                   className="form-select demographics"
                   aria-label="Default select example"
                   id="orientation"
-                  onChange={e => onChange(e)}
+                  onChange={(e) => onChange(e)}
                   name="sexuality"
                   value={updatedUserInfo.sexuality}
                 >
@@ -196,7 +196,7 @@ const IntroCard = ({
                   className="form-select demographics"
                   aria-label="Default select example"
                   id="status"
-                  onChange={e => onChange(e)}
+                  onChange={(e) => onChange(e)}
                   name="status"
                   value={updatedUserInfo.status}
                 >
@@ -211,14 +211,13 @@ const IntroCard = ({
                 </select>
               </Col>
               <Col>
-                <p>with:</p>
                 {/* PREF SELECTION */}
                 <Col className="text-muted demographics d-flex flex-row">
                   <select
                     className="form-select demographics"
                     aria-label="Default select example"
                     id="gender-pref"
-                    onChange={e => onChange(e)}
+                    onChange={(e) => onChange(e)}
                     name="genderPref"
                     value={updatedUserInfo.genderPref}
                   >
@@ -260,14 +259,14 @@ const IntroCard = ({
           {/* Container for age, pronouns, location, orientation, and status */}
           <div>
             <Row className="text-muted demographics">
-              <span className="mx-1">
+              <p className="lead mx-1" style={{marginBottom: '0'}}>
                 {age} | {gender} ({pronouns}) | {location}
-              </span>
+              </p>
             </Row>
             <Row className="text-muted demographics">
-              <span className="mx-1">
+              <p className="lead mx-1">
                 {sexuality} & looking for {status} with {genderPref}
-              </span>
+              </p>
             </Row>
           </div>
           <div>
@@ -280,4 +279,3 @@ const IntroCard = ({
 };
 
 export default IntroCard;
-

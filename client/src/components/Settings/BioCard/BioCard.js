@@ -7,34 +7,33 @@ import axios from "axios";
 
 import "./biocard.css";
 
-const BioCard = ({bio, username, reRender, setReRender}) => {
+const BioCard = ({ bio, username, reRender, setReRender }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [updatedBio, setUpdatedBio] = useState({bio})
+  const [updatedUserInfo, setUpdatedUserInfo] = useState({
+    bio
+  })
 
   const onChange = (event) => {
     const { name, value } = event.target;
-
-    setUpdatedBio({ ...updatedBio, [name]: value });
+    setUpdatedUserInfo({ ...updatedUserInfo, [name]: value });
   };
 
+  useEffect(() => {
+    console.log("updatedUserInfo value:",updatedUserInfo);
+  }, [updatedUserInfo])
 
   useEffect(() => {
-    console.log(updatedBio);
-  }, [updatedBio])
-
-  useEffect(() => {
-    setUpdatedBio({bio})
+    setUpdatedUserInfo({bio})
   }, [bio])
 
   const saveChanges = () => {
     axios
-      .put(`/api/users/${username}`, updatedBio)
+      .put(`/api/users/${username}`, updatedUserInfo)
       .then((data) => {
         setIsEditing(false);
         setReRender(!reRender);
       });
   };
-
 
 
   return (
@@ -49,24 +48,26 @@ const BioCard = ({bio, username, reRender, setReRender}) => {
         </Col>
       </Row>
       <Row>
-      {isEditing ? (
-        <div>
-          <textarea
-            rows="5"
-            cols="50"
-            placeholder={bio}
-            className="bio"
-            name="bio"
-            onChange={e => onChange(e)}
-            value={updatedBio.bio}
-          />
-          <SaveButton 
-            saveChanges={saveChanges}/>
+        {isEditing ? (
+          <div className="bio">
+            <textarea
+              placeholder={bio}
+              className="bio"
+              onChange={e => onChange(e)}
+              id="bio"
+              name="bio"
+              value={updatedUserInfo.bio}
+              rows="5"
+              cols="60"
+            />
+            <div>
+              <SaveButton saveChanges={saveChanges}/>
+            </div>
           </div>
         ) : (
           <div className="bio">
-            <p className="lead" style={{margin: '0'}}>
-              {bio}
+            <p className="lead" style={{ margin: "0" }}>
+              {updatedUserInfo.bio}
             </p>
           </div>
         )}
