@@ -5,11 +5,11 @@ import { LOADING, SET_USER } from '../store/actions';
 import { useStoreContext } from '../store/store';
 
 const Login = () => {
-  const [, /* state */ dispatch] = useStoreContext();
+  const [state , dispatch] = useStoreContext();
   const history = useHistory();
 
   const [loginCreds, setLoginCreds] = useState({
-    username: '',
+    email: '',
     password: '',
   });
 
@@ -21,23 +21,26 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    console.log("handleSubmit")
     dispatch({ type: LOADING });
-
+    console.log(loginCreds);
     axios
       .post('/api/users/login', {
-        username: loginCreds.username,
+        email: loginCreds.email,
         password: loginCreds.password,
       })
       .then((response) => {
         if (response.status === 200) {
           dispatch({ type: SET_USER, user: response.data });
+          //store user in localStorage so logged in state persists on refresh
+          console.log(response.data)
+          localStorage.setItem('user', JSON.stringify(response.data));
           history.replace('/');
         }
       })
       .catch((error) => {
         console.log('login error: ');
-        console.log(error);
+        console.log(error.message);
       });
   };
 
@@ -52,9 +55,9 @@ const Login = () => {
           type="email"
           id="inputEmail"
           className="form-control"
-          name="username"
+          name="email"
           placeholder="Email address"
-          value={loginCreds.username}
+          value={loginCreds.email}
           onChange={handleChange}
         />
         <label htmlFor="inputPassword" className="sr-only">
