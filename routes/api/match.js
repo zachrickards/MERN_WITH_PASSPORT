@@ -37,6 +37,7 @@ router.post("/", async (req, res) => {
     // TODO: if allready exists don't create
     // find one match where one user.userId is equal to req.user._id
     // and one user.userId is equal to given userId
+    console.log(req.user);
     const matchData = await Match.findOne({
       "users.userId": req.user._id,
       "users.userId": req.body.usersArr[0].userId
@@ -61,6 +62,7 @@ router.post("/", async (req, res) => {
       return res.json(updatedMatchData);
     }
 
+    console.log("match saved")
     const newMatch = new Match({
       users: req.body.usersArr,
       socketRoomName:
