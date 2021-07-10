@@ -20,3 +20,19 @@ code {
   width: 100%;‍
   height: 100%;
 ‍} */
+
+.list-group-item+.list-group-item {
+  border-top-width: 0;
+  border-style: none;
+}
+
+.row>* {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 0;  
+  padding-left:0;
+  margin-top: var(--bs-gutter-y);
+}
+
+ 

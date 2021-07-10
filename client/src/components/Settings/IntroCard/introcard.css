@@ -1,0 +1,33 @@
+input {
+font-size: 1.1rem;
+}
+
+.name h1 {    
+    font-size: 1.75rem;
+    font-weight:600;
+}
+
+.name input  {
+    margin: .5rem;
+}
+
+.username h2{
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.demographics {
+    margin-bottom: .25rem;
+}
+
+.demographics #age {
+    width: 3rem;
+}
+
+.demographics #pronouns {
+    width: 10rem;
+}
+
+.demographics #location {
+    width: 9rem;
+}

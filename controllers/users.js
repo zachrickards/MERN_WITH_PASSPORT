@@ -27,7 +27,8 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   update: function (req, res) {
-    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
+    //ASK CALEB: USING _ID VS USERNAME
+    db.User.findOneAndUpdate({ username: req.params.username }, req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
@@ -60,9 +61,6 @@ module.exports = {
       status,
       bio,
       interests,
-      yesSwipes,
-      noSwipes,
-      matches
     } = req.body;
 
   User.findOne({ username: username }, (err, user) => {
@@ -92,9 +90,6 @@ module.exports = {
       status: status,
       bio: bio,
       interests: interests,
-      yesSwipes: yesSwipes,
-      noSwipes: noSwipes,
-      matches: matches
     });
 
     newUser.save((err, savedUser) => {
