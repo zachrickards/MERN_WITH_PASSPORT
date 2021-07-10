@@ -9,52 +9,59 @@ import emailjs from "emailjs-com";
 const Help = () => {
   function sendEmail(e) {
     e.preventDefault();
-    emailjs.sendform("service_upld0n3", "template_vyjd6k4", e.target, "user_VGRqbXjGwdNwwhPNY7iVS")
-    .then(res=>{
-      console.log(res);
-    }).catch(err=> console.log(err));
+    emailjs
+      .sendForm(
+        "service_upld0n3",
+        "template_vyjd6k4",
+        e.target,
+        "user_VGRqbXjGwdNwwhPNY7iVS"
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
   }
   return (
-    <div
-      className="container border"
-      style={{
-        marginTop: "50px",
-        width: "50%",
-        backgroundImage:`url('https://cdn.wallpapersafari.com/25/63/ITfxR9.jpg')`,
-        backgroundPosition:"center",
-        backgroundSize:"cover",
-      }}
-    >
-<h1 style={{marginTop: '25px'}}>Connect with us</h1>
-<form
-  className="row"
-  style={{margin: "25px 85px 75px 100px"}}
-  onSubmit={sendEmail}>
-    <label>Name</label>
-    <input type="text" name="name"/>
+  
 
-    <label>Email</label>
-    <input type="email" name="user_email" className="form-control"/>
+      <div
+        className="container border"
+        style={{
+          marginTop: "50px",
+          width: "50%",
+          backgroundImage: `url('https://cdn.pixabay.com/photo/2016/08/23/10/45/network-1614045_960_720.png')`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
+        <h1 style={{ marginTop: "25px" }}>Connect with us</h1>
+        <form
+          className="row"
+          style={{ margin: "25px 85px 75px 100px" }}
+          onSubmit={sendEmail}
+        >
+          <label>Name</label>
+          <input type="text" name="name" />
 
-    <label>Message</label>
-    <textarea type="message" rows="4" className="form-control"/>
-    <input type="submit" value="Send"  className="form-control btn btn-secondary"
-    style={{marginTop:'30px'}}
-    />
+          <label>Email</label>
+          <input type="email" name="user_email" className="form-control" />
 
-</form>
-  </div>
-  )
-}
+          <label>Message</label>
+          <textarea type="message" rows="4" className="form-control" />
+          <input
+            type="submit"
+            value="Send"
+            className="form-control btn btn-secondary"
+            style={{ marginTop: "30px" }}
+          />
+        </form>
+      </div>
+ 
+  );
+};
 
-
-
-
-
-
-
-
-{/*const Help = (props) => {
+{
+  /*const Help = (props) => {
   const [state, setState] = React.useState({
     name: "",
     nameError: false,
@@ -250,6 +257,7 @@ const Help = () => {
       </div>
     </div>
   );
-  };*/}
+  };*/
+}
 
 export default Help;
