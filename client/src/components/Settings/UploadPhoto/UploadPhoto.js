@@ -9,15 +9,21 @@ const UploadPhoto = ({ username }) => {
   };
 
   const uploadPhoto = (e) => {
-    console.log("hit", username);
     e.preventDefault();
     const formData = new FormData();
-    formData.append("profileImg", profileImg);
+    formData.append("file", profileImg);
+    console.log(formData);
     axios
-      .put(`/api/users/${username}`, formData, {})
+      .post(`/api/images`, formData, {
+        headers: {
+          "Content-Type": 'multipart/form-data'
+        }
+      })
       .then((res) => {
         console.log(res);
-      });
+      }).catch(err => {
+        console.log(err)
+      })
   };
 
   return (
@@ -30,13 +36,13 @@ const UploadPhoto = ({ username }) => {
             id="photo" 
             name="photo"
             accept="image/png, image/jpeg"
+            onChange={onFileChange}
             />
           </div>
           <div className="form-group">
             <button
               className="btn btn-primary btn-sm p-1"
               onClick={uploadPhoto}
-              onChange={onFileChange}
               type="submit"
             >
               Upload

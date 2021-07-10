@@ -58,7 +58,9 @@ const DTSettings = () => {
       <div className="text-center mt-4 px-5" style={{ overflowX: "hidden" }}>
         {/* <h1 style={{ marginTop: "1rem" }}>Edit Profile</h1> */}
         <Row className="py-5 px-3">
-         <ImageCard />
+         <ImageCard 
+         username={userData.username}
+         />
           <Col id="text-column" md={7}>
             <DTDiv>
               <Row style={{ marginBottom: "1rem" }}>
@@ -81,6 +83,7 @@ const DTSettings = () => {
             </DTDiv>
             <Row>
               <BioCard
+                username={userData.username}
                 bio={userData.bio}
                 setReRender={setReRender}
                 reRender={reRender}
@@ -89,6 +92,7 @@ const DTSettings = () => {
             <Row>
               <InterestsCard
                 interests={userData.interests}
+                username={userData.username}
                 setReRender={setReRender}
                 reRender={reRender}
               />
