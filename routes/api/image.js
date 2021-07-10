@@ -25,6 +25,7 @@ router.post( "/", upload.single('file'), async (req, res) => {
         res.sendStatus(200);
     } catch (err) {
         console.log(err);
+        res.json(err);
     }
 
 

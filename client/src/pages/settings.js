@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Interest from "../components/interestTag";
 import MobileDiv from "../components/mobileDiv";
 import { Link } from "react-router-dom";
 import IntroCard from "../components/Settings/IntroCard/IntroCard";
