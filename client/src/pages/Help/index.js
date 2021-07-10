@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { LOADING, SET_USER } from "../../store/actions";
 import { useStoreContext } from "../../store/store";
@@ -7,6 +7,10 @@ import "./help.css";
 import emailjs from "emailjs-com";
 
 const Help = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   function sendEmail(e) {
     e.preventDefault();
     emailjs
@@ -17,6 +21,9 @@ const Help = () => {
         "user_VGRqbXjGwdNwwhPNY7iVS"
       )
       .then((res) => {
+        setName("");
+        setEmail("");
+        setMessage("");
         console.log(res);
       })
       .catch((err) => console.log(err));
@@ -41,13 +48,13 @@ const Help = () => {
           onSubmit={sendEmail}
         >
           <label>Name</label>
-          <input type="text" name="name" />
+          <input onChange={e => setName(e.target.value)} value={name} type="text" name="name" />
 
           <label>Email</label>
-          <input type="email" name="user_email" className="form-control" />
+          <input onChange={e => setEmail(e.target.value)} value={email} type="email" name="user_email" className="form-control" />
 
           <label>Message</label>
-          <textarea type="message" rows="4" className="form-control" />
+          <textarea onChange={e => setMessage(e.target.value)} value={message} type="message" rows="4" className="form-control" />
           <input
             type="submit"
             value="Send"
