@@ -1,11 +1,60 @@
-import axios from 'axios';
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { LOADING, SET_USER } from '../../store/actions';
-import { useStoreContext } from '../../store/store';
+import axios from "axios";
+import React from "react";
+import { useHistory } from "react-router-dom";
+import { LOADING, SET_USER } from "../../store/actions";
+import { useStoreContext } from "../../store/store";
 import "./help.css";
+import emailjs from "emailjs-com";
 
-const Help = (props) => {
+const Help = () => {
+  function sendEmail(e) {
+    e.preventDefault();
+    emailjs.sendform("service_upld0n3", "template_vyjd6k4", e.target, "user_VGRqbXjGwdNwwhPNY7iVS")
+    .then(res=>{
+      console.log(res);
+    }).catch(err=> console.log(err));
+  }
+  return (
+    <div
+      className="container border"
+      style={{
+        marginTop: "50px",
+        width: "50%",
+        backgroundImage:`url('https://cdn.wallpapersafari.com/25/63/ITfxR9.jpg')`,
+        backgroundPosition:"center",
+        backgroundSize:"cover",
+      }}
+    >
+<h1 style={{marginTop: '25px'}}>Connect with us</h1>
+<form
+  className="row"
+  style={{margin: "25px 85px 75px 100px"}}
+  onSubmit={sendEmail}>
+    <label>Name</label>
+    <input type="text" name="name"/>
+
+    <label>Email</label>
+    <input type="email" name="user_email" className="form-control"/>
+
+    <label>Message</label>
+    <textarea type="message" rows="4" className="form-control"/>
+    <input type="submit" value="Send"  className="form-control btn btn-secondary"
+    style={{marginTop:'30px'}}
+    />
+
+</form>
+  </div>
+  )
+}
+
+
+
+
+
+
+
+
+{/*const Help = (props) => {
   const [state, setState] = React.useState({
     name: "",
     nameError: false,
@@ -56,6 +105,7 @@ const Help = (props) => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     const {
       name,
       email,
@@ -70,7 +120,7 @@ const Help = (props) => {
     setState({ messageError: message ? false : true });
     setState({ emailError: email ? false : true });
     if (email && !emailError) {
-      setState({ emailError2: isValidEmail(email) ? false : true });
+      setState({ emailError2: email ? false : true });
     }
 
     if (
@@ -86,14 +136,13 @@ const Help = (props) => {
     } else {
       setState({ formValid: false });
     }
-
-    e.preventDefault();
   };
 
   const {
     name,
     email,
     message,
+    contact,
     nameError,
     emailError,
     emailError2,
@@ -104,14 +153,10 @@ const Help = (props) => {
   return (
     <div className="card shadow-sm border-0 px-3 rounded-2 mb-3 py-4 mx-auto mt-5 bg-light ">
       <div className="card-header bg-transparent border-0 text-center text-uppercase">
+        <h2>{formValid ? "All Good" : "No valid data"}</h2>
         <h3>{props.title}</h3>
         <div className="card-body">
-          <form
-            action="/"
-            onSubmit={(e) => handleSubmit(e)}
-            encType="multipart/form-data"
-            autoComplete="off"
-          >
+          <form>
             <div className="form-group">
               <label className="mb-0">
                 Your name<span className="text-danger">*</span>
@@ -121,7 +166,7 @@ const Help = (props) => {
                 type="text"
                 className="form-control"
                 placeholder="Name"
-                value={state.name}
+                value={name}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
@@ -142,7 +187,7 @@ const Help = (props) => {
                 type="email"
                 className="form-control"
                 placeholder="Email"
-                value={state.email}
+                value={email}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
@@ -167,7 +212,7 @@ const Help = (props) => {
                 className="form-control"
                 placeholder="Contact"
                 onChange={handleChange}
-                value={state.contact}
+                value={contact}
               />
             </div>
             <div className="form-group">
@@ -179,7 +224,7 @@ const Help = (props) => {
                 type="text"
                 className="form-control"
                 placeholder="Message"
-                value={state.message}
+                value={message}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
@@ -191,18 +236,20 @@ const Help = (props) => {
                 ""
               )}
             </div>
-            <p className="text-center mb-0">
-              <input
+            <div className="text-center mb-0">
+              <div
                 type="submit"
                 className="btn btn-primary btn-lg w-100 text-uppercase"
-                value="Submit Now"
-              />
-            </p>
+                onClick={(event) => handleSubmit(event)}
+              >
+                Submit Now
+              </div>
+            </div>
           </form>
         </div>
       </div>
     </div>
   );
-};
+  };*/}
 
 export default Help;
