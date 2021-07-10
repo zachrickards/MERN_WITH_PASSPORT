@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import EditIcon from "../Icon/Icon";
 import MobileDiv from "../../mobileDiv";
 import { Row, Col } from "react-bootstrap/";
-import Interest from "../../interestTag";
+import Interest from "./InterestTag/interestTag";
 import "./interestscard.css";
 import SaveButton from "../SaveButton/SaveButton";
 import axios from "axios";

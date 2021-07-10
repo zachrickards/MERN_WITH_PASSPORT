@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap/";
-import Interest from "../../interestTag";
+import Interest from "../InterestsCard/InterestTag/interestTag";
 import DTDiv from "./DTDiv/DTDiv";
 import MobileDiv from "../../mobileDiv";
 import { Link } from "react-router-dom";
