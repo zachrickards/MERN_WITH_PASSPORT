@@ -10,6 +10,7 @@ import InterestsCard from "../../Settings/InterestsCard/InterestsCard";
 import axios from "axios";
 import PartnerPrefCard from "../../Settings/PartnerPrefCard/PartnerPrefCard";
 import ImageCard from "../ImageCard/ImageCard";
+import "./dtsettings.css";
 
 const DTSettings = () => {
   //state obj containing needed userdata to fill out card
@@ -58,7 +59,7 @@ const DTSettings = () => {
         {/* <h1 style={{ marginTop: "1rem" }}>Edit Profile</h1> */}
         <Row className="py-5 px-3">
          <ImageCard />
-          <Col className="border-left" md={7}>
+          <Col id="text-column" md={7}>
             <DTDiv>
               <Row style={{ marginBottom: "1rem" }}>
                 <IntroCard

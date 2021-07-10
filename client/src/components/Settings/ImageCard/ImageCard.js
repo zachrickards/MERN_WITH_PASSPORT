@@ -5,7 +5,7 @@ import UploadPhoto from '../UploadPhoto/UploadPhoto';
 
 const ImageCard = ({username}) => {
     return (
-        <Col className="border-right" md={5} id="edit-profile-image">
+        <Col className="img-col" md={5} id="edit-profile-image">
             <DTDiv>
               <div style={{ maxWidth: `80rem` }} id="img-col-div">
                 <img

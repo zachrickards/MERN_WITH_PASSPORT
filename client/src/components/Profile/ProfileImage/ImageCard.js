@@ -4,7 +4,7 @@ import DTDiv from '../../Settings/Desktop View/DTDiv/DTDiv';
 
 const ProfileImage = ({username}) => {
     return (
-        <Col className="border-right" md={5} id="edit-profile-image">
+        <Col className="image-col" md={5} id="edit-profile-image">
             <DTDiv>
               <div style={{ maxWidth: `80rem` }} id="img-col-div">
                 <img

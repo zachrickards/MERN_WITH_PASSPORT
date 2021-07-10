@@ -1,0 +1,9 @@
+#img-col {
+    border-right: 1px;
+}
+
+@media only screen and (max-width: 600px) {
+    #img-col {
+        border-right: none;
+    }
+  }
