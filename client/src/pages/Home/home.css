@@ -8,16 +8,16 @@
     object-fit: contain;
 }
 
-.hero-container > h1{
+/* .hero-container > h1{
    color: white;
    font-size: 100px;
    margin-top: -100px;
 
 
-}
+} */
 
 
-.hero-container > p{
+/* .hero-container > p{
     margin-top: 8px;
     color: white;
     font-size: 32px;
@@ -26,12 +26,12 @@
 
 .hero-btns{
     margin-top: 32px;
-}
+} */
 
 @media  screen and(max-width: 960px) {
     .hero-container > h1 {
         font-size:70px;
-        margin-top: -150px;
+        /* margin-top: -150px; */
     }
     
 }
@@ -39,7 +39,7 @@
 @media  screen and(max-width: 768px) {
     .hero-container > h1 {
         font-size:50px;
-        margin-top: -100px;
+        /* margin-top: -100px; */
     }
     
     .hero-container > p {
