@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap/";
-import Interest from "../InterestsCard/InterestTag/interestTag";
-import DTDiv from "./DTDiv/DTDiv";
-import MobileDiv from "../../mobileDiv";
+// import Interest from "../InterestsCard/InterestTag/interestTag";
+import DTDiv from "../Settings/Desktop View/DTDiv/DTDiv";
+import MobileDiv from "../mobileDiv";
 import { Link } from "react-router-dom";
-import IntroCard from "../../Settings/IntroCard/IntroCard";
-import BioCard from "../../Settings/BioCard/BioCard";
-import InterestsCard from "../../Settings/InterestsCard/InterestsCard";
+import InterestsCard from "../Settings/InterestsCard/InterestsCard";
 import axios from "axios";
-import PartnerPrefCard from "../../Settings/PartnerPrefCard/PartnerPrefCard";
-import ImageCard from "../ImageCard/ImageCard";
+import PartnerPrefCard from "../Settings/PartnerPrefCard/PartnerPrefCard";
+import ImageCard from "../Settings/ImageCard/ImageCard";
+import ProfileIntro from "../ProfileIntro/ProfileIntro";
+import ProfileBio from "./ProfileBio/ProfileBio";
+import ProfileInterests from "./ProfileInterests/ProfileInterests";
+import ProfileImage from "./ProfileImage/ImageCard";
 
-const DTSettings = () => {
+const DTProfile = () => {
   //state obj containing needed userdata to fill out card
   //need state data to be named after each card
   const [userData, setUserData] = useState({
@@ -57,11 +59,11 @@ const DTSettings = () => {
       <div className="text-center mt-4 px-5" style={{ overflowX: "hidden" }}>
         {/* <h1 style={{ marginTop: "1rem" }}>Edit Profile</h1> */}
         <Row className="py-5 px-3">
-         <ImageCard />
+         <ProfileImage />
           <Col className="border-left" md={7}>
             <DTDiv>
               <Row style={{ marginBottom: "1rem" }}>
-                <IntroCard
+                <ProfileIntro
                   setReRender={setReRender}
                   reRender={reRender}
                   firstName={userData.firstName}
@@ -79,25 +81,18 @@ const DTSettings = () => {
               </Row>
             </DTDiv>
             <Row>
-              <BioCard
+              <ProfileBio
                 bio={userData.bio}
                 setReRender={setReRender}
                 reRender={reRender}
               />
             </Row>
             <Row>
-              <InterestsCard
+              <ProfileInterests
                 interests={userData.interests}
                 setReRender={setReRender}
                 reRender={reRender}
               />
-            </Row>
-            <Row>
-              <PartnerPrefCard
-              agePref={userData.agePref} 
-              genderPref={userData.genderPref}
-              setReRender={setReRender}
-              reRender={reRender}/>
             </Row>
           </Col>
         </Row>
@@ -106,4 +101,4 @@ const DTSettings = () => {
   );
 };
 
-export default DTSettings;
+export default DTProfile;
