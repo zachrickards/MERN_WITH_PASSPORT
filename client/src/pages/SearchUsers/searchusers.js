@@ -1,12 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { LOADING, SET_USER } from "../../store/actions";
 import { useStoreContext } from "../../store/store";
 import "./searchuser.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Matchcard from "../../components/matchcard";
-
+import API from '../../utils/API';
 let singleTrueRange = 0;
 
 let userSeed = [
@@ -63,7 +63,7 @@ let userSeed = [
   },
 ];
 const SearchUsers = () => {
-  const [currentFilter, setCurrentFilter] = useState()
+  const [currentFilter, setCurrentFilter] = useState();
   const [activeAgeRange, setActiveAgeRange] = useState([
     // {
     //   range: "19-24",
@@ -85,36 +85,65 @@ const SearchUsers = () => {
     //   range: "41-50",
     //   isChecked: false,
     // }
-    true, false, false, false, false
-  ])
+    true,
+    false,
+    false,
+    false,
+    false,
+  ]);
+  const ageRanges = ["19-24", "25-30", "31-35", "36-40", "41-50"];
+  const handleAgeCheck = (position) => {
+    // console.log(activeAgeRange)
+    const newCheckState = activeAgeRange.map((item, index) =>
+      index === position ? !item : item
+    );
+    console.log(newCheckState);
+    setActiveAgeRange(newCheckState);
+  };
+  const AgeRangeCheckBox = (props) => {
+    return (
+      <div class="custom-control custom-checkbox">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          id={props.index}
+          checked={props.isChecked}
+          onChange={() => handleAgeCheck(props.index)}
+        />
+        <label class="custom-control-label" for={props.index}>
+          {props.range}
+        </label>
+      </div>
+    );
+  };
 
-const ageRanges = ["19-24","25-30","31-35","36-40", "41-50"]
+//   .filter((user) =>
+//   ageRanges
+//     .filter((range, index) => activeAgeRange[index])
+//     .filter(
+//       (trueRange) => (singleTrueRange = trueRange.split("-")),
+
+//       user.age > singleTrueRange[0] &&
+//         user.age < singleTrueRange[1]
+//     )
+// )
 
 
-const handleAgeCheck = (position) => {
-  // console.log(activeAgeRange)
-const newCheckState = activeAgeRange.map((item,index) => 
-  index === position ? !item :item)
-console.log(newCheckState)
-setActiveAgeRange(newCheckState)
-}
+  const [matches, setMatches] = useState(null);
 
-const AgeRangeCheckBox = (props) => {
-  return (
-    <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id={props.index}
-                      checked={props.isChecked}
-                      onChange={() => handleAgeCheck(props.index)}
-                    />
-                    <label class="custom-control-label" for={props.index}>
-                      {props.range}
-                    </label>
-                  </div>
-  )
-}
+  const getMatchData = async () => {
+    const matchData = await API.Match.findAllMatches();
+
+    console.log(matchData);
+    // setMatches(matchData);
+  }
+
+  useEffect(() => {
+    getMatchData()
+  }, [])
+
+
+
   return (
     <div class="container">
       <div class="row">
@@ -356,15 +385,13 @@ const AgeRangeCheckBox = (props) => {
               </div>
               <div class="collapse show" id="age">
                 <div class="widget-content">
-                  {activeAgeRange.map((item, index) => 
-                  <AgeRangeCheckBox 
-                  range = {ageRanges[index]}
-                  index = {index}
-                  isChecked={item}
-                  />
-                    )}
-
-
+                  {activeAgeRange.map((item, index) => (
+                    <AgeRangeCheckBox
+                      range={ageRanges[index]}
+                      index={index}
+                      isChecked={item}
+                    />
+                  ))}
 
                   {/* <div class="custom-control custom-checkbox">
                     <input
@@ -552,7 +579,8 @@ const AgeRangeCheckBox = (props) => {
           <div class="row mb-4">
             <div class="col-12">
               <h6 class="mb-0">
-                Showing 1-10 of <span class="text-primary">{userSeed.length} Matches</span>
+                Showing 1-10 of{" "}
+                <span class="text-primary">{userSeed.length} Matches</span>
               </h6>
             </div>
           </div>
@@ -577,43 +605,18 @@ const AgeRangeCheckBox = (props) => {
             </div>
           </div>
           <div class="row">
-
-          {
-
-              userSeed.filter(user =>
-                ageRanges.filter((range, index) => activeAgeRange[index])
-                          .filter(trueRange => singleTrueRange = trueRange.split('-'),
-                         
-                         user.age > singleTrueRange[0] && user.age < singleTrueRange[1]
-                         )
-                    
-          )
-
-
-            .map(user =>
-              <Matchcard firstName={user.firstName} 
-              lastName={user.lastName}
-              age={user.age}
-              location={user.location}
-              interests={user.interests}
-              pronounsA={user.pronouns[0]}
-              pronounsB = {user.pronouns[1]}
-              account = {user.username} />
-              )
-          }
-
-
-
-
-
-
-
-
-
-
-
-
-
+            {matches && matches.map((user) => (
+                <Matchcard
+                  firstName={user.firstName}
+                  lastName={user.lastName}
+                  age={user.age}
+                  location={user.location}
+                  interests={user.interests}
+                  pronounsA={user.pronouns[0]}
+                  pronounsB={user.pronouns[1]}
+                  account={user.username}
+                />
+              ))}
           </div>
           <div class="row">
             <div class="col-12 text-center mt-4 mt-sm-5">
