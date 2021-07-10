@@ -4,9 +4,11 @@ const bcrypt = require("bcryptjs");
 const Schema = mongoose.Schema;
 mongoose.promise = Promise;
 
+//each user has a match -> this is an array of users that they swiped yes
+// if the user swiped yes and the other user swiped yes, this is a confirmed match
 // Define userSchema
 const userSchema = new Schema({
-  username: { type: String, required: true, unique: true },
+  username: { type: String, unique: true},
   // ASK CALEB: Validate email syntax
   email: { type: String, unique: true, required: true },
   password: { type: String, unique: true, required: true },
@@ -18,6 +20,11 @@ const userSchema = new Schema({
   pronouns: { type: Array },
   sexuality: { type: String },
   status: { type: String },
+  agePref: { 
+    topOfRange: Number,
+    bottomOfRange: Number
+  },
+  genderPref: { type: String},
   bio: { type: String },
   interests: { type: Array },
   yesSwipes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
@@ -31,7 +38,7 @@ const userSchema = new Schema({
     url: {
       type: String,
     },
-  },
+  }
 });
 
 // Define schema methods
