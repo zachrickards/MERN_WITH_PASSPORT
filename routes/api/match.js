@@ -12,7 +12,7 @@ router.get("/all", async (req, res) => {
         "users.match": {
           $ne: false
         }
-    });
+    }).populate("user.userId");
 
     res.json(matchData);
   } catch (err) {
@@ -24,7 +24,7 @@ router.get("/all", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
 
-
+    console.log("matchRoute")
     if(req.body.usersArr[1].match) {
       const userData = await User.findByIdAndUpdate(req.user._id, {
         $push: {
@@ -42,6 +42,8 @@ router.post("/", async (req, res) => {
       "users.userId": req.body.usersArr[0].userId
     });
 
+    console.log(matchData);
+
     // ? need to update the user match value
     if (matchData) {
       const updatedMatchData = await Match.updateOne(
@@ -55,7 +57,7 @@ router.post("/", async (req, res) => {
           },
         }
       );
-
+        console.log("Match UPdated")
       return res.json(updatedMatchData);
     }
 
@@ -67,7 +69,7 @@ router.post("/", async (req, res) => {
 
     newMatch.save((err, savedMatch) => {
       if (err) return res.json(err);
-
+      console.log("saved New Match", savedMatch);
       res.json(savedMatch);
     });
   } catch (err) {
