@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import TinderCardComponent from "../components/TinderCard/tindercard";
 import { Container, Row, Col } from "react-bootstrap";
 import API from "../utils/API";
+import Header from "../components/TinderCard/header.js";
 const Swipe = () => {
   const [swipes, setSwipes] = useState([]);
   const [formObject, setFormObject] = useState({});
@@ -22,13 +23,16 @@ const Swipe = () => {
   }
 
   return (
-    <Container>
-      <Row>
-        <Col className="d-flex justify-content-center">
-          <TinderCardComponent swipes={swipes} />
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <Header></Header>
+      <Container>
+        <Row>
+          <Col className="d-flex justify-content-center">
+            <TinderCardComponent swipes={swipes} />
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 };
 
