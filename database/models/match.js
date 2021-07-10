@@ -5,10 +5,6 @@ mongoose.promise = Promise;
 
 // Define chatSchema
 const matchSchema = new Schema({
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
   users: [
     {
       userId: {
