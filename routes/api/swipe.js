@@ -6,8 +6,8 @@ const Match = require("../../database/models/match");
 //getting home endpoint and finding all user data and displaying it by their id
 router.get("/", async (req, res) => {
   try {
-    const myUser = await User.find({ _id: { $eq: req.user._id } });
-
+    const myUser = await User.findOne({ _id: { $eq: req.user._id } });
+    // await myUser.execPopulate({ path: "yesSwipes", select: "User" });
     // TODO: filter users based on previous matches
     const userData = await User.find({
       _id: {
