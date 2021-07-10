@@ -18,17 +18,17 @@ const UploadPhoto = ({username}) => {
     // const onFileChange = (e) => {
     //     this.setState({ profileImg: e.target.files[0] })
     // }
-    const [ fileChange, setFileChange ] = useState({ profileImg: e.target.files[0] })
+    // const [ fileChange, setFileChange ] = useState({ profileImg: e.target.files[0] })
 
-    const onSubmit = (e) => {
-        e.preventDefault()
-        const formData = new FormData()
-        formData.append('profileImg', this.state.profileImg)
-        axios.put("http://localhost:3000/api/users/${username}", formData, {
-        }).then(res => {
-            console.log(res)
-        })
-    }
+    // const onSubmit = (e) => {
+    //     e.preventDefault()
+    //     const formData = new FormData()
+    //     formData.append('profileImg', this.state.profileImg)
+    //     axios.put("http://localhost:3000/api/users/${username}", formData, {
+    //     }).then(res => {
+    //         console.log(res)
+    //     })
+    // }
     
     return (
         <div className="d-flex flex-column my-4">
