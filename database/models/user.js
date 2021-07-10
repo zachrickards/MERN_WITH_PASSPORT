@@ -20,7 +20,7 @@ const userSchema = new Schema({
   status: { type: String },
   bio: { type: String },
   interests: { type: Array },
-  yes: [mongoose.ObjectId],
+  yesSwipes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   profileImg: {
     public_id: {
       type: String,
