@@ -31,12 +31,15 @@ const userSchema = new Schema({
   profileImg: {
     public_id: {
       type: String,
+      default: "mcuhzfepk8us9juddlui"
     },
     filename: {
       type: String,
+      default: "default_Profile_Pic"
     },
     url: {
       type: String,
+      default: "https://res.cloudinary.com/dyvqfdd5w/image/upload/v1625953327/hmbei8nxaqm5vzfzl0el.png"
     },
   }
 });
