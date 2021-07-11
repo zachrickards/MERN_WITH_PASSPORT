@@ -59,7 +59,7 @@ Deployed Link: insert link
 
 Github Repo Link: https://github.com/tmgorogers/Connect-Dating-App
 
-[Presentation Link](insert link)
+[Presentation Link](https://docs.google.com/presentation/d/1LdvnZHXxQFA41w8i6r_UBUJEDOKSJuQGuohEcisI49w/edit?usp=sharing)
 
 ## <h1>Application Details</h1>
 
@@ -124,7 +124,7 @@ insert images
 
 AS A employee in the tech industry or stay-at-home role<br>
 I WANT TO "Connect" with people of similiar interest<br>
-SO THAT I can socialize and find more day-to-day people interaction<br>
+SO THAT I can socialize and have more daily interaction<br>
 AS WELL AS have a chance to find true love<br>
 OR maybe just another friend<br>
 SO THAT I can find more purpose in every day
