@@ -8,7 +8,7 @@ import InterestsCard from "../Settings/InterestsCard/InterestsCard";
 import axios from "axios";
 import PartnerPrefCard from "../Settings/PartnerPrefCard/PartnerPrefCard";
 import ImageCard from "../Settings/ImageCard/ImageCard";
-import ProfileIntro from "../ProfileIntro/ProfileIntro";
+import ProfileIntro from "./ProfileIntro/ProfileIntro";
 import ProfileBio from "./ProfileBio/ProfileBio";
 import ProfileInterests from "./ProfileInterests/ProfileInterests";
 import ProfileImage from "./ProfileImage/ImageCard";
@@ -49,6 +49,7 @@ const DTProfile = () => {
         interests: `${data.data.interests}`,
         agePref: `${data.data.agePref}`,
         genderPref: `${data.data.genderPref}`,
+        profileImg: `${data.data.profileImg.url}`
       });
       console.log("useEffect setUserData results:", data);
     });
@@ -59,7 +60,8 @@ const DTProfile = () => {
       <div className="text-center mt-4 px-5" style={{ overflowX: "hidden" }}>
         {/* <h1 style={{ marginTop: "1rem" }}>Edit Profile</h1> */}
         <Row className="py-5 px-3">
-         <ProfileImage />
+         <ProfileImage 
+         profileImg={userData.profileImg}/>
           <Col className="border-left" md={7}>
             <DTDiv>
               <Row style={{ marginBottom: "1rem" }}>

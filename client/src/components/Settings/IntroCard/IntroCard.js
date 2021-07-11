@@ -6,6 +6,7 @@ import "../IntroCard/introcard.css";
 import MobileDiv from "../../mobileDiv";
 import axios from "axios";
 import SaveButton from "../SaveButton/SaveButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./introcard.css";
 
 const IntroCard = ({
@@ -201,10 +202,10 @@ const IntroCard = ({
                   value={updatedUserInfo.status}
                 >
                   <option selected>Looking For:</option>
-                  <option value="Casual Dating">Casual Dating</option>
-                  <option value="Friends">Friends</option>
-                  <option value="Hookups">Hookups</option>
-                  <option value="Serious Committment">
+                  <option value="For Casual Dating">Casual Dating</option>
+                  <option value="To make friends">Friends</option>
+                  <option value="For Hookups">Hookups</option>
+                  <option value="For A Serious Committment">
                     Serious Committment
                   </option>
                   <option value="Custom">Custom</option>
@@ -224,8 +225,8 @@ const IntroCard = ({
                     <option selected>Preference</option>
                     <option value="Any gender">Any gender</option>
                     <option value="Men">Men</option>
-                    <option value="Nonbinary individuals">
-                      Nonbinary individuals
+                    <option value="Nonbinary people">
+                      Nonbinary people
                     </option>
                     <option value="Women">Women</option>
                     <option value="Custom">Custom</option>
@@ -258,14 +259,20 @@ const IntroCard = ({
 
           {/* Container for age, pronouns, location, orientation, and status */}
           <div>
-            <Row className="text-muted demographics">
+            <Row className="demographics">
               <p className="lead mx-1" style={{marginBottom: '0'}}>
-                {age} | {gender} ({pronouns}) | {location}
+                {age} | {gender} ({pronouns}) | {sexuality}
               </p>
             </Row>
-            <Row className="text-muted demographics">
+            <Row className="demographics">
+              <p className="lead mx-1" style={{marginBottom: '0'}}>
+              <FontAwesomeIcon 
+              icon="map-marker" color="red" /> {location}
+              </p>
+            </Row>
+            <Row className="demographics">
               <p className="lead mx-1">
-                {sexuality} & looking for {status} with {genderPref}
+              Looking {status.toLowerCase()} with {genderPref.toLowerCase()}
               </p>
             </Row>
           </div>

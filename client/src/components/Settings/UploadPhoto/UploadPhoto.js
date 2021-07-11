@@ -1,36 +1,40 @@
 import React, { useState } from "react";
 import axios from "axios";
+import SpinnerEl from "../../Spinner";
 
-const UploadPhoto = ({ username }) => {
-  const [profileImg, setProfileImg] = useState({});
+const UploadPhoto = ({ username, setReRender, setLoading }) => {
+  const [profileImg, setProfileImg] = useState(null);
 
   const onFileChange = (e) => {
-    setProfileImg({ profileImg: e.target.files[0] });
+    setProfileImg(e.target.files[0]);
   };
 
   const uploadPhoto = (e) => {
     e.preventDefault();
     const formData = new FormData();
+    console.log(profileImg)
     formData.append("file", profileImg);
-    console.log(formData);
+    console.log("formData",formData);
     axios
       .post(`/api/images`, formData, {
         headers: {
-          "Content-Type": 'multipart/form-data'
+          "Content-Type": '	application/json; charset=utf-8'
         }
       })
       .then((res) => {
         console.log(res);
+        setLoading(true);
+        setReRender(true);
       }).catch(err => {
         console.log(err)
       })
   };
 
   return (
-    <div className="d-flex flex-column my-4">
-      <div className="d-flex justify-content-center">
+    <div className="d-flex flex-column align-items-center my-4">
+      <div className="d-flex">
         <form>
-          <div className="form-group">
+          <div className="form-group" style={{marginLeft: '6rem'}}>
             <input
             type="file"
             id="photo" 
@@ -47,9 +51,9 @@ const UploadPhoto = ({ username }) => {
             >
               Upload
             </button>
-            <button className="btn btn-outline-danger btn-sm ml-3 p-1">
+            {/* <button className="btn btn-outline-danger btn-sm ml-3 p-1">
               Remove
-            </button>
+            </button> */}
           </div>
         </form>
       </div>
