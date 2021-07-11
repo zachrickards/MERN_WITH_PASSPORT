@@ -85,7 +85,6 @@ const IntroCard = ({
             <Col></Col>
             <Col xs={8}>
               <div className="d-flex justify-content-center name">
-                <label for="firstName">First:</label>
                 <input
                   type="text"
                   placeholder={firstName}
@@ -95,7 +94,6 @@ const IntroCard = ({
                   name="firstName"
                   value={updatedUserInfo.firstName}
                 />
-                <label for="lastName">Last:</label>
                 <input
                   type="text"
                   placeholder={lastName}
