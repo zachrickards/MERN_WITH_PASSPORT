@@ -14,19 +14,19 @@ const userSchema = new Schema({
   password: { type: String, unique: true },
   firstName: { type: String },
   lastName: { type: String },
-  age: { type: Number },
-  location: { type: String },
-  gender: { type: String },
-  pronouns: { type: Array },
-  sexuality: { type: String },
-  status: { type: String },
+  age: { type: Number, default: 0},
+  location: { type: String, default: "Location"  },
+  gender: { type: String, default: "Gender" },
+  pronouns: { type: String, default: "Pronouns" },
+  sexuality: { type: String, default: "Orientation" },
+  status: { type: String, default: "Relationship type" },
   agePref: { 
     topOfRange: Number,
     bottomOfRange: Number
   },
-  genderPref: { type: String},
-  bio: { type: String },
-  interests: { type: Array },
+  genderPref: { type: String, default: "Preferred gender(s)" },
+  bio: { type: String, default: "Tell us about yourself!"  },
+  interests: { type: String, default: "What are you interested in?"  },
   yes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   profileImg: {
     public_id: {
