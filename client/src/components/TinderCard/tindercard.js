@@ -87,8 +87,6 @@ export default function TinderCardComponent({ swipes }) {
             >
               <h3>{`${character.firstName} ${character.lastName}`}</h3>
             </div>
-            <button className="buttons">No Swipe</button>
-            <button className="buttons">Yes Swipe</button>
           </TinderCard>
         ))}
       </div>
