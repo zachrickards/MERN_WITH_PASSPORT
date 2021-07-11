@@ -34,6 +34,7 @@ const DTSettings = () => {
   useEffect(() => {
     const username = JSON.parse(localStorage.getItem("user")).username;
     axios.get(`/api/users/${username}`).then((data) => {
+      console.log(data.data)
       setUserData({
         firstName: `${data.data.firstName}`,
         lastName: `${data.data.lastName}`,
@@ -48,7 +49,7 @@ const DTSettings = () => {
         interests: `${data.data.interests}`,
         agePref: `${data.data.agePref}`,
         genderPref: `${data.data.genderPref}`,
-        profileImg: `${data.data.profileImg.url}`
+        public_id: `${data.data.profileImg.public_id}`
       });
       console.log("useEffect setUserData results:", data);
     });
@@ -61,7 +62,7 @@ const DTSettings = () => {
         <Row className="py-5 px-3">
          <ImageCard 
          username={userData.username}
-         profileImg={userData.profileImg}
+         public_id={userData.public_id}
          setReRender={setReRender}
          />
           <Col id="text-column" md={7}>
