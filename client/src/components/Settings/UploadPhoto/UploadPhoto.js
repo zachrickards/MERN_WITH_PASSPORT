@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const UploadPhoto = ({ username }) => {
-  const [profileImg, setProfileImg] = useState({});
+const UploadPhoto = ({ username, setReRender }) => {
+  const [profileImg, setProfileImg] = useState(null);
 
   const onFileChange = (e) => {
-    setProfileImg({ profileImg: e.target.files[0] });
+    setProfileImg(e.target.files[0]);
   };
 
   const uploadPhoto = (e) => {
     e.preventDefault();
     const formData = new FormData();
+    console.log(profileImg)
     formData.append("file", profileImg);
-    console.log(formData);
+    console.log("formData",formData);
     axios
       .post(`/api/images`, formData, {
         headers: {
-          "Content-Type": 'multipart/form-data'
+          "Content-Type": '	application/json; charset=utf-8'
         }
       })
       .then((res) => {
         console.log(res);
+        setReRender(true)
       }).catch(err => {
         console.log(err)
       })
