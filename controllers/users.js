@@ -1,7 +1,7 @@
 const db = require("../database/models");
 const axios = require("axios");
 const { response } = require("express");
-const User = require("../database/models/User");
+const User = require("../database/models/user");
 
 // Defining methods for the usersController
 module.exports = {
