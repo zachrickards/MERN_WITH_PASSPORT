@@ -132,10 +132,10 @@ const SearchUsers = () => {
   const [matches, setMatches] = useState(null);
 
   const getMatchData = async () => {
-    const matchData = await API.Match.findAllMatches();
+    const matchData = await API.Match.findAllMatchesModified();
 
-    console.log(matchData);
-    // setMatches(matchData);
+    console.log(matchData.data);
+    setMatches(matchData.data);
   }
 
   useEffect(() => {

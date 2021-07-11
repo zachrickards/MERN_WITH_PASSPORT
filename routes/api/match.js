@@ -4,7 +4,6 @@ const { Match, User } = require("../../database/models/");
 
 let listofMatches = []
 
-// TODO: take a second look
 router.get("/all", async (req, res) => {
   try {
     const matchData = await Match.find({
@@ -12,9 +11,41 @@ router.get("/all", async (req, res) => {
         "users.match": {
           $ne: false
         }
-    }).populate("user.userId");
+    }).populate("users.userId");
 
     res.json(matchData);
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+});
+
+router.get("/all/modified", async (req, res) => {
+  try {
+    const matchData = await Match.find({
+        "users.userId": req.user._id,
+        "users.match": {
+          $ne: false
+        }
+    }).populate("users.userId");
+
+
+    const newData = matchData.map(match => {
+      const otherUser = match.users.filter(user => !user.userId.equals(req.user._id))
+      console.log(otherUser);
+      const matchUser = otherUser[0].userId;
+      return {
+        firstName: matchUser.firstName,
+        lastName: matchUser.lastName,
+        age: matchUser.age,
+        pronouns: matchUser.pronouns,
+        location: matchUser.location,
+        interests: matchUser.interests
+      }
+    })
+
+
+    res.json(newData);
   } catch (err) {
     console.log(err);
     res.json(err);
@@ -24,7 +55,6 @@ router.get("/all", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
 
-    console.log("matchRoute")
     if(req.body.usersArr[1].match) {
       const userData = await User.findByIdAndUpdate(req.user._id, {
         $push: {
@@ -37,14 +67,18 @@ router.post("/", async (req, res) => {
     // TODO: if allready exists don't create
     // find one match where one user.userId is equal to req.user._id
     // and one user.userId is equal to given userId
-    console.log(req.user);
     const matchData = await Match.findOne({
-      "users.userId": req.user._id,
-      "users.userId": req.body.usersArr[0].userId
+      $and: [
+        {
+          "users.userId": req.user._id,
+        },
+        {
+          "users.userId": req.body.usersArr[0].userId
+        }
+      ]
     });
 
-    console.log(matchData);
-
+    console.log(matchData)
     // ? need to update the user match value
     if (matchData) {
       const updatedMatchData = await Match.updateOne(
@@ -62,7 +96,6 @@ router.post("/", async (req, res) => {
       return res.json(updatedMatchData);
     }
 
-    console.log("match saved")
     const newMatch = new Match({
       users: req.body.usersArr,
       socketRoomName:
