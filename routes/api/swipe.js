@@ -21,10 +21,11 @@ router.get("/", async (req, res) => {
     res.json(
       userData.filter((user) => {
         // Check if user exists in my user yes data
-        return myUser.yes.findIndex((_id) => {
-          console.log(_id, user._id);
-          return _id === user._id === -1
+        const val = myUser.yes.findIndex((_id) => {
+          return _id.equals(user._id)
         });
+        if(val === -1) return true
+        return false
       })
     );
   } catch (err) {
