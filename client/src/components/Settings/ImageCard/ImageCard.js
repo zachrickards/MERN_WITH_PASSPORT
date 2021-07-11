@@ -3,8 +3,9 @@ import { Col } from "react-bootstrap/";
 import DTDiv from "../Desktop View/DTDiv/DTDiv";
 import UploadPhoto from "../UploadPhoto/UploadPhoto";
 import SpinnerEl from "../../Spinner";
+import { Image } from "cloudinary-react";
 
-const ImageCard = ({ username, profileImg, reRender, setReRender }) => {
+const ImageCard = ({ username, public_id, reRender, setReRender }) => {
   const [loading, setLoading] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -21,10 +22,12 @@ const ImageCard = ({ username, profileImg, reRender, setReRender }) => {
               <SpinnerEl />
             </div>
           ) : (
-            <img
-              className="img-fluid rounded-circle"
-              src={profileImg}
-              style={{ maxWidth: "315px", height: "315px" }}
+            <Image
+              publicId={public_id}
+              width="315"
+              height="315"
+              crop="scale"
+              cloudName="dyvqfdd5w"
             />
           )}
         </div>
