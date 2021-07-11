@@ -62,7 +62,6 @@ const DTSettings = () => {
          <ImageCard 
          username={userData.username}
          profileImg={userData.profileImg}
-         reRender={reRender}
          setReRender={setReRender}
          />
           <Col id="text-column" md={7}>
