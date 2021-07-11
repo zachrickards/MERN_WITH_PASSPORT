@@ -48,6 +48,7 @@ const DTSettings = () => {
         interests: `${data.data.interests}`,
         agePref: `${data.data.agePref}`,
         genderPref: `${data.data.genderPref}`,
+        profileImg: `${data.data.profileImg.url}`
       });
       console.log("useEffect setUserData results:", data);
     });
@@ -60,6 +61,8 @@ const DTSettings = () => {
         <Row className="py-5 px-3">
          <ImageCard 
          username={userData.username}
+         profileImg={userData.profileImg}
+         setReRender={setReRender}
          />
           <Col id="text-column" md={7}>
             <DTDiv>
