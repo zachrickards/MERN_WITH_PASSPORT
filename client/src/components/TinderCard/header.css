@@ -1,5 +1,12 @@
 .header {
   position: center;
   padding: 25px 0;
-  background: pink;
+  background: black;
+  color: white;
+  font-style: Tahoma;
+  background-color: grey;
+}
+
+.head2 {
+  text-align: center;
 }
