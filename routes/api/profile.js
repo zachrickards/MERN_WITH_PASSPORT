@@ -4,8 +4,8 @@ const passport = require("../../passport");
 
 
 
-const Profile = require('../../models/Profile');
-const User = require('../../models/User');
+const Profile = require('../../models/profile');
+const User = require('../../models/user');
 
 
 //@route GET api/profile/me
