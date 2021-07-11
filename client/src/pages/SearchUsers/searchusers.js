@@ -615,6 +615,7 @@ const SearchUsers = () => {
                   pronounsA={user.pronouns[0]}
                   pronounsB={user.pronouns[1]}
                   account={user.username}
+                  publicId={user.profileImg.public_id}
                 />
               ))}
           </div>
