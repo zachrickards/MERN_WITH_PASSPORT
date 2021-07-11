@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Image } from "cloudinary-react";
 
 const Matchcard = props => {
     return (
         <div class="col-sm-6 col-lg-4 mb-4">
               <div class="match-list match-grid">
                 <div class="match-list-image">
-                  <img
-                    class="img-fluid"
-                    src={props.avatar}
-                    alt=""
-                  />
+                <Image
+                  publicId={props.publicId}
+                  crop="scale"
+                  cloudName="dyvqfdd5w"
+                />
                 </div>
                 <div class="match-list-details">
                   <div class="match-list-info">
