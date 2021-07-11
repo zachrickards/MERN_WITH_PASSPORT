@@ -7,6 +7,7 @@ const cloudinary = require('../../lib/cloudinary');
 
 
 router.post( "/", upload.single('file'), async (req, res) => {
+    console.log(req.file)
     try {
         const cloudImgData = await cloudinary.uploader.upload('./uploads/' + req.file.filename, {
             upload_preset: 'connect-project-3-upload-preset'
