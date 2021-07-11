@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import SpinnerEl from "../../Spinner";
 
-const UploadPhoto = ({ username, setReRender }) => {
+const UploadPhoto = ({ username, setReRender, setLoading }) => {
   const [profileImg, setProfileImg] = useState(null);
 
   const onFileChange = (e) => {
@@ -22,17 +23,18 @@ const UploadPhoto = ({ username, setReRender }) => {
       })
       .then((res) => {
         console.log(res);
-        setReRender(true)
+        setLoading(true);
+        setReRender(true);
       }).catch(err => {
         console.log(err)
       })
   };
 
   return (
-    <div className="d-flex flex-column my-4">
-      <div className="d-flex justify-content-center">
+    <div className="d-flex flex-column align-items-center my-4">
+      <div className="d-flex">
         <form>
-          <div className="form-group">
+          <div className="form-group" style={{marginLeft: '6rem'}}>
             <input
             type="file"
             id="photo" 
@@ -49,9 +51,9 @@ const UploadPhoto = ({ username, setReRender }) => {
             >
               Upload
             </button>
-            <button className="btn btn-outline-danger btn-sm ml-3 p-1">
+            {/* <button className="btn btn-outline-danger btn-sm ml-3 p-1">
               Remove
-            </button>
+            </button> */}
           </div>
         </form>
       </div>
