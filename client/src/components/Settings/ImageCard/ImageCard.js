@@ -28,6 +28,9 @@ const ImageCard = ({ username, public_id, reRender, setReRender }) => {
               height="315"
               crop="scale"
               cloudName="dyvqfdd5w"
+              style={{
+                borderRadius: '50%',
+              }}
             />
           )}
         </div>
