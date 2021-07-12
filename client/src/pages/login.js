@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { LOADING, SET_USER } from '../store/actions';
 import { useStoreContext } from '../store/store';
 import LogoH1 from '../components/Logo';
@@ -55,7 +55,7 @@ const Login = () => {
       </div>
       
       <div style={{width: '350px'}}>
-      <form className="form-signin mt-5">
+      <form className="form-signin mt-3">
         <label htmlFor="inputEmail" className="sr-only">
           Email address
         </label>
@@ -80,10 +80,13 @@ const Login = () => {
           value={loginCreds.password}
           onChange={handleChange}
         />
-        <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={handleSubmit}>
+        <button className="btn btn-lg btn-primary btn-block mt-3" type="submit" onClick={handleSubmit}>
           Login
         </button>
       </form>
+      <p>Don't have an account?
+      <span><Link to="/signup" style={{color: 'red'}}> Sign Up</Link></span>
+</p>
       </div>
     </div>
   );

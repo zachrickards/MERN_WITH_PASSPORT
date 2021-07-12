@@ -6,7 +6,7 @@ function LogoH1({logo}) {
         <h1 style={{
             fontFamily: 'Damion', 
             fontSize: '90px', 
-            textShadow: `2px 4px 8px rgba(0,0,0,0.8)`,
+            textShadow: `2px 4px 8px rgba(0,0,0,1)`,
             color: 'white'
         }}>
         .connect({

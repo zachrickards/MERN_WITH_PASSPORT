@@ -15,6 +15,7 @@ const UploadPhoto = ({ username, setReRender, setLoading }) => {
     console.log(profileImg)
     formData.append("file", profileImg);
     console.log("formData",formData);
+    setLoading(true);
     axios
       .post(`/api/images`, formData, {
         headers: {
@@ -23,7 +24,7 @@ const UploadPhoto = ({ username, setReRender, setLoading }) => {
       })
       .then((res) => {
         console.log(res);
-        setLoading(true);
+        setLoading(false);
         setReRender(true);
       }).catch(err => {
         console.log(err)

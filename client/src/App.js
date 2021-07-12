@@ -7,6 +7,7 @@ import Login from "./pages/login";
 import Signup from "./pages/signUp";
 import Settings from "./pages/settings";
 import Profile from "./pages/profile";
+import OtherProfile from "./pages/otherProfile";
 import Swipe from "./pages/swipe";
 import Inbox from "./pages/inbox";
 import Chats from "./pages/chats";
@@ -61,11 +62,11 @@ const App = () => {
 
       {state.user ? (
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Swipe} />
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/searchusers" component={SearchUsers} />
           <Route exact path="/profile" component={Profile} />
-           
+          <Route exact path="/profile/:username" component={OtherProfile} />
           <Route exact path="/swipe" component={Swipe} />
           <Route exact path="/chat" component={Chats} />
           <Route exact path="/help" component={Help} />

@@ -612,8 +612,7 @@ const SearchUsers = () => {
                   age={user.age}
                   location={user.location}
                   interests={user.interests}
-                  pronounsA={user.pronouns[0]}
-                  pronounsB={user.pronouns[1]}
+                  pronouns={user.pronouns}
                   account={user.username}
                   publicId={user.profileImg.public_id}
                 />

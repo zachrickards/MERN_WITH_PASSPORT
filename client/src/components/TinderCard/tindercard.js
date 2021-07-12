@@ -50,6 +50,8 @@ export default function TinderCardComponent({ swipes }) {
       let userObj = {
         userId: character._id,
         name: `${character.firstName} ${character.lastName}`,
+        age: `${character.age}`,
+        location: `${character.location}`,
         match: false,
       };
 
@@ -72,7 +74,7 @@ export default function TinderCardComponent({ swipes }) {
 
   return (
     <>
-      <div className="cardContainer">
+      <div className="cardContainer d-flex justify-content-center">
         {swipes?.map((character) => (
           <TinderCard
             onSwipe={(dir) => swiped(dir, character)}
@@ -85,7 +87,9 @@ export default function TinderCardComponent({ swipes }) {
               }}
               className="card"
             >
-              <h3>{`${character.firstName} ${character.lastName}`}</h3>
+              <div>
+              <h3>{`${character.firstName} ${character.lastName}, ${character.age}`}</h3>
+              </div>
             </div>
           </TinderCard>
         ))}

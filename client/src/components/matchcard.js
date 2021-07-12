@@ -17,12 +17,12 @@ const Matchcard = props => {
                   <div class="match-list-info">
                     <div class="match-list-title">
                       <h5>
-                        <a href={props.account}> {props.firstName} {props.lastName && props.lastName} {props.age}</a>
+                        <a href={props.account}> {props.firstName} {props.lastName && props.lastName}, {props.age}</a>
                       </h5>
                     </div>
                     <div class="match-list-option">
                       <ul class="list-unstyled">
-                        <li>Pronouns: {props.pronounsA} / {props.pronounsB}</li>
+                        <li>Pronouns: {props.pronouns}</li>
                         <li class="w-100">
                         <FontAwesomeIcon icon="map-marker" /> Location:
                           {props.location}

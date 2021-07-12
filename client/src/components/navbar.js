@@ -39,9 +39,6 @@ const Navbar = () => {
       <div className="container-fluid d-flex justify-content-end">
         {state.user ? (
           <>
-            <Link to="/" className="btn btn-link text-secondary">
-              <span className="text-secondary">Home</span>
-            </Link>
             <div className="container justify-content-end">
               <Link to="/swipe" className="btn btn-link mx-1">
                 <span className="text-secondary">

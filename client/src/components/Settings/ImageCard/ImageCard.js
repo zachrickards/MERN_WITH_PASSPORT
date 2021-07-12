@@ -17,11 +17,6 @@ const ImageCard = ({ username, public_id, reRender, setReRender }) => {
     >
       <DTDiv>
         <div style={{ maxWidth: `80rem` }} id="img-col-div">
-          {loading ? (
-            <div style={{ width: "315px", height: "315px" }}>
-              <SpinnerEl />
-            </div>
-          ) : (
             <Image
               publicId={public_id}
               width="315"
@@ -32,14 +27,18 @@ const ImageCard = ({ username, public_id, reRender, setReRender }) => {
                 borderRadius: '50%',
               }}
             />
-          )}
         </div>
+        {loading ? (
+            <div className="d-flex justify-content-center" style={{ width: "315px", height: "315px", marginLeft: '4rem', marginTop: '3rem'}}>
+              <SpinnerEl />
+            </div>
+          ) : (
         <UploadPhoto
           username={username}
           setReRender={setReRender}
           setLoading={setLoading}
           setLoaded={setLoaded}
-        />
+        />)}
       </DTDiv>
     </Col>
   );

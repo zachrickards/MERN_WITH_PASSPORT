@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./home.css";
 import { Button } from 'react-bootstrap'
 import BG from "../../../src/images/home-bg-4.jpg";
@@ -26,7 +26,7 @@ const Home = (props) => {
       <div className="d-flex flex-column text-center align-items-center" style={{position: 'relative', top: '30px'}}>
       <Button className="mb-3 px-5 py-2" variant="danger" size="lg" style={{width: '180px'}} onClick={() => history.push("/signup")}>Sign Up</Button>
       <p className="text-white">Already have an account?
-      <span><a href="/login" style={{color: 'black'}}> Login</a></span>
+      <span><Link to="/login" style={{color: 'black'}}> Login</Link></span>
 </p>
       </div>
       
