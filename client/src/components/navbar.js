@@ -29,14 +29,21 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{backgroundColor: "var(--queen-pink)"}}>
+      <ul className="navbar-nav">
+      <li className="nav-item active">
+              <Link to="/" className="btn btn-link text-secondary mx-1">
+              <span className="text-secondary">Home</span>
+            </Link>
+              </li>
+              </ul>
       <div className="container-fluid d-flex justify-content-end">
         {state.user ? (
           <>
-            {/* <Link to="/" className="btn btn-link text-secondary">
+            <Link to="/" className="btn btn-link text-secondary">
               <span className="text-secondary">Home</span>
-            </Link> */}
+            </Link>
             <div className="container justify-content-end">
-              <Link to="/matches" className="btn btn-link mx-1">
+              <Link to="/swipe" className="btn btn-link mx-1">
                 <span className="text-secondary">
                   <FontAwesomeIcon icon="heart" />
                 </span>
@@ -119,6 +126,7 @@ const Navbar = () => {
               </li>
             </ul>
           ) : (
+
             <ul className="navbar-nav">
               <li className="nav-item active">
                 <Link to="/login" className="btn btn-link text-secondary mx-1">
@@ -136,6 +144,7 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
+
           )}
         </div>
         </div>

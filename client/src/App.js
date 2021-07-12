@@ -41,7 +41,7 @@ const App = () => {
         dispatch({ type: SET_USER, user: response.data.user });
         } else {
           dispatch({ type: UNSET_USER });
-          history.push("/login");
+          history.push("/");
         }
         setIsLoggedInLoading(false);
     })
@@ -76,7 +76,7 @@ const App = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/help" component={Help} />
-          <Route component={Signup} />
+          <Route component={Home} />
         </Switch>
       )}
     </div>

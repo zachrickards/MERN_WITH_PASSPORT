@@ -123,6 +123,9 @@ const SignUp = () => {
           Sign Up
         </button>
       </form>
+      <p className="text-white">Already have an account?
+      <span><a href="/login" style={{color: 'black'}}> Login</a></span>
+</p>
       </div>
     </div>
   );
