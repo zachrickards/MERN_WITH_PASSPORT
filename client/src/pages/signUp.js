@@ -1,16 +1,16 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import axios from "axios";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const SignUp = () => {
   const history = useHistory();
 
   const [signUpCreds, setSignUpCreds] = useState({
-    username: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
+    username: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
   });
 
   const handleChange = (event) => {
@@ -23,7 +23,7 @@ const SignUp = () => {
     event.preventDefault();
 
     axios
-      .post('/api/users/signup', {
+      .post("/api/users/signup", {
         username: signUpCreds.username,
         firstName: signUpCreds.firstName,
         lastName: signUpCreds.lastName,
@@ -32,9 +32,9 @@ const SignUp = () => {
       })
       .then((response) => {
         if (!response.data.error) {
-          history.replace('/login');
+          history.replace("/login");
         } else {
-          console.log('USERNAME TAKEN');
+          console.log("USERNAME TAKEN");
         }
       })
       .catch((error) => {
@@ -66,7 +66,7 @@ const SignUp = () => {
           id="inputfirstName"
           className="form-control"
           name="firstName"
-          placeholder="firstName"
+          placeholder="First Name"
           value={signUpCreds.firstName}
           onChange={handleChange}
         />
@@ -78,7 +78,7 @@ const SignUp = () => {
           id="inputLastName"
           className="form-control"
           name="lastName"
-          placeholder="lastName"
+          placeholder="Last Name"
           value={signUpCreds.lastName}
           onChange={handleChange}
         />
@@ -107,10 +107,26 @@ const SignUp = () => {
           value={signUpCreds.password}
           onChange={handleChange}
         />
-        <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={handleSubmit}>
+        <button
+          className="btn btn-lg btn-dark btn-block"
+          type="submit"
+          onClick={handleSubmit}
+        >
           Sign Up
         </button>
       </form>
+      <div
+        className="d-flex flex-column align-items-center justify-content-around"
+        style={{
+          width: "100%",
+          height: "80vh",
+          backgroundImage: `url('https://media.giphy.com/media/KGw8FDgFPZhZAxYkZI/giphy.gif')`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
+        <h1>Start connecting journey today!</h1>
+      </div>
     </div>
   );
 };
