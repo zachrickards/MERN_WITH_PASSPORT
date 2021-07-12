@@ -28,20 +28,20 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{backgroundColor: "var(--queen-pink)"}}>
+      <div className="container-fluid d-flex justify-content-end">
         {state.user ? (
           <>
-            <Link to="/" className="btn btn-link text-secondary">
+            {/* <Link to="/" className="btn btn-link text-secondary">
               <span className="text-secondary">Home</span>
-            </Link>
+            </Link> */}
             <div className="container justify-content-end">
-              <Link to="/matches" className="btn btn-link">
+              <Link to="/matches" className="btn btn-link mx-1">
                 <span className="text-secondary">
                   <FontAwesomeIcon icon="heart" />
                 </span>
               </Link>
-              <Link to="/chat" className="btn btn-link">
+              <Link to="/chat" className="btn btn-link mx-1">
                 <span className="text-secondary">
                   <FontAwesomeIcon icon="envelope" />
                 </span>
@@ -51,7 +51,7 @@ const Navbar = () => {
         ) : (
           <></>
         )}
-
+<div className="d-flex justify-content-end">
         <button
           className="navbar-toggler"
           type="button"
@@ -85,19 +85,23 @@ const Navbar = () => {
               </li>
 
               <li className="nav-item active">
-                <Link to="/settings" className="btn btn-link">
+                <Link to="/settings" className="btn btn-link mx-1"
+                style={{position: 'relative', top: '4px'}}
+                style={{position: 'relative', top: '4px'}}>
                   <span className="text-secondary">Settings</span>
                 </Link>
               </li>
               <li className="nav-item active">
-                <Link to="/help" className="btn btn-link">
+                <Link to="/help" className="btn btn-link mx-1"
+                style={{position: 'relative', top: '4px'}}>
                   <span className="text-secondary">Help</span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
                   to="/profile"
-                  className="btn btn-link"
+                  className="btn btn-link mx-1"
+                  style={{position: 'relative', top: '4px'}}
                 >
                   <span className="text-secondary">Profile</span>
                 </Link>
@@ -108,6 +112,7 @@ const Navbar = () => {
                   to="#"
                   className="btn btn-link text-secondary"
                   onClick={logout}
+                  style={{position: 'relative', top: '4px'}}
                 >
                   <span className="text-secondary">Logout</span>
                 </Link>
@@ -116,22 +121,23 @@ const Navbar = () => {
           ) : (
             <ul className="navbar-nav">
               <li className="nav-item active">
-                <Link to="/login" className="btn btn-link text-secondary">
+                <Link to="/login" className="btn btn-link text-secondary mx-1">
                   <span className="text-secondary">Login</span>
                 </Link>
               </li>
               <li className="nav-item active">
-                <Link to="/signup" className="btn btn-link">
+                <Link to="/signup" className="btn btn-link mx-1">
                   <span className="text-secondary">Sign up</span>
                 </Link>
               </li>
               <li className="nav-item active">
-                <Link to="/help" className="btn btn-link">
+                <Link to="/help" className="btn btn-link mx-1">
                   <span className="text-secondary">Help</span>
                 </Link>
               </li>
             </ul>
           )}
+        </div>
         </div>
       </div>
     </nav>
