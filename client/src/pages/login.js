@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { LOADING, SET_USER } from "../store/actions";
 import { useStoreContext } from "../store/store";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const Login = () => {
   const [state, dispatch] = useStoreContext();

@@ -44,7 +44,6 @@ const SignUp = () => {
 
   return (
     <div className="text-center">
-      <h4>Sign Up</h4>
       <form className="form-signin">
         <label htmlFor="inputUsername" className="sr-only">
           Username
