@@ -1,3 +1,11 @@
+:root {
+  --light-periwinkle: #D1D4E7ff;
+  --alice-blue: #DDE9F9ff;
+  --queen-pink: #E3CDD9ff;
+  --light-steel-blue: #A5BFE0ff;
+  --liver: #694E4Aff;
+  --seal-brown: #602F11ff;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -35,4 +43,6 @@ code {
   margin-top: var(--bs-gutter-y);
 }
 
- 
+ .form-signin input {
+   padding: 1rem;
+ }

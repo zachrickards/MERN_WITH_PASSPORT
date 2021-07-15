@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { LOADING, SET_USER } from '../store/actions';
 import { useStoreContext } from '../store/store';
+import LogoH1 from '../components/Logo';
+import logo from "../images/heart-logo-red.png";
 
 const Login = () => {
   const [state , dispatch] = useStoreContext();
@@ -45,18 +47,24 @@ const Login = () => {
   };
 
   return (
-    <div className="text-center">
-      <h4>Login</h4>
-      <form className="form-signin">
+    <div className="text-center d-flex flex-column align-items-center" style={{width: "100%",
+    height: "100vh",}}>
+      <div className="mt-5">
+      <LogoH1 
+        logo={logo}/>
+      </div>
+      
+      <div style={{width: '350px'}}>
+      <form className="form-signin mt-3">
         <label htmlFor="inputEmail" className="sr-only">
           Email address
         </label>
         <input
           type="email"
           id="inputEmail"
-          className="form-control"
+          className="form-control mb-2"
           name="email"
-          placeholder="Email address"
+          placeholder="Email Address"
           value={loginCreds.email}
           onChange={handleChange}
         />
@@ -66,16 +74,20 @@ const Login = () => {
         <input
           type="password"
           id="inputPassword"
-          className="form-control"
+          className="form-control mb-2"
           name="password"
           placeholder="Password"
           value={loginCreds.password}
           onChange={handleChange}
         />
-        <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={handleSubmit}>
+        <button className="btn btn-lg btn-primary btn-block mt-3" type="submit" onClick={handleSubmit}>
           Login
         </button>
       </form>
+      <p>Don't have an account?
+      <span><Link to="/signup" style={{color: 'red'}}> Sign Up</Link></span>
+</p>
+      </div>
     </div>
   );
 };

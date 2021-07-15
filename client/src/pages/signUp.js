@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import BG from "../../src/images/home-bg-4.jpg";
+import logo from "../../src/images/heart-logo-red.png";
+import LogoH1 from '../components/Logo';
 
 const SignUp = () => {
   const history = useHistory();
@@ -43,16 +46,25 @@ const SignUp = () => {
   };
 
   return (
-    <div className="text-center">
-      <h4>Sign Up</h4>
-      <form className="form-signin">
+    <div className="text-center d-flex flex-column align-items-center"
+    style={{
+      width: "100%",
+      height: "100vh",
+      // backgroundColor: "var(--alice-blue)"
+    }}>
+      <div className="mt-5">
+      <LogoH1 
+        logo={logo}/>
+      </div>
+      <div style={{width: '350px'}}>
+      <form className="form-signin mt-3">
         <label htmlFor="inputUsername" className="sr-only">
           Username
         </label>
         <input
           type="text"
           id="inputUsername"
-          className="form-control"
+          className="form-control mb-2"
           name="username"
           placeholder="Username"
           value={signUpCreds.username}
@@ -64,9 +76,9 @@ const SignUp = () => {
         <input
           type="text"
           id="inputfirstName"
-          className="form-control"
+          className="form-control mb-2"
           name="firstName"
-          placeholder="firstName"
+          placeholder="First Name"
           value={signUpCreds.firstName}
           onChange={handleChange}
         />
@@ -76,9 +88,9 @@ const SignUp = () => {
         <input
           type="text"
           id="inputLastName"
-          className="form-control"
+          className="form-control mb-2"
           name="lastName"
-          placeholder="lastName"
+          placeholder="Last Name"
           value={signUpCreds.lastName}
           onChange={handleChange}
         />
@@ -89,7 +101,7 @@ const SignUp = () => {
         <input
           type="email"
           id="inputEmail"
-          className="form-control"
+          className="form-control mb-2"
           name="email"
           placeholder="Email address"
           value={signUpCreds.email}
@@ -101,16 +113,20 @@ const SignUp = () => {
         <input
           type="password"
           id="inputPassword"
-          className="form-control"
+          className="form-control mb-2"
           name="password"
           placeholder="Password"
           value={signUpCreds.password}
           onChange={handleChange}
         />
-        <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={handleSubmit}>
+        <button className="btn btn-lg btn-primary btn-block mt-3" type="submit" onClick={handleSubmit}>
           Sign Up
         </button>
       </form>
+      <p>Already have an account?
+      <span><Link to="/login" style={{color: 'red'}}> Login</Link></span>
+</p>
+      </div>
     </div>
   );
 };

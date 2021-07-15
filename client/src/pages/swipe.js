@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TinderCardComponent from "../components/TinderCard/tindercard";
 import { Container, Row, Col } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import API from "../utils/API";
 import "../components/TinderCard/tindercard.css";
 import Header from "../components/TinderCard/header.js";
@@ -25,19 +26,25 @@ const Swipe = () => {
 
   return (
     <>
-      <Header></Header>
-      <Container>
-        <Row>
-          <Col className="d-flex justify-content-center">
-            <TinderCardComponent swipes={swipes} />
-          </Col>
+      <Header />
+      <Container className="d-flex flex-column justify-content-center align-items-center">
+        <div style={{position: 'relative', top: '-70px'}}>
+        <Row style={{marginBottom: '5rem'}}>
+          <TinderCardComponent swipes={swipes} />
         </Row>
-        <Row>
-          <Col className="d-flex justify-content-center">
-            <button className="buttons">No Swipe</button>
-            <button className="buttons">Yes Swipe</button>
-          </Col>
+        <Row
+          className="d-flex justify-content-center align-items-center"
+        >
+          <span className="mt-5">
+            <Button className="mx-5 py-2" variant="danger" size="lg" style={{ width: "8rem" }}>
+              No Swipe
+            </Button>
+            <Button className="mx-5 py-2" variant="info" size="lg" style={{ width: "8rem" }}>
+              Yes Swipe
+            </Button>
+          </span>
         </Row>
+        </div>
       </Container>
     </>
   );
