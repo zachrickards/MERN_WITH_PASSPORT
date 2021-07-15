@@ -66,7 +66,7 @@ const App = () => {
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/searchusers" component={SearchUsers} />
           <Route exact path="/profile" component={Profile} />
-          <Route exact path="/profile/:username" component={OtherProfile} />
+          <Route path="/user/:username" component={OtherProfile} />
           <Route exact path="/swipe" component={Swipe} />
           <Route exact path="/chat" component={Chats} />
           <Route exact path="/help" component={Help} />

@@ -4,9 +4,16 @@ import { useHistory } from "react-router-dom";
 import { LOADING, SET_USER } from "../store/actions";
 import { useStoreContext } from "../store/store";
 import { Image } from "cloudinary-react";
-import DTProfile from "../components/Profile/DTProfile";
+import DTOProfile from "../components/Settings/Desktop View/DTP2";
+import { useParams } from 'react-router-dom'
 
 const OtherProfile = () => {
+
+  console.log("hit")
+  let { username } = useParams();
+  console.log("username ---------------------", username);
+
+
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -22,9 +29,8 @@ const OtherProfile = () => {
   });
   
   useEffect(() => {
-    const username = "anisha";
+    console.log("useEffect username", username)
     axios.get(`/api/users/${username}`).then((data) => {
-        console.log(data)
       setUserData({
         firstName: `${data.data.firstName}`,
         lastName: `${data.data.lastName}`,
@@ -47,7 +53,7 @@ const OtherProfile = () => {
 
   return (
     <>
-    <DTProfile />
+    <DTOProfile />
     </>
   );
 };

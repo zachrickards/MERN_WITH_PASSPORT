@@ -41,7 +41,8 @@ router.get("/all/modified", async (req, res) => {
         pronouns: matchUser.pronouns,
         location: matchUser.location,
         interests: matchUser.interests,
-        profileImg: matchUser.profileImg
+        profileImg: matchUser.profileImg,
+        username: matchUser.username
       }
     })
 

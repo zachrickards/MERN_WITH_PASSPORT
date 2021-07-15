@@ -1,26 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col } from "react-bootstrap/";
-import { useParams } from 'react-router-dom'
 // import Interest from "../InterestsCard/InterestTag/interestTag";
-import DTDiv from "../Settings/Desktop View/DTDiv/DTDiv";
-import MobileDiv from "../mobileDiv";
-import { Link } from "react-router-dom";
-import InterestsCard from "../Settings/InterestsCard/InterestsCard";
+import DTDiv from "./DTDiv/DTDiv";
 import axios from "axios";
-import PartnerPrefCard from "../Settings/PartnerPrefCard/PartnerPrefCard";
-import ImageCard from "../Settings/ImageCard/ImageCard";
-import ProfileIntro from "./OtherProfileIntro/ProfileIntro";
-import ProfileBio from "./OtherProfileBio/ProfileBio";
-import ProfileInterests from "./OtherProfileInterests/ProfileInterests";
-import ProfileImage from "./OtherProfileImage/ImageCard";
+import ProfileIntro from "../../Profile/ProfileIntro/ProfileIntro";
+import ProfileBio from "../../Profile/ProfileBio/ProfileBio";
+import ProfileInterests from "../../Profile/ProfileInterests/ProfileInterests";
+import ProfileImage from "../../Profile/ProfileImage/ImageCard"
+import { useParams } from 'react-router-dom';
 
-const DTProfile = () => {
-  //state obj containing needed userdata to fill out card
-  //need state data to be named after each card
-  console.log("hit")
+const DTOProfile = () => {
+  console.log("hit");
   let { username } = useParams();
-  console.log("username ---------------------", username);
-
+  console.log("username-------", username);
+  
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -55,7 +48,7 @@ const DTProfile = () => {
         genderPref: `${data.data.genderPref}`,
         profileImg: `${data.data.profileImg.url}`
       });
-      console.log("useEffect setUserData results:", data);
+      console.log("useEffect GET REQUEST----------", data);
     });
   }, [reRender]);
 
@@ -107,4 +100,4 @@ const DTProfile = () => {
   );
 };
 
-export default DTProfile;
+export default DTOProfile;

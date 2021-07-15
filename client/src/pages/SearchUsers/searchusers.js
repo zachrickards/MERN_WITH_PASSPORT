@@ -143,13 +143,12 @@ const SearchUsers = () => {
   }, [])
 
 
-
   return (
     <div class="container">
       <div class="row">
         <div class="col-lg-3">
           <div class="sidebar">
-            <div class="widget border-0">
+            {/* <div class="widget border-0">
               <div class="search">
                 <input
                   class="form-control"
@@ -166,7 +165,7 @@ const SearchUsers = () => {
                   placeholder="All Locations"
                 />
               </div>
-            </div>
+            </div> */}
             <div class="widget">
               <div class="widget-title widget-collapse">
                 <h6>Swipe Date</h6>
@@ -579,8 +578,8 @@ const SearchUsers = () => {
           <div class="row mb-4">
             <div class="col-12">
               <h6 class="mb-0">
-                Showing 1-10 of{" "}
-                <span class="text-primary">{userSeed.length} Matches</span>
+                {/* Showing 1-10 of{" "} */}
+                {/* <span class="text-primary">{userSeed.length} Matches</span> */}
               </h6>
             </div>
           </div>
@@ -606,6 +605,7 @@ const SearchUsers = () => {
           </div>
           <div class="row">
             {matches && matches.map((user) => (
+              
                 <Matchcard
                   firstName={user.firstName}
                   lastName={user.lastName}
@@ -613,9 +613,10 @@ const SearchUsers = () => {
                   location={user.location}
                   interests={user.interests}
                   pronouns={user.pronouns}
-                  account={user.username}
+                  username={user.username}
                   publicId={user.profileImg.public_id}
                 />
+
               ))}
           </div>
           <div class="row">

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Image } from "cloudinary-react";
+import { Link } from 'react-router-dom';
 
 const Matchcard = props => {
+
     return (
         <div class="col-sm-6 col-lg-4 mb-4">
               <div class="match-list match-grid">
@@ -17,7 +19,7 @@ const Matchcard = props => {
                   <div class="match-list-info">
                     <div class="match-list-title">
                       <h5>
-                        <a href={props.account}> {props.firstName} {props.lastName && props.lastName}, {props.age}</a>
+                      <Link to={`/user/${props.username}`}> {props.firstName} {props.lastName && props.lastName}, {props.age}</Link>
                       </h5>
                     </div>
                     <div class="match-list-option">
