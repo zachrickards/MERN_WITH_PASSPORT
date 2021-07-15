@@ -7,7 +7,10 @@ import Login from "./pages/login";
 import Signup from "./pages/signUp";
 import Settings from "./pages/settings";
 import Profile from "./pages/profile";
+<<<<<<< HEAD
 import OtherProfile from "./pages/otherProfile";
+=======
+>>>>>>> 7df2f2e70b3e223ef3b350aeac30e4f1fbcb04ad
 import Swipe from "./pages/swipe";
 import Inbox from "./pages/inbox";
 import Chats from "./pages/chats";
@@ -42,7 +45,11 @@ const App = () => {
         dispatch({ type: SET_USER, user: response.data.user });
         } else {
           dispatch({ type: UNSET_USER });
+<<<<<<< HEAD
           history.push("/");
+=======
+          history.push("/login");
+>>>>>>> 7df2f2e70b3e223ef3b350aeac30e4f1fbcb04ad
         }
         setIsLoggedInLoading(false);
     })

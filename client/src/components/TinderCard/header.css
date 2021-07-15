@@ -1,8 +1,15 @@
 .header {
   position: center;
   padding: 25px 0;
+<<<<<<< HEAD
   font-family: Raleway;
   /* background-color: grey; */
+=======
+  background: black;
+  color: white;
+  font-style: Tahoma;
+  background-color: grey;
+>>>>>>> 7df2f2e70b3e223ef3b350aeac30e4f1fbcb04ad
 }
 
 .head2 {
