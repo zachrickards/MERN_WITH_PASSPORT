@@ -10,12 +10,12 @@ const Swipe = () => {
   const [formObject, setFormObject] = useState({});
 
   // Load all swipes and store them with swipeCards
-  useEffect(() => {
+useEffect(() => {
     swipeCards();
   }, []);
 
   // Loads all swipes and sets them to API
-  function swipeCards() {
+  const swipeCards = () => {
     API.Swipe.getSwipe()
       .then((res) => {
         console.log(res);
@@ -30,7 +30,7 @@ const Swipe = () => {
       <Container className="d-flex flex-column justify-content-center align-items-center">
         <div style={{position: 'relative', top: '-70px'}}>
         <Row style={{marginBottom: '5rem'}}>
-          <TinderCardComponent swipes={swipes} />
+          <TinderCardComponent swipes={swipes} arrayData={swipeCards} />
         </Row>
         <Row
           className="d-flex justify-content-center align-items-center"
