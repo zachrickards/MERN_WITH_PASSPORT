@@ -4,6 +4,7 @@ import "./tindercard.css";
 import TinderCard from "react-tinder-card";
 import API from "../../utils/API";
 import { useStoreContext } from "../../store/store";
+import axios from "axios";
 
 const backupPicture =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2O9ImNZ_q3a8lRllP7m29nEdW4LUHJlZmvA&usqp=CAU";
@@ -43,15 +44,21 @@ const db = [
 
 export default function TinderCardComponent({ swipes }) {
   const [state, dispatch] = useStoreContext();
+  const profileImg = `${state.user.profileImg.url}`;
 
+  console.log(profileImg);
+  //Runs when use swipes card, data does not "exist" before swipre occurs
   const swiped = async (direction, character) => {
-    console.log(character);
     try {
+      axios.get("api/match/all/modified", (data) => {
+        console.log("axios get data---------", data)
+      })
       let userObj = {
         userId: character._id,
         name: `${character.firstName} ${character.lastName}`,
         age: `${character.age}`,
         location: `${character.location}`,
+        img: `${swipes.data[0].profileImg}`,
         match: false,
       };
 
@@ -83,7 +90,7 @@ export default function TinderCardComponent({ swipes }) {
           >
             <div
               style={{
-                backgroundImage: "url(" + backupPicture + ")",
+                backgroundImage: "url(" + profileImg + ")",
               }}
               className="card"
             >
