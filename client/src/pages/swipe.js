@@ -5,6 +5,9 @@ import { Button } from "react-bootstrap";
 import API from "../utils/API";
 import "../components/TinderCard/tindercard.css";
 import Header from "../components/TinderCard/header.js";
+
+//TO-DO: SET CUSTOM TIME DELAY SO NO SWIPES DO NOT RECYCLE IMMEDIATELY
+
 const Swipe = () => {
   const [swipes, setSwipes] = useState([]);
   const [formObject, setFormObject] = useState({});
