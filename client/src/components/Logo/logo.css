@@ -1,0 +1,23 @@
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    #logo-font {
+        font-size: 60px;
+    }
+    #logo-heart {
+        width: 50px;
+        top: -13px;
+        left: 4px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    #logo-font {
+        font-size: 90px;
+    }
+    #logo-heart {
+        width: 75px;
+        top: -21px;
+        left: 8px;
+    }
+}
+
+

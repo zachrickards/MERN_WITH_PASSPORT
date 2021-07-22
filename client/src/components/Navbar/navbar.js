@@ -1,8 +1,8 @@
 import axios from "axios";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { LOADING, UNSET_USER } from "../store/actions";
-import { useStoreContext } from "../store/store";
+import { LOADING, UNSET_USER } from "../../store/actions";
+import { useStoreContext } from "../../store/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./navbar.css"
 
@@ -56,7 +56,7 @@ const Navbar = () => {
         ) : (
           <></>
         )}
-<div className="d-flex justify-content-end">
+<div className="d-flex justify-content-end" id="hamburger">
         <button
           className="navbar-toggler"
           type="button"

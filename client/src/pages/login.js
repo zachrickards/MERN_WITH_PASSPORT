@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { LOADING, SET_USER } from '../store/actions';
 import { useStoreContext } from '../store/store';
-import LogoH1 from '../components/Logo';
+import LogoH1 from '../components/Logo/Logo';
 import logo from "../images/heart-logo-red.png";
 
 const Login = () => {

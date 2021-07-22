@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Redirect, Route, Switch, useHistory, Link } from "react-router-dom";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar/navbar";
 import Home from "./pages/Home/home";
 import Login from "./pages/login";
 import Signup from "./pages/signUp";

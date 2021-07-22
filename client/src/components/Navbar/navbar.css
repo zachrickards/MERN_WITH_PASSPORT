@@ -10,17 +10,8 @@
     }
 }
 
-@media only screen and (min-width: 720px) {
-}
-
 @media only screen and (min-width: 1000px) {
     #link-container {
         width: 100%;
     }
-}
-
-@media only screen and (min-width: 1280px) {
-}
-
-@media only screen and (min-width: 1920px) {
 }

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import BG from "../../src/images/home-bg-4.jpg";
 import logo from "../../src/images/heart-logo-red.png";
-import LogoH1 from '../components/Logo';
+import LogoH1 from '../components/Logo/Logo';
 
 const SignUp = () => {
   const history = useHistory();

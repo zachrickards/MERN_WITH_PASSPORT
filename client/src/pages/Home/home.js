@@ -3,7 +3,8 @@ import { Link, useHistory } from "react-router-dom";
 import "./home.css";
 import { Button } from 'react-bootstrap'
 import BG from "../../../src/images/home-bg-4.jpg";
-import logo from "../../../src/images/heart-logo-white.png"
+import logo from "../../../src/images/heart-logo-white.png";
+import LogoH1 from "../../components/Logo/Logo";
 
 const Home = (props) => {
   const history = useHistory()
@@ -20,7 +21,7 @@ const Home = (props) => {
       }}
     >
       <div className="d-flex flex-column text-center text-white" style={{marginTop: '4rem'}}>
-      <h1 style={{fontFamily: 'Damion', fontSize: '90px', textShadow: `2px 4px 8px rgba(0,0,0,0.8)`}}>.connect({<span><img src={logo} style={{width: '75px', position: 'relative', top:'-21px', left: '8px'}} /></span>})</h1>
+      <LogoH1 logo={logo} />
       <h2 className="mb-5" style={{fontFamily: 'Raleway, sans-serif', fontSize: '23px', textShadow: `2px 4px 8px rgba(0,0,0,1)`, position: 'relative', top: '-10px'}}>Connect the dots to true love</h2>
       </div>
       <div className="d-flex flex-column text-center align-items-center" style={{position: 'relative', top: '30px'}}>
