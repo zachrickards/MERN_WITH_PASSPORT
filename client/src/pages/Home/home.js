@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap'
 import BG from "../../../src/images/home-bg-4.jpg";
 import logo from "../../../src/images/heart-logo-white.png";
 import LogoH1 from "../../components/Logo/Logo";
+import "./home.css";
 
 const Home = (props) => {
   const history = useHistory()
@@ -12,17 +13,14 @@ const Home = (props) => {
   return (
     <div
       className="d-flex flex-column align-items-center"
+      id="bg"
       style={{
-        width: "100%",
-        height: "100vh",
-        backgroundImage: `url(${BG})`,
-        backgroundPosition: "fixed",
-        backgroundSize: "cover",
+        backgroundImage: `url(${BG})`
       }}
     >
-      <div className="d-flex flex-column text-center text-white" style={{marginTop: '4rem'}}>
+      <div className="d-flex flex-column text-center text-white" id="text-container">
       <LogoH1 logo={logo} />
-      <h2 className="mb-5" style={{fontFamily: 'Raleway, sans-serif', fontSize: '23px', textShadow: `2px 4px 8px rgba(0,0,0,1)`, position: 'relative', top: '-10px'}}>Connect the dots to true love</h2>
+      <h2 id="subheader"> Connect the dots to true love</h2>
       </div>
       <div className="d-flex flex-column text-center align-items-center" style={{position: 'relative', top: '30px'}}>
       <Button className="mb-3 px-5 py-2" variant="danger" size="lg" style={{width: '180px'}} onClick={() => history.push("/signup")}>Sign Up</Button>
