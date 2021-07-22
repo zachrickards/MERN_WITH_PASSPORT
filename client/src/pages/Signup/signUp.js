@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import BG from "../../src/images/home-bg-4.jpg";
-import logo from "../../src/images/heart-logo-red.png";
-import LogoH1 from '../components/Logo/Logo';
+import BG from "../../../src/images/home-bg-4.jpg";
+import logo from "../../../src/images/heart-logo-red.png";
+import LogoH1 from '../../components/Logo/Logo';
+import "./signup.css";
 
 const SignUp = () => {
   const history = useHistory();
@@ -52,11 +53,11 @@ const SignUp = () => {
       height: "100vh",
       // backgroundColor: "var(--alice-blue)"
     }}>
-      <div className="mt-5">
+      <div id="container">
       <LogoH1 
         logo={logo}/>
       </div>
-      <div style={{width: '350px'}}>
+      <div id="form-div">
       <form className="form-signin mt-3">
         <label htmlFor="inputUsername" className="sr-only">
           Username

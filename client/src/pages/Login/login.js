@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { LOADING, SET_USER } from '../store/actions';
-import { useStoreContext } from '../store/store';
-import LogoH1 from '../components/Logo/Logo';
-import logo from "../images/heart-logo-red.png";
+import { LOADING, SET_USER } from '../../store/actions';
+import { useStoreContext } from '../../store/store';
+import LogoH1 from '../../components/Logo/Logo';
+import logo from "../../images/heart-logo-red.png";
+import "./login.css";
 
 const Login = () => {
   const [state , dispatch] = useStoreContext();
@@ -49,12 +50,12 @@ const Login = () => {
   return (
     <div className="text-center d-flex flex-column align-items-center" style={{width: "100%",
     height: "100vh",}}>
-      <div className="mt-5">
+      <div id="container">
       <LogoH1 
         logo={logo}/>
       </div>
       
-      <div style={{width: '350px'}}>
+      <div id="form-div">
       <form className="form-signin mt-3">
         <label htmlFor="inputEmail" className="sr-only">
           Email address
