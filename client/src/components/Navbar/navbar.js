@@ -1,9 +1,10 @@
 import axios from "axios";
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { LOADING, UNSET_USER } from "../store/actions";
-import { useStoreContext } from "../store/store";
+import { LOADING, UNSET_USER } from "../../store/actions";
+import { useStoreContext } from "../../store/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./navbar.css"
 
 const Navbar = () => {
   const [state, dispatch] = useStoreContext();
@@ -36,7 +37,7 @@ const Navbar = () => {
             </Link>
               </li>
               </ul>
-      <div className="container-fluid d-flex justify-content-end">
+      <div className="container-fluid d-flex justify-content-end" id="link-container">
         {state.user ? (
           <>
             <div className="container justify-content-end">
@@ -55,7 +56,7 @@ const Navbar = () => {
         ) : (
           <></>
         )}
-<div className="d-flex justify-content-end">
+<div className="d-flex justify-content-end" id="hamburger">
         <button
           className="navbar-toggler"
           type="button"
@@ -90,7 +91,6 @@ const Navbar = () => {
 
               <li className="nav-item active">
                 <Link to="/settings" className="btn btn-link mx-1"
-                style={{position: 'relative', top: '4px'}}
                 style={{position: 'relative', top: '4px'}}>
                   <span className="text-secondary">Settings</span>
                 </Link>

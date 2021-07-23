@@ -3,10 +3,18 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { LOADING, SET_USER } from "../../store/actions";
 import { useStoreContext } from "../../store/store";
-import "./searchuser.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Matchcard from "../../components/matchcard";
 import API from '../../utils/API';
+import SearchUserNav from "../../components/SearchUserNav/SearchUserNav";
+import "./searchuser.css";
+import SwipeDateEl from "../../components/SearchUserNav/SwipeDate/SwipeDateEl";
+import LocationEl from "../../components/SearchUserNav/Location/LocationEl";
+import DatingStatusEl from "../../components/SearchUserNav/DatingStatus/DatingStatusEl";
+import AgeEl from "../../components/SearchUserNav/Age/AgeEl";
+import CompatibilityEl from "../../components/SearchUserNav/Compatibility/CompatibilityEl";
+import GenderEl from "../../components/SearchUserNav/Gender/GenderEl";
+import SortByEl from "../../components/SearchUserNav/SortBy/SortByEl";
+
 let singleTrueRange = 0;
 
 let userSeed = [
@@ -64,59 +72,13 @@ let userSeed = [
 ];
 const SearchUsers = () => {
   const [currentFilter, setCurrentFilter] = useState();
-  const [activeAgeRange, setActiveAgeRange] = useState([
-    // {
-    //   range: "19-24",
-    //   isChecked: true,
-    // },
-    // {
-    //   range: "25-30",
-    //   isChecked: false,
-    // },
-    // {
-    //   range: "31-35",
-    //   isChecked: false,
-    // },
-    // {
-    //   range: "36-40",
-    //   isChecked: false,
-    // },
-    // {
-    //   range: "41-50",
-    //   isChecked: false,
-    // }
-    true,
-    false,
-    false,
-    false,
-    false,
-  ]);
-  const ageRanges = ["19-24", "25-30", "31-35", "36-40", "41-50"];
-  const handleAgeCheck = (position) => {
-    // console.log(activeAgeRange)
-    const newCheckState = activeAgeRange.map((item, index) =>
-      index === position ? !item : item
-    );
-    console.log(newCheckState);
-    setActiveAgeRange(newCheckState);
+  const [width, setWidth] = useState(window.innerWidth);
+  const handleResize = () => {
+    setWidth(window.innerWidth)
   };
-  const AgeRangeCheckBox = (props) => {
-    return (
-      <div class="custom-control custom-checkbox">
-        <input
-          type="checkbox"
-          class="custom-control-input"
-          id={props.index}
-          checked={props.isChecked}
-          onChange={() => handleAgeCheck(props.index)}
-        />
-        <label class="custom-control-label" for={props.index}>
-          {props.range}
-        </label>
-      </div>
-    );
-  };
-
+  
+  const breakpoint = 1000;
+  
 //   .filter((user) =>
 //   ageRanges
 //     .filter((range, index) => activeAgeRange[index])
@@ -127,7 +89,6 @@ const SearchUsers = () => {
 //         user.age < singleTrueRange[1]
 //     )
 // )
-
 
   const [matches, setMatches] = useState(null);
 
@@ -142,10 +103,20 @@ const SearchUsers = () => {
     getMatchData()
   }, [])
 
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [width])
 
   return (
     <div class="container">
       <div class="row">
+      {width < breakpoint ? (
+      <div className="d-flex justify-content-center">
+        <SearchUserNav/>
+      </div>
+    ):(
+      
         <div class="col-lg-3">
           <div class="sidebar">
             {/* <div class="widget border-0">
@@ -166,406 +137,13 @@ const SearchUsers = () => {
                 />
               </div>
             </div> */}
-            <div class="widget">
-              <div class="widget-title widget-collapse">
-                <h6>Swipe Date</h6>
-                <a
-                  class="ml-auto"
-                  data-toggle="collapse"
-                  href="#dateposted"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="dateposted"
-                >
-                  {" "}
-                  <i class="fas fa-chevron-down"></i>{" "}
-                </a>
-              </div>
-              <div class="collapse show" id="dateposted">
-                <div class="widget-content">
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="dateposted1"
-                    />
-                    <label class="custom-control-label" for="dateposted1">
-                      Last hour
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="dateposted2"
-                    />
-                    <label class="custom-control-label" for="dateposted2">
-                      Last 24 hour
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="dateposted3"
-                    />
-                    <label class="custom-control-label" for="dateposted3">
-                      Last 7 days
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="dateposted4"
-                    />
-                    <label class="custom-control-label" for="dateposted4">
-                      Last 14 days
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="dateposted5"
-                    />
-                    <label class="custom-control-label" for="dateposted5">
-                      Last 30 days
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="widget">
-              <div class="widget-title widget-collapse">
-                <h6>Location</h6>
-                <FontAwesomeIcon icon="map-marker" />
-                <a
-                  class="ml-auto"
-                  data-toggle="collapse"
-                  href="#location"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="location"
-                >
-                  {" "}
-                  <i class="fas fa-chevron-down"></i>{" "}
-                </a>
-              </div>
-              <div class="collapse show" id="location">
-                <div class="widget-content">
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="location1"
-                    />
-                    <label class="custom-control-label" for="location1">
-                      North Carolina
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="location2"
-                    />
-                    <label class="custom-control-label" for="location2">
-                      Florida
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="location3"
-                    />
-                    <label class="custom-control-label" for="location3">
-                      Russia
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="location4"
-                    />
-                    <label class="custom-control-label" for="location4">
-                      Hawaii
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="location5"
-                    />
-                    <label class="custom-control-label" for="location5">
-                      Canada
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="widget">
-              <div class="widget-title widget-collapse">
-                <h6>Dating Status</h6>
-                <a
-                  class="ml-auto"
-                  data-toggle="collapse"
-                  href="#datingstatus"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="datingstatus"
-                >
-                  {" "}
-                  <i class="fas fa-chevron-down"></i>{" "}
-                </a>
-              </div>
-              <div class="collapse show" id="datingstatus">
-                <div class="widget-content">
-                  <div class="custom-control custom-checkbox fulltime-job">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="datingstatus1"
-                    />
-                    <label class="custom-control-label" for="datingstatus1">
-                      Just Friends
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox parttime-job">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="datingstatus2"
-                    />
-                    <label class="custom-control-label" for="datingstatus2">
-                      Nothing Serious
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox freelance-job">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="datingstatus3"
-                    />
-                    <label class="custom-control-label" for="datingstatus3">
-                      Casual Dating
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox temporary-job">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="datingstatus4"
-                    />
-                    <label class="custom-control-label" for="datingstatus4">
-                      Serious Committment
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="widget">
-              <div class="widget-title widget-collapse">
-                <h6>Age Range</h6>
-                <a
-                  class="ml-auto"
-                  data-toggle="collapse"
-                  href="#age"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="age"
-                >
-                  {" "}
-                  <i class="fas fa-chevron-down"></i>{" "}
-                </a>
-              </div>
-              <div class="collapse show" id="age">
-                <div class="widget-content">
-                  {activeAgeRange.map((item, index) => (
-                    <AgeRangeCheckBox
-                      range={ageRanges[index]}
-                      index={index}
-                      isChecked={item}
-                    />
-                  ))}
 
-                  {/* <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="age1"
-                    />
-                    <label class="custom-control-label" for="age1">
-                      19-24
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="age2"
-                    />
-                    <label class="custom-control-label" for="age2">
-                      25-30
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="age3"
-                    />
-                    <label class="custom-control-label" for="age3">
-                      31-35
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="age4"
-                      checked={isChecked}
-                      onChange={() => handleAgeCheck()}
-                    />
-                    <label class="custom-control-label" for="age4">
-                      36-40
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="age5"
-                    />
-                    <label class="custom-control-label" for="age5">
-                      41-50
-                    </label>
-                  </div> */}
-                </div>
-              </div>
-            </div>
-            <div class="widget">
-              <div class="widget-title widget-collapse">
-                <h6>Compatability Percentage</h6>
-                <a
-                  class="ml-auto"
-                  data-toggle="collapse"
-                  href="#Compatability"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="Compatability"
-                >
-                  {" "}
-                  <i class="fas fa-chevron-down"></i>{" "}
-                </a>
-              </div>
-              <div class="collapse show" id="Compatability">
-                <div class="widget-content">
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="Compatability1"
-                    />
-                    <label class="custom-control-label" for="Compatability1">
-                      25%-45%
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="Compatability2"
-                    />
-                    <label class="custom-control-label" for="Compatability2">
-                      45%-60%
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="Compatability3"
-                    />
-                    <label class="custom-control-label" for="Compatability3">
-                      60%-75%
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="Compatability4"
-                    />
-                    <label class="custom-control-label" for="Compatability4">
-                      75%-90%
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="Compatability5"
-                    />
-                    <label class="custom-control-label" for="Compatability5">
-                      90%-100%
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="widget">
-              <div class="widget-title widget-collapse">
-                <h6>Gender</h6>
-                <a
-                  class="ml-auto"
-                  data-toggle="collapse"
-                  href="#gender"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="gender"
-                >
-                  <i class="fas fa-chevron-down"></i>
-                </a>
-              </div>
-              <div class="collapse show" id="gender">
-                <div class="widget-content">
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="gender1"
-                    />
-                    <label class="custom-control-label" for="gender1">
-                      Male
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="gender2"
-                    />
-                    <label class="custom-control-label" for="gender2">
-                      Female
-                    </label>
-                  </div>
-                  <div class="custom-control custom-checkbox">
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="gender3"
-                    />
-                    <label class="custom-control-label" for="gender3">
-                      Non-Binary
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <SwipeDateEl />
+            <LocationEl />
+            <DatingStatusEl />
+            <AgeEl />
+            <CompatibilityEl />
+            <GenderEl />
 
             <div class="widget border-0">
               <div class="widget-add">
@@ -574,7 +152,9 @@ const SearchUsers = () => {
             </div>
           </div>
         </div>
-        <div class="col-lg-9">
+      
+    )}
+      <div class="col-lg-9">
           <div class="row mb-4">
             <div class="col-12">
               <h6 class="mb-0">
@@ -583,26 +163,7 @@ const SearchUsers = () => {
               </h6>
             </div>
           </div>
-          <div class="job-filter mb-4 d-sm-flex align-items-center">
-            <div class="job-shortby ml-sm-auto d-flex align-items-center">
-              <form class="form-inline">
-                <div class="form-group mb-0">
-                  <label class="justify-content-start mr-2">Sort by :</label>
-                  <div class="short-by">
-                    <select
-                      class="form-control basic-select select2-hidden-accessible"
-                      data-select2-id="1"
-                      tabindex="-1"
-                      aria-hidden="true"
-                    >
-                      <option data-select2-id="3">Newest</option>
-                      <option>Oldest</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
+          <SortByEl />
           <div class="row">
             {matches && matches.map((user) => (
               
@@ -660,7 +221,7 @@ const SearchUsers = () => {
             </div>
           </div>
         </div>
-      </div>
+    </div>
     </div>
   );
 };

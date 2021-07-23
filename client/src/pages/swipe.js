@@ -11,11 +11,23 @@ import Header from "../components/TinderCard/header.js";
 const Swipe = () => {
   const [swipes, setSwipes] = useState([]);
   const [formObject, setFormObject] = useState({});
+  const [width, setWidth] = useState(window.innerWidth);
+  const handleResize = () => {
+    setWidth(window.innerWidth)
+  };
+  const breakpoint = 480;
 
   // Load all swipes and store them with swipeCards
   useEffect(() => {
     swipeCards();
   }, []);
+
+  // Rerender mobile layout according to current screen width
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [width]);
+
 
   // Loads all swipes and sets them to API
   function swipeCards() {
@@ -35,6 +47,9 @@ const Swipe = () => {
         <Row style={{marginBottom: '5rem'}}>
           <TinderCardComponent swipes={swipes} />
         </Row>
+        {width < breakpoint ? (
+        <></>
+        ) : (
         <Row
           className="d-flex justify-content-center align-items-center"
         >
@@ -46,7 +61,7 @@ const Swipe = () => {
               Yes Swipe
             </Button>
           </span>
-        </Row>
+        </Row>)}
         </div>
       </Container>
     </>
